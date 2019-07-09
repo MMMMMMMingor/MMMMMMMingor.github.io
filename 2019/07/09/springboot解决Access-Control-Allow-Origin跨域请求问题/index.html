@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MMMMMMMingor的博客</title>
+  <title>springboot解决Access-Control-Allow-Origin跨域请求问题 | MMMMMMMingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MMMMMMMingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MMMMMMMingor的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/index.html">
 <meta property="og:site_name" content="MMMMMMMingor的博客">
-<meta property="og:description" content="MMMMMMMingor&apos;s hub">
+<meta property="og:description" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-07-09T04:36:12.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MMMMMMMingor的博客">
-<meta name="twitter:description" content="MMMMMMMingor&apos;s hub">
+<meta name="twitter:title" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
+<meta name="twitter:description" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
   
     <link rel="alternative" href="/atom.xml" title="MMMMMMMingor的博客" type="application/atom+xml">
   
@@ -153,16 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-springboot解决Access-Control-Allow-Origin跨域请求问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-springboot解决Access-Control-Allow-Origin跨域请求问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/">springboot解决Access-Control-Allow-Origin跨域请求问题</a>
+    <h1 class="article-title" itemprop="name">
+      springboot解决Access-Control-Allow-Origin跨域请求问题
     </h1>
   
 
@@ -175,10 +174,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="springboot解决Access-Control-Allow-Origin跨域请求问题"><a href="#springboot解决Access-Control-Allow-Origin跨域请求问题" class="headerlink" title="springboot解决Access-Control-Allow-Origin跨域请求问题"></a>springboot解决Access-Control-Allow-Origin跨域请求问题</h3>
-        
+        <h3 id="springboot解决Access-Control-Allow-Origin跨域请求问题"><a href="#springboot解决Access-Control-Allow-Origin跨域请求问题" class="headerlink" title="springboot解决Access-Control-Allow-Origin跨域请求问题"></a>springboot解决Access-Control-Allow-Origin跨域请求问题</h3><a id="more"></a>
+<h2 id="通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题"><a href="#通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题" class="headerlink" title="通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题"></a>通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题</h2><h3 id="通过继承Filter类实现自定义CrossFilter"><a href="#通过继承Filter类实现自定义CrossFilter" class="headerlink" title="通过继承Filter类实现自定义CrossFilter"></a>通过继承Filter类实现自定义CrossFilter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        HttpServletResponse response = (HttpServletResponse) res;</span><br><span class="line"></span><br><span class="line">        HttpServletRequest reqs = (HttpServletRequest) req;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// response.setHeader("Access-Control-Allow-Origin",reqs.getHeader("Origin"));</span></span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Credentials"</span>, <span class="string">"true"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"POST, GET, PATCH, DELETE, PUT"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Max-Age"</span>, <span class="string">"3600"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Origin, X-Requested-With, Content-Type, Accept"</span>);</span><br><span class="line">        chain.doFilter(req, res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,16 +207,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/08/mybatis逆向工程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mybatis逆向工程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -211,328 +290,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mybatis逆向工程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/mybatis逆向工程/">mybatis逆向工程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/08/mybatis逆向工程/" class="archive-article-date">
-  	<time datetime="2019-07-08T11:35:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="mybatis逆向工程的使用"><a href="#mybatis逆向工程的使用" class="headerlink" title="mybatis逆向工程的使用"></a>mybatis逆向工程的使用</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/08/mybatis逆向工程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#springboot解决Access-Control-Allow-Origin跨域请求问题"><span class="toc-number">1.</span> <span class="toc-text">springboot解决Access-Control-Allow-Origin跨域请求问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题"><span class="toc-number"></span> <span class="toc-text">通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过继承Filter类实现自定义CrossFilter"><span class="toc-number">1.</span> <span class="toc-text">通过继承Filter类实现自定义CrossFilter</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-Windows10下安装jdk8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/03/Windows10下安装jdk8/">Windows10下安装jdk8</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/03/Windows10下安装jdk8/" class="archive-article-date">
-  	<time datetime="2019-07-03T13:36:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下windows下jdk8的安装过程"><a href="#记录一下windows下jdk8的安装过程" class="headerlink" title="记录一下windows下jdk8的安装过程"></a>记录一下windows下jdk8的安装过程</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/03/Windows10下安装jdk8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-windows安装maven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/22/windows安装maven/">Windows10下maven的安装以及自定义仓库</a>
-    </h1>
   
 
-        
-        <a href="/2019/06/22/windows安装maven/" class="archive-article-date">
-  	<time datetime="2019-06-22T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下maven的安装过程"><a href="#记录一下maven的安装过程" class="headerlink" title="记录一下maven的安装过程"></a>记录一下maven的安装过程</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/22/windows安装maven/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-windows下的mysql安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/21/windows下的mysql安装/">Windows10下MySQL数据库的安装以及配置</a>
-    </h1>
   
 
-        
-        <a href="/2019/06/21/windows下的mysql安装/" class="archive-article-date">
-  	<time datetime="2019-06-21T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下windows下MySQL的安装过程"><a href="#记录一下windows下MySQL的安装过程" class="headerlink" title="记录一下windows下MySQL的安装过程"></a>记录一下windows下MySQL的安装过程</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/21/windows下的mysql安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-暑期目标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/暑期目标/">2019暑期计划</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/10/暑期目标/" class="archive-article-date">
-  	<time datetime="2019-06-10T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="转眼间大二这一年已经快要结束了，总感觉要是再不写下一点东西，这个大学也过的太没意思了。"><a href="#转眼间大二这一年已经快要结束了，总感觉要是再不写下一点东西，这个大学也过的太没意思了。" class="headerlink" title="转眼间大二这一年已经快要结束了，总感觉要是再不写下一点东西，这个大学也过的太没意思了。"></a>转眼间大二这一年已经快要结束了，总感觉要是再不写下一点东西，这个大学也过的太没意思了。</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/暑期目标/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -555,8 +338,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
