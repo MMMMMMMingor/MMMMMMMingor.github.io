@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mingor的博客</title>
+  <title>ssh免密码登录 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。">
+<meta name="keywords" content="技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh免密码登录">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/ssh免密码登录/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="Mingor&apos;s hub">
+<meta property="og:description" content="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/0.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/5.png">
+<meta property="og:updated_time" content="2019-08-08T07:29:44.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的博客">
-<meta name="twitter:description" content="Mingor&apos;s hub">
+<meta name="twitter:title" content="ssh免密码登录">
+<meta name="twitter:description" content="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -163,36 +172,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ssh免密码登录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/08/ssh免密码登录/" class="archive-article-date">
-  	<time datetime="2019-08-08T06:58:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/08/ssh免密码登录/">ssh免密码登录</a>
+    <h1 class="article-title" itemprop="name">
+      ssh免密码登录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/08/ssh免密码登录/" class="archive-article-date">
+  	<time datetime="2019-08-08T06:58:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。"><a href="#突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。" class="headerlink" title="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。"></a>突然发现有很长一段时间没有<del>水</del>写文章了，所以有了这篇文章。。</h3><a id="more"></a>
+<h3 id="刚好今天为团队配置服务器时，因为每次登陆服务器都要输入密码-而且服务器的密码一般都很长。。。-实在是太折磨人了，所以记录一下免密码ssh登录的配置过程。原理可以自行查看非对称加密算法。"><a href="#刚好今天为团队配置服务器时，因为每次登陆服务器都要输入密码-而且服务器的密码一般都很长。。。-实在是太折磨人了，所以记录一下免密码ssh登录的配置过程。原理可以自行查看非对称加密算法。" class="headerlink" title="刚好今天为团队配置服务器时，因为每次登陆服务器都要输入密码(而且服务器的密码一般都很长。。。)实在是太折磨人了，所以记录一下免密码ssh登录的配置过程。原理可以自行查看非对称加密算法。"></a>刚好今天为团队配置服务器时，因为每次登陆服务器都要输入密码(而且服务器的密码一般都很长。。。)实在是太折磨人了，所以记录一下免密码ssh登录的配置过程。原理可以自行查看非对称加密算法。</h3><p>其实过程很简单：</p>
+<ul>
+<li><p>1.分别在服务器和本地pc在终端中输入以下命令，并且出现的提示无脑回车跳过即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ras</span><br></pre></td></tr></table></figure>
+
+<p>  随后可在用户的根目录下的.ssh文件夹看到生成的 id_rsa 和 id_rsa.pub 两个文件(.pub为公钥，另一个为私钥)，私钥不能向他人透露。<br><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/0.png" alt="生成以下两个文件"><br>同理，在Linux服务器上：<br><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/1.png" alt="Linux上生成的两个文件"></p>
+</li>
+<li><p>2.在本地pc的.ssh目录下创建一个config的文件，并根据自己的情况配置信息。<br><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/2.png" alt="创建config"><br>Host 为服务器别名<br>HostName 为服务器域名(ip)<br>User 为登录的账号<br><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/3.png" alt="config内容"></p>
+</li>
+<li><p>3.在本地pc上使用以下命令将公钥复制到服务器上，随后可查看服务器.ssh/是否出现authorized_keys文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 你的服务器ip</span><br></pre></td></tr></table></figure>
+
+<p>  或者手动在服务器的.ssh目录下新建名为authorized_keys的文件，并在内添加本地pc的公钥。</p>
+</li>
+<li><p><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/4.png" alt="手动添加公钥"></p>
+</li>
+</ul>
+<h3 id="至此，配置完成。"><a href="#至此，配置完成。" class="headerlink" title="至此，配置完成。"></a>至此，配置完成。</h3><p>以后每次登录只需要在cmd输入以下命令即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 你设置的服务器别名</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/5.png" alt="免密码登录"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,369 +254,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/ssh免密码登录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/23/使用mono跨平台远程调试/" class="archive-article-date">
-  	<time datetime="2019-07-23T02:08:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/23/使用mono跨平台远程调试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用mono跨平台远程调试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/23/使用mono跨平台远程调试/">使用mono跨平台远程调试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。"><span class="toc-number">1.</span> <span class="toc-text">突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#刚好今天为团队配置服务器时，因为每次登陆服务器都要输入密码-而且服务器的密码一般都很长。。。-实在是太折磨人了，所以记录一下免密码ssh登录的配置过程。原理可以自行查看非对称加密算法。"><span class="toc-number">2.</span> <span class="toc-text">刚好今天为团队配置服务器时，因为每次登陆服务器都要输入密码(而且服务器的密码一般都很长。。。)实在是太折磨人了，所以记录一下免密码ssh登录的配置过程。原理可以自行查看非对称加密算法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#至此，配置完成。"><span class="toc-number">3.</span> <span class="toc-text">至此，配置完成。</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/centos-docker踩坑记录/" class="archive-article-date">
-  	<time datetime="2019-07-19T10:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/centos-docker踩坑记录/">centos docker踩坑记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/12/swagger-自动生成接口文档/" class="archive-article-date">
-  	<time datetime="2019-07-12T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/swagger-自动生成接口文档/">swagger 自动生成接口文档</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" class="archive-article-date">
-  	<time datetime="2019-07-09T04:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/">springboot解决Access-Control-Allow-Origin跨域请求问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/mybatis逆向工程/" class="archive-article-date">
-  	<time datetime="2019-07-08T11:35:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/mybatis逆向工程/">mybatis逆向工程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/03/Windows10下安装jdk8/" class="archive-article-date">
-  	<time datetime="2019-07-03T13:36:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/03/Windows10下安装jdk8/">Windows10下安装jdk8</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/22/windows安装maven/" class="archive-article-date">
-  	<time datetime="2019-06-22T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/22/windows安装maven/">Windows10下maven的安装以及自定义仓库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/21/windows下的mysql安装/" class="archive-article-date">
-  	<time datetime="2019-06-21T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/21/windows下的mysql安装/">Windows10下MySQL数据库的安装以及配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/10/暑期目标/" class="archive-article-date">
-  	<time datetime="2019-06-10T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/10/暑期目标/">2019暑期计划</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -589,8 +389,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
