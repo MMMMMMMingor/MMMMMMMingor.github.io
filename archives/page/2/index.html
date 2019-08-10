@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>centos docker踩坑记录 | Mingor的博客</title>
+  <title>Archives | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一下centos下docker安装的踩坑记录">
-<meta name="keywords" content="踩坑">
-<meta property="og:type" content="article">
-<meta property="og:title" content="centos docker踩坑记录">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/index.html">
+  <meta name="description" content="Mingor&apos;s hub">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingor的博客">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/archives/page/2/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="记录一下centos下docker安装的踩坑记录">
+<meta property="og:description" content="Mingor&apos;s hub">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/1.png">
-<meta property="og:updated_time" content="2019-07-23T03:10:08.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos docker踩坑记录">
-<meta name="twitter:description" content="记录一下centos下docker安装的踩坑记录">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/0.png">
+<meta name="twitter:title" content="Mingor的博客">
+<meta name="twitter:description" content="Mingor&apos;s hub">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -168,71 +163,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-centos-docker踩坑记录" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      centos docker踩坑记录
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/06/22/windows安装maven/" class="archive-article-date">
+  	<time datetime="2019-06-22T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/06/22/windows安装maven/">Windows10下maven的安装以及自定义仓库</a>
     </h1>
   
 
-        
-        <a href="/2019/07/19/centos-docker踩坑记录/" class="archive-article-date">
-  	<time datetime="2019-07-19T10:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下centos下docker安装的踩坑记录"><a href="#记录一下centos下docker安装的踩坑记录" class="headerlink" title="记录一下centos下docker安装的踩坑记录"></a>记录一下centos下docker安装的踩坑记录</h3><a id="more"></a>
-<p>今天由于实验室需要用到VS的远程调试功能，故采取了docker的方案，但在安装docker的过程中遇到了很坑的点。。。</p>
-<h2 id="首先使用yum安装必要的依赖包："><a href="#首先使用yum安装必要的依赖包：" class="headerlink" title="首先使用yum安装必要的依赖包："></a>首先使用yum安装必要的依赖包：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
-
-<h2 id="接着先把yum的软件园修改成国内的源："><a href="#接着先把yum的软件园修改成国内的源：" class="headerlink" title="接着先把yum的软件园修改成国内的源："></a>接着先把yum的软件园修改成国内的源：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载dockek-社区版（免费）"><a href="#下载dockek-社区版（免费）" class="headerlink" title="下载dockek 社区版（免费）"></a>下载dockek 社区版（免费）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum makecache fast</span><br><span class="line">yum install docker-ce</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<h2 id="哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可"><a href="#哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可" class="headerlink" title="哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可."></a>哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可.</h2><p><img src="/2019/07/19/centos-docker踩坑记录/0.png" alt="报错"> </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/docker/daemon.json /etc/docker/daemon.conf</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试一下是否成功"><a href="#测试一下是否成功" class="headerlink" title="测试一下是否成功"></a>测试一下是否成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<h3 id="出现以下结果说明成功了"><a href="#出现以下结果说明成功了" class="headerlink" title="出现以下结果说明成功了"></a>出现以下结果说明成功了</h3><p><img src="/2019/07/19/centos-docker踩坑记录/1.png" alt="报错"> </p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -240,131 +200,110 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2019/07/23/使用mono跨平台远程调试/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用mono跨平台远程调试
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/07/12/swagger-自动生成接口文档/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">swagger 自动生成接口文档</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/06/21/windows下的mysql安装/" class="archive-article-date">
+  	<time datetime="2019-06-21T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-21</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记录一下centos下docker安装的踩坑记录"><span class="toc-number">1.</span> <span class="toc-text">记录一下centos下docker安装的踩坑记录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#首先使用yum安装必要的依赖包："><span class="toc-number"></span> <span class="toc-text">首先使用yum安装必要的依赖包：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接着先把yum的软件园修改成国内的源："><span class="toc-number"></span> <span class="toc-text">接着先把yum的软件园修改成国内的源：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载dockek-社区版（免费）"><span class="toc-number"></span> <span class="toc-text">下载dockek 社区版（免费）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动docker"><span class="toc-number"></span> <span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可"><span class="toc-number"></span> <span class="toc-text">哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试一下是否成功"><span class="toc-number"></span> <span class="toc-text">测试一下是否成功</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#出现以下结果说明成功了"><span class="toc-number">1.</span> <span class="toc-text">出现以下结果说明成功了</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/06/21/windows下的mysql安装/">Windows10下MySQL数据库的安装以及配置</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/06/10/暑期目标/" class="archive-article-date">
+  	<time datetime="2019-06-10T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/06/10/暑期目标/">2019暑期计划</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -388,8 +327,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
