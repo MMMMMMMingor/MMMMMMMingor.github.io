@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="由于数据库课程设计要求对成品进行测试，所以找到了webbench这款网站压力测试软件。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-08-10T10:34:55.392Z">
+<meta property="og:updated_time" content="2019-08-11T11:36:12.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webbench网站压力测试工具">
 <meta name="twitter:description" content="由于数据库课程设计要求对成品进行测试，所以找到了webbench这款网站压力测试软件。">
@@ -190,9 +190,9 @@
 <h3 id="webbench安装（Linux）"><a href="#webbench安装（Linux）" class="headerlink" title="webbench安装（Linux）"></a>webbench安装（Linux）</h3><p>webbench官网：<a href="http://home.tiscali.cz/~cz210552/webbench.html" target="_blank" rel="noopener">http://home.tiscali.cz/~cz210552/webbench.html</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc ctags</span><br><span class="line">mkdir -m 644 -p /usr/local/man/man1</span><br><span class="line">wget http://www.ha97.com/code/webbench-1.5.tar.gz</span><br><span class="line">tar zxvf webbench-1.5.tar.gz</span><br><span class="line">cd webbench-1.5</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
-<h3 id="webbench使用-请不要刷我的服务器，555-，"><a href="#webbench使用-请不要刷我的服务器，555-，" class="headerlink" title="webbench使用(请不要刷我的服务器，555)，"></a>webbench使用(请不要刷我的服务器，555)，</h3><ul>
+<h3 id="webbench使用"><a href="#webbench使用" class="headerlink" title="webbench使用"></a>webbench使用</h3><ul>
 <li>-c client数量</li>
-<li>-t time测试时间<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webbench -c 30000 -t 30 http://207.148.112.5/BBS/login.html</span><br></pre></td></tr></table></figure>
+<li>-t time测试时间<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webbench -c 300 -t 30 http://xxx.xxx.xxx.xxx/BBS/login.html</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -329,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#webbench安装（Linux）"><span class="toc-number">1.</span> <span class="toc-text">webbench安装（Linux）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webbench使用-请不要刷我的服务器，555-，"><span class="toc-number">2.</span> <span class="toc-text">webbench使用(请不要刷我的服务器，555)，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果"><span class="toc-number">3.</span> <span class="toc-text">测试结果</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#webbench安装（Linux）"><span class="toc-number">1.</span> <span class="toc-text">webbench安装（Linux）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webbench使用"><span class="toc-number">2.</span> <span class="toc-text">webbench使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果"><span class="toc-number">3.</span> <span class="toc-text">测试结果</span></a></li></ol>
                     </div>
                 </span>
             </div>
