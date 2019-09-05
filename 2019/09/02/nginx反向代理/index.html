@@ -17,7 +17,7 @@
 <meta property="og:description" content="使用nginx反向代理 + 二级域名实现端口共用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/09/02/nginx反向代理/1.png">
-<meta property="og:updated_time" content="2019-09-02T03:54:40.424Z">
+<meta property="og:updated_time" content="2019-09-05T13:21:16.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx反向代理">
 <meta name="twitter:description" content="使用nginx反向代理 + 二级域名实现端口共用">
@@ -199,7 +199,7 @@
 </li>
 </ul>
 <p>在http块中进行如下修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       8080 ;     #nginx监听端口（希望被共用的端口号）</span><br><span class="line">        server_name  dorm.dormassistant.wang;   #二级域名需要自己申请</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://129.204.20.87:8090; #第一个后台服务</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen      8080;   #nginx监听端口（希望被共用的端口号）</span><br><span class="line">        server_name potato.dormassistant.wang;  #二级域名需要自己申请</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://129.204.20.87:8080; #另一个后台服务</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       8080 ;     #nginx监听端口（希望被共用的端口号）</span><br><span class="line">        server_name  dorm.dormassistant.wang;   #二级域名需要自己申请</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://129.204.20.87:8081; #第一个后台服务</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen      8080;   #nginx监听端口（希望被共用的端口号）</span><br><span class="line">        server_name potato.dormassistant.wang;  #二级域名需要自己申请</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://129.204.20.87:8082; #另一个后台服务</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>修改完成后，重启nginx。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx</span><br></pre></td></tr></table></figure>
@@ -456,11 +456,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
