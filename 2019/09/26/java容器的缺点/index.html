@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="今天在刷leetcode时，突然发现了Java容器的缺点，其实应该说时Java只有值(地址)传递的内存机制的缺点…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-09-26T15:26:09.941Z">
+<meta property="og:updated_time" content="2019-09-26T15:36:37.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java容器的缺点">
 <meta name="twitter:description" content="今天在刷leetcode时，突然发现了Java容器的缺点，其实应该说时Java只有值(地址)传递的内存机制的缺点…">
@@ -67,6 +67,8 @@
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 				<li><a href="/tags/技巧/">技巧</a></li>
+	        
+				<li><a href="/tags/思考/">思考</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,6 +128,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -142,15 +146,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/Java-Web/">Java Web</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/Java-Web/">Java Web</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/踩坑/">踩坑</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/踩坑/">踩坑</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/技巧/">技巧</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/技巧/">技巧</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/tags/思考/">思考</a></li>
 		        
 				</ul>
 			</nav>
@@ -187,17 +193,18 @@
       
         <p>今天在刷leetcode时，突然发现了Java容器的缺点，其实应该说时Java只有值(地址)传递的内存机制的缺点…</p>
 <a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; l1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        l1.add(<span class="number">1</span>);</span><br><span class="line">        l1.add(<span class="number">2</span>);</span><br><span class="line">        l1.add(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">        list.add(l1);</span><br><span class="line"></span><br><span class="line">        l1.add(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">        list.add(l1);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; l : list) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Integer i : l) &#123;</span><br><span class="line">                System.out.print(i);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>运行结果</p>
+<h3 id="先来看Java"><a href="#先来看Java" class="headerlink" title="先来看Java"></a>先来看Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; l1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        l1.add(<span class="number">1</span>);</span><br><span class="line">        l1.add(<span class="number">2</span>);</span><br><span class="line">        l1.add(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">        list.add(l1);   <span class="comment">//存的只是地址</span></span><br><span class="line"></span><br><span class="line">        l1.add(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">        list.add(l1);   <span class="comment">//存的只是地址</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; l : list) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Integer i : l) &#123;</span><br><span class="line">                System.out.print(i);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果,不是想要的结果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1234</span><br><span class="line">1234</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> vec = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;();</span><br><span class="line">    vec.push_back(v1);</span><br><span class="line"></span><br><span class="line">    v1.push_back(<span class="number">4</span>);</span><br><span class="line">    vec.push_back(v1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;v1 &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;vec[<span class="number">0</span>] &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;vec[<span class="number">1</span>] &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="再来看C"><a href="#再来看C" class="headerlink" title="再来看C++"></a>再来看C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> vec = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;();</span><br><span class="line">    vec.push_back(v1);      <span class="comment">//存的是真正的内容</span></span><br><span class="line"></span><br><span class="line">    v1.push_back(<span class="number">4</span>);</span><br><span class="line">    vec.push_back(v1);      <span class="comment">//存的是真正的内容</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;v1 &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;vec[<span class="number">0</span>] &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;vec[<span class="number">1</span>] &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>运行结果</p>
+<p>运行结果,通过地址可以看出同一个vector对象放入vector后，是新的对象（vector采用的是拷贝）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0x62fde0</span><br><span class="line">0xe916e0</span><br><span class="line">0xe916f8</span><br></pre></td></tr></table></figure>
 
-<p>通过以上两个例子，可以看出Java单一的值传递策略在容器的使用时不能复用对象，否则将造成错误。</p>
+<p>通过以上两个例子，可以看出Java单一的值传递(只能传地址)策略在容器的使用时不能复用对象，否则将造成错误。而C++由于值传递和引用传递双机制的存在，可以将对象真正的拷贝并存储到容器中。</p>
 
       
 
@@ -331,7 +338,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#先来看Java"><span class="toc-number">1.</span> <span class="toc-text">先来看Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再来看C"><span class="toc-number">2.</span> <span class="toc-text">再来看C++</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -443,19 +450,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思考</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
