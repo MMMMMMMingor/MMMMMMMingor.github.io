@@ -6,23 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>swagger 自动生成接口文档 | Mingor的博客</title>
+  <title>frp实现内网穿透 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringMVC使用swagger自动生成接口文档">
-<meta name="keywords" content="Java-Web">
+  <meta name="description" content="使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。">
+<meta name="keywords" content="踩坑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swagger 自动生成接口文档">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/index.html">
+<meta property="og:title" content="frp实现内网穿透">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="SpringMVC使用swagger自动生成接口文档">
+<meta property="og:description" content="使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png">
-<meta property="og:updated_time" content="2019-07-23T03:16:20.164Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/10/01/frp实现内网穿透/0.png">
+<meta property="og:updated_time" content="2019-10-01T10:03:35.805Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swagger 自动生成接口文档">
-<meta name="twitter:description" content="SpringMVC使用swagger自动生成接口文档">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/0.png">
+<meta name="twitter:title" content="frp实现内网穿透">
+<meta name="twitter:description" content="使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/10/01/frp实现内网穿透/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -174,37 +173,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-swagger-自动生成接口文档" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-frp实现内网穿透" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      swagger 自动生成接口文档
+      frp实现内网穿透
     </h1>
   
 
         
-        <a href="/2019/07/12/swagger-自动生成接口文档/" class="archive-article-date">
-  	<time datetime="2019-07-12T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
+        <a href="/2019/10/01/frp实现内网穿透/" class="archive-article-date">
+  	<time datetime="2019-10-01T08:45:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="SpringMVC使用swagger自动生成接口文档"><a href="#SpringMVC使用swagger自动生成接口文档" class="headerlink" title="SpringMVC使用swagger自动生成接口文档"></a>SpringMVC使用swagger自动生成接口文档</h3><a id="more"></a>
-<h3 id="首先在pom-xml文件中添加依赖"><a href="#首先在pom-xml文件中添加依赖" class="headerlink" title="首先在pom.xml文件中添加依赖"></a>首先在pom.xml文件中添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--   swagger 接口文档生成工具--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。</p>
+<a id="more"></a>
+<p>需要用到的工具工具：</p>
+<ul>
+<li>树莓派</li>
+<li>一台vps</li>
+<li>树莓派摄像头</li>
+<li>手</li>
+</ul>
+<p>首先，你需要分别在vps、树莓派上下载frp</p>
+<p>你也可以自行前往GitHub下载<br><a href="https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_386.tar.gz" target="_blank" rel="noopener">https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_386.tar.gz</a></p>
+<h3 id="首先是在vps上进行操作"><a href="#首先是在vps上进行操作" class="headerlink" title="首先是在vps上进行操作"></a>首先是在vps上进行操作</h3><p>在vps执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_386.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf frp_0.29.0_linux_386.tar.gz</span><br><span class="line"></span><br><span class="line">cd frp_0.29.0_linux_386</span><br><span class="line"></span><br><span class="line">vim frps.ini</span><br></pre></td></tr></table></figure>
 
-<h1 id="在使用的过程中，我发现2-6-0以上的本版都会有integer不能正确使用的情况，故降级部分组件至1-5-21"><a href="#在使用的过程中，我发现2-6-0以上的本版都会有integer不能正确使用的情况，故降级部分组件至1-5-21" class="headerlink" title="在使用的过程中，我发现2.6.0以上的本版都会有integer不能正确使用的情况，故降级部分组件至1.5.21"></a>在使用的过程中，我发现2.6.0以上的本版都会有integer不能正确使用的情况，故降级部分组件至1.5.21</h1><p>报错日志：java.lang.NumberFormatException: For input string: “”</p>
-<h3 id="使用如下配置即可"><a href="#使用如下配置即可" class="headerlink" title="使用如下配置即可"></a>使用如下配置即可</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.swagger<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.swagger<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-models<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.swagger<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.swagger<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-models<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>在vps中修改解压出来的frps.ini文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="comment"># 用于连接的端口</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 控制板端口</span></span><br><span class="line"><span class="attr">dashboard_port</span> = <span class="number">7500</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 控制板登陆账号</span></span><br><span class="line"><span class="attr">dashboard_user</span> = dashboard_user_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 控制板登陆密码</span></span><br><span class="line"><span class="attr">dashboard_pwd</span> = dashboard_pwd_value</span><br></pre></td></tr></table></figure>
 
-<h3 id="然后编写swagger配置类"><a href="#然后编写swagger配置类" class="headerlink" title="然后编写swagger配置类"></a>然后编写swagger配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span><br><span class="line"><span class="keyword">import</span> documentation.builders.RequestHandlerSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfiguration</span>  </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))<span class="comment">//这是注意的代码</span></span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"BBS接口文档"</span>)</span><br><span class="line">                .description(<span class="string">"BBS相关接口的文档"</span>)</span><br><span class="line">                .termsOfServiceUrl(<span class="string">"207.148.112.5:8080"</span>)</span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置完成后，使用以下命令启动服务端的frp。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用swagger注解示例"><a href="#使用swagger注解示例" class="headerlink" title="使用swagger注解示例"></a>使用swagger注解示例</h3><p><img src="/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/0.png" alt="示例"></p>
-<p> 每次运行只需要访问 <a href="http://localhost/swagger-ui.html" target="_blank" rel="noopener">http://localhost/swagger-ui.html</a> 即可看到自动生成的文档<br><img src="/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png" alt="文档"> </p>
-<h3 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>： 描述 Controller</span><br><span class="line"><span class="meta">@ApiIgnore</span>： 忽略该 Controller，指不对当前类做扫描</span><br><span class="line"><span class="meta">@ApiOperation</span>： 描述 Controller类中的 method接口</span><br><span class="line"><span class="meta">@ApiParam</span>： 单个参数描述，与 <span class="meta">@ApiImplicitParam</span>不同的是，他是写在参数左侧的。如（ <span class="meta">@ApiParam</span>(name=<span class="string">"username"</span>,value=<span class="string">"用户名"</span>)Stringusername）</span><br><span class="line"><span class="meta">@ApiModel</span>： 描述 POJO对象</span><br><span class="line"><span class="meta">@ApiProperty</span>： 描述 POJO对象中的属性值</span><br><span class="line"><span class="meta">@ApiImplicitParam</span>： 描述单个入参信息</span><br><span class="line"><span class="meta">@ApiImplicitParams</span>： 描述多个入参信息</span><br><span class="line"><span class="meta">@ApiResponse</span>： 描述单个出参信息</span><br><span class="line"><span class="meta">@ApiResponses</span>： 描述多个出参信息</span><br><span class="line"><span class="meta">@ApiError</span>： 接口错误所返回的信息</span><br></pre></td></tr></table></figure>
+<p>推荐设置开机自启动，方法：在 /etc/rc.local 添加上诉命令行</p>
+<p>然后即可访问  vps的ip:您设置的端口<br><img src="/2019/10/01/frp实现内网穿透/10/01/frp实现内网穿透/0.png" alt="登陆后可以看到"></p>
+<hr>
+<h3 id="接着就是树莓派上的设置"><a href="#接着就是树莓派上的设置" class="headerlink" title="接着就是树莓派上的设置"></a>接着就是树莓派上的设置</h3><p>在树莓派执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_arm.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf frp_0.29.0_linux_arm.tar.gz</span><br><span class="line"></span><br><span class="line">cd frp_0.29.0_linux_arm</span><br><span class="line"></span><br><span class="line">vim frpc.ini</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>进行如下修改</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="comment"># 你的服务器的IP、frps端口</span></span><br><span class="line"><span class="attr">server_addr</span> = 你的vps的IP地址</span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="comment"># 需要被穿透的服务、本地ip、本地端口</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用服务器的哪个端口进行穿透访问，记得打开防火墙</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">10022</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>启动frp客户端服务(建议添加到 /etc/rc.local  实现开机自启动)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c ./frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>测试一下是否成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 10022 root@你的服务器的IP地址 -p 10022</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -238,7 +265,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java-Web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
         		</li>
       		
 		</ul>
@@ -294,7 +321,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +335,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/19/centos-docker踩坑记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          centos docker踩坑记录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">springboot解决Access-Control-Allow-Origin跨域请求问题</div>
+    <a href="/2019/09/26/java容器的缺点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java容器的缺点</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +364,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC使用swagger自动生成接口文档"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC使用swagger自动生成接口文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#首先在pom-xml文件中添加依赖"><span class="toc-number">2.</span> <span class="toc-text">首先在pom.xml文件中添加依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在使用的过程中，我发现2-6-0以上的本版都会有integer不能正确使用的情况，故降级部分组件至1-5-21"><span class="toc-number"></span> <span class="toc-text">在使用的过程中，我发现2.6.0以上的本版都会有integer不能正确使用的情况，故降级部分组件至1.5.21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用如下配置即可"><span class="toc-number">1.</span> <span class="toc-text">使用如下配置即可</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后编写swagger配置类"><span class="toc-number">2.</span> <span class="toc-text">然后编写swagger配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用swagger注解示例"><span class="toc-number">3.</span> <span class="toc-text">使用swagger注解示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用注解"><span class="toc-number">4.</span> <span class="toc-text">常用注解</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先是在vps上进行操作"><span class="toc-number">1.</span> <span class="toc-text">首先是在vps上进行操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接着就是树莓派上的设置"><span class="toc-number">2.</span> <span class="toc-text">接着就是树莓派上的设置</span></a></li></ol>
                     </div>
                 </span>
             </div>
