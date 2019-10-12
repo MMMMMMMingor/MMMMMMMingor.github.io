@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
   <title>springboot集成MongoDB | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一下springboot集成MongoDB的过程。 首先，修改配文件：1vim /etc/mongod.conf  修改以下两处内容 123456net:  port: 27017  bindIp: 0.0.0.0  # 修改外部可访问IP为所有security:           # 开启权限认证  authorization: enabled  为一个数据库创建用户  user: 用">
+  <meta name="description" content="记录一下springboot集成MongoDB的过程。">
 <meta name="keywords" content="Java,数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot集成MongoDB">
 <meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="记录一下springboot集成MongoDB的过程。 首先，修改配文件：1vim /etc/mongod.conf  修改以下两处内容 123456net:  port: 27017  bindIp: 0.0.0.0  # 修改外部可访问IP为所有security:           # 开启权限认证  authorization: enabled  为一个数据库创建用户  user: 用">
+<meta property="og:description" content="记录一下springboot集成MongoDB的过程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/0.png">
-<meta property="og:updated_time" content="2019-10-12T05:26:57.029Z">
+<meta property="og:updated_time" content="2019-10-12T12:04:57.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot集成MongoDB">
-<meta name="twitter:description" content="记录一下springboot集成MongoDB的过程。 首先，修改配文件：1vim /etc/mongod.conf  修改以下两处内容 123456net:  port: 27017  bindIp: 0.0.0.0  # 修改外部可访问IP为所有security:           # 开启权限认证  authorization: enabled  为一个数据库创建用户  user: 用">
+<meta name="twitter:description" content="记录一下springboot集成MongoDB的过程。">
 <meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
@@ -203,9 +203,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<p>记录一下springboot集成MongoDB的过程。</p>
+        <p>记录一下springboot集成MongoDB的过程。</p>
+<a id="more"></a>
 <h2 id="首先，修改配文件："><a href="#首先，修改配文件：" class="headerlink" title="首先，修改配文件："></a>首先，修改配文件：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mongod.conf</span><br></pre></td></tr></table></figure>
 
 <p>修改以下两处内容</p>
@@ -224,14 +223,20 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mongod</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>登录mongodb，推荐使用MongoDB Campass<br><img src="/2019/10/12/springboot集成MongoDB/0.png" alt="登录"></p>
+<p>远程登录mongodb，推荐使用MongoDB Campass<br><img src="/2019/10/12/springboot集成MongoDB/0.png" alt="登录"></p>
 <h2 id="springboot集成mongodb"><a href="#springboot集成mongodb" class="headerlink" title="springboot集成mongodb"></a>springboot集成mongodb</h2><p>添加pom依赖：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>配置数据库信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># MongoDB config</span><br><span class="line">spring.data.mongodb.host= 你的服务器IP</span><br><span class="line">spring.data.mongodb.port= 27017 </span><br><span class="line">spring.data.mongodb.database= 数据库明</span><br><span class="line">spring.data.mongodb.username= 账号</span><br><span class="line">spring.data.mongodb.password= 密码</span><br></pre></td></tr></table></figure>
 
-<p>参考文档：<br><a href="https://blog.csdn.net/github_39457740/article/details/84076610" target="_blank" rel="noopener">mongoDB之创建用户与认证模式启动</a><br><a href="https://blog.csdn.net/u012373281/article/details/93747350" target="_blank" rel="noopener">springboot整合mongodb，并配置账户名和密码登录验证</a></p>
+<hr>
+<p>DAO示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuestionnaireDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MongoTemplate mongoTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">save</span><span class="params">(Questionnaire questionnaire)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mongoTemplate.save(questionnaire) !=<span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Questionnaire&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mongoTemplate.findAll(Questionnaire.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考文档：</p>
+<p><a href="https://blog.csdn.net/github_39457740/article/details/84076610" target="_blank" rel="noopener">mongoDB之创建用户与认证模式启动</a></p>
+<p><a href="https://blog.csdn.net/u012373281/article/details/93747350" target="_blank" rel="noopener">springboot整合mongodb，并配置账户名和密码登录验证</a></p>
 
       
 
@@ -481,15 +486,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思考</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,11 +498,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
               </li>
              
               <li class="article-tag-list-item">
