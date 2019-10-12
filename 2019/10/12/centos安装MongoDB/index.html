@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
   <title>centos安装MongoDB | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考文章： centos7 MongoDB安装">
+  <meta name="description" content="由于业务的需求，需要实现一个调查问卷，然而传统的关系型数据库对于半结构化的数据支持不是很好，所以打算使用一下NoSQL的经典代表——MongoDB。">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos安装MongoDB">
 <meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/12/centos安装MongoDB/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="参考文章： centos7 MongoDB安装">
+<meta property="og:description" content="由于业务的需求，需要实现一个调查问卷，然而传统的关系型数据库对于半结构化的数据支持不是很好，所以打算使用一下NoSQL的经典代表——MongoDB。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-12T02:19:11.953Z">
+<meta property="og:updated_time" content="2019-10-12T03:23:57.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos安装MongoDB">
-<meta name="twitter:description" content="参考文章： centos7 MongoDB安装">
+<meta name="twitter:description" content="由于业务的需求，需要实现一个调查问卷，然而传统的关系型数据库对于半结构化的数据支持不是很好，所以打算使用一下NoSQL的经典代表——MongoDB。">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -201,8 +201,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考文章：</p>
+        <p>由于业务的需求，需要实现一个调查问卷，然而传统的关系型数据库对于半结构化的数据支持不是很好，所以打算使用一下NoSQL的经典代表——MongoDB。</p>
+<a id="more"></a>
+
+<p>首先，创建yum源文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/yum.repos.d/mongodb-org-3.4.repo</span><br></pre></td></tr></table></figure>
+
+<p>然后，在文件中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mongodb-org-3.4]  </span><br><span class="line">name=MongoDB Repository  </span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">enabled=1  </span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mongodb-org</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>MongoDB服务基本操作:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动mongodb</span></span><br><span class="line"><span class="string">systemctl</span> <span class="string">start</span> <span class="string">mongod.service</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止mongodb</span></span><br><span class="line"><span class="string">systemctl</span> <span class="string">stop</span> <span class="string">mongod.service</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询mongodb状态：</span></span><br><span class="line"><span class="string">systemctl</span> <span class="string">status</span> <span class="string">mongod.service</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启动</span></span><br><span class="line"><span class="string">sudo</span> <span class="string">systemctl</span> <span class="string">enable</span> <span class="string">mongod.service</span></span><br></pre></td></tr></table></figure>
+
+<p>启动MongoDB，并且查看是否运行成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mongod.service</span><br><span class="line">systemctl status mongod.service</span><br></pre></td></tr></table></figure>
+
+<p>然后，连接MongoDB</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo 127.0.0.1:27017</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>MongoDB的一些基本概念与操作:</p>
+<table>
+<thead>
+<tr>
+<th>MySQL 基础概念</th>
+<th>MongoDB 对应概念</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库（database）</td>
+<td>容器（database）</td>
+</tr>
+<tr>
+<td>表（table）</td>
+<td>集合（collection）</td>
+</tr>
+<tr>
+<td>行（row）</td>
+<td>文档（document）</td>
+</tr>
+<tr>
+<td>列（column）</td>
+<td>域（filed）</td>
+</tr>
+<tr>
+<td>索引（index）</td>
+<td>索引（index）</td>
+</tr>
+</tbody></table>
+<hr>
+<p>参考文章：</p>
 <p><a href="https://cloud.tencent.com/developer/article/1455192" target="_blank" rel="noopener">centos7 MongoDB安装</a></p>
+<p><a href="https://www.jianshu.com/p/15059812bd60" target="_blank" rel="noopener">MongoDB【快速入门】</a></p>
 
       
 
@@ -306,6 +359,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/12/springboot集成MongoDB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          springboot集成MongoDB
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/10/vmware安装/" id="article-nav-older" class="article-nav-link-wrap">
@@ -448,15 +510,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思考</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
