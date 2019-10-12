@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Linux防火墙常用命令 | Mingor的博客</title>
+  <title>vmware安装 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一下Linux（centOS）防火墙的常用命令操作。。">
+  <meta name="description" content="最近准备学点分布式、集群相关的内容，但是又没有多的服务器(没钱)，只好用虚拟机了。">
 <meta name="keywords" content="踩坑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux防火墙常用命令">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/03/Linux防火墙常用命令/index.html">
+<meta property="og:title" content="vmware安装">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/10/vmware安装/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="记录一下Linux（centOS）防火墙的常用命令操作。。">
+<meta property="og:description" content="最近准备学点分布式、集群相关的内容，但是又没有多的服务器(没钱)，只好用虚拟机了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-03T05:40:18.112Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/10/vmware安装/10/10/vmware安装/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/10/vmware安装/10/10/vmware安装/5.png">
+<meta property="og:updated_time" content="2019-10-10T11:40:07.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux防火墙常用命令">
-<meta name="twitter:description" content="记录一下Linux（centOS）防火墙的常用命令操作。。">
+<meta name="twitter:title" content="vmware安装">
+<meta name="twitter:description" content="最近准备学点分布式、集群相关的内容，但是又没有多的服务器(没钱)，只好用虚拟机了。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/10/vmware安装/10/10/vmware安装/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -181,30 +184,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux防火墙常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vmware安装" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux防火墙常用命令
+      vmware安装
     </h1>
   
 
         
-        <a href="/2019/10/03/Linux防火墙常用命令/" class="archive-article-date">
-  	<time datetime="2019-10-03T05:33:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
+        <a href="/2019/10/10/vmware安装/" class="archive-article-date">
+  	<time datetime="2019-10-10T10:57:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记录一下Linux（centOS）防火墙的常用命令操作。。</p>
+        <p>最近准备学点分布式、集群相关的内容，但是又没有多的服务器(<del>没钱</del>)，只好用虚拟机了。</p>
 <a id="more"></a>
-<p>Centos7默认安装了firewalld，如果没有安装的话，可以使用 yum install firewalld firewalld-config进行安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. 启动防火墙</span><br><span class="line">systemctl start firewalld </span><br><span class="line"></span><br><span class="line">2. 禁用防火墙</span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line">3. 设置开机启动</span><br><span class="line">systemctl enable firewalld</span><br><span class="line"></span><br><span class="line">4. 停止并禁用开机启动</span><br><span class="line">sytemctl disable firewalld</span><br><span class="line"></span><br><span class="line">5. 重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">6.查看指定区域所有打开的端口</span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line">7.在指定区域打开端口（记得重启防火墙）</span><br><span class="line">firewall-cmd --zone=public --permanent --add-port=80/tcp</span><br><span class="line">or </span><br><span class="line">firewall-cmd --zone=public --permanent --add-port=80/udp</span><br></pre></td></tr></table></figure>
+
+<p>VMware官网下载链接：<br><a href="https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/15_0" target="_blank" rel="noopener">https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/15_0</a><br><img src="/2019/10/10/vmware安装/10/10/vmware安装/0.png" alt="下载VMware"></p>
+<hr>
+<p>centos镜像，随便挑一个即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://mirrors.cn99.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso</span><br><span class="line">http://ftp.sjtu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso</span><br><span class="line">http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso</span><br><span class="line">http://mirrors.cqu.edu.cn/CentOS/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso</span><br></pre></td></tr></table></figure>
+
+<p>若启动时出现以下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VMware Player 与 Device/Credential Guard 不兼容。在禁用 Device/Credential Gu</span><br></pre></td></tr></table></figure>
+
+<p>在服务中禁用HV主机服务<br><img src="/2019/10/10/vmware安装/10/10/vmware安装/5.png" alt="金庸HV服务"></p>
+<p>使用管理员身份打开powershell，输入以下命令.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set hypervisorlaunchtype off</span><br></pre></td></tr></table></figure>
+
+<p>最后，重启电脑即可</p>
+<p>参考文章:</p>
+<p><a href="http://how2j.cn/k/vmware/vmware-vmware/1997.html" target="_blank" rel="noopener">虚拟机安装Linux系列</a></p>
+<p><a href="https://blog.csdn.net/jianxin1021/article/details/89188653" target="_blank" rel="noopener">VMware Player 与 Device/Credential Guard 不兼容</a></p>
+
       
 
       
@@ -294,7 +313,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/03/Linux防火墙常用命令/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/10/vmware安装/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +327,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/07/jenkins体验CI-CD/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/12/centos安装MongoDB/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jenkins体验CI/CD
+          centos安装MongoDB
         
       </div>
     </a>
   
   
-    <a href="/2019/10/01/frp实现内网穿透/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">frp实现内网穿透</div>
+    <a href="/2019/10/08/Java-jni体验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java jni体验</div>
       <i class="icon-circle-right"></i>
     </a>
   

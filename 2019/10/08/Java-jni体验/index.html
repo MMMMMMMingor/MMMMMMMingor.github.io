@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Linux防火墙常用命令 | Mingor的博客</title>
+  <title>Java jni体验 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一下Linux（centOS）防火墙的常用命令操作。。">
-<meta name="keywords" content="踩坑">
+  <meta name="description" content="当初学Java的时候就对神秘的 native 关键字满怀好奇，今天就来揭开 native 关键字的神秘面纱吧！">
+<meta name="keywords" content="思考">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux防火墙常用命令">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/03/Linux防火墙常用命令/index.html">
+<meta property="og:title" content="Java jni体验">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="记录一下Linux（centOS）防火墙的常用命令操作。。">
+<meta property="og:description" content="当初学Java的时候就对神秘的 native 关键字满怀好奇，今天就来揭开 native 关键字的神秘面纱吧！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-03T05:40:18.112Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/10/08/Java-jni体验/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/10/08/Java-jni体验/1.png">
+<meta property="og:updated_time" content="2019-10-08T15:02:27.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux防火墙常用命令">
-<meta name="twitter:description" content="记录一下Linux（centOS）防火墙的常用命令操作。。">
+<meta name="twitter:title" content="Java jni体验">
+<meta name="twitter:description" content="当初学Java的时候就对神秘的 native 关键字满怀好奇，今天就来揭开 native 关键字的神秘面纱吧！">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/10/08/Java-jni体验/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -181,30 +184,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux防火墙常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-jni体验" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux防火墙常用命令
+      Java jni体验
     </h1>
   
 
         
-        <a href="/2019/10/03/Linux防火墙常用命令/" class="archive-article-date">
-  	<time datetime="2019-10-03T05:33:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
+        <a href="/2019/10/08/Java-jni体验/" class="archive-article-date">
+  	<time datetime="2019-10-08T14:13:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记录一下Linux（centOS）防火墙的常用命令操作。。</p>
+        <p>当初学Java的时候就对神秘的 native 关键字满怀好奇，今天就来揭开 native 关键字的神秘面纱吧！</p>
 <a id="more"></a>
-<p>Centos7默认安装了firewalld，如果没有安装的话，可以使用 yum install firewalld firewalld-config进行安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. 启动防火墙</span><br><span class="line">systemctl start firewalld </span><br><span class="line"></span><br><span class="line">2. 禁用防火墙</span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line">3. 设置开机启动</span><br><span class="line">systemctl enable firewalld</span><br><span class="line"></span><br><span class="line">4. 停止并禁用开机启动</span><br><span class="line">sytemctl disable firewalld</span><br><span class="line"></span><br><span class="line">5. 重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">6.查看指定区域所有打开的端口</span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line">7.在指定区域打开端口（记得重启防火墙）</span><br><span class="line">firewall-cmd --zone=public --permanent --add-port=80/tcp</span><br><span class="line">or </span><br><span class="line">firewall-cmd --zone=public --permanent --add-port=80/udp</span><br></pre></td></tr></table></figure>
+<p><strong>native 即人们常说的 jni（Java native interface)</strong></p>
+<p>jni是Java调用本地方法（主要是操作系统调用和c/c++第三方接口）的手段。</p>
+<p><img src="/2019/10/08/Java-jni体验/10/08/Java-jni体验/0.png" alt="网上盗了张图"><br>由于还没有编写对应的文件，所以不能运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 共享库文件（Linux为.so, Windows为.dll）</span></span><br><span class="line">        System.loadLibrary(<span class="string">"HelloJni"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">// native方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"static-access"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> HelloJni().sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>根据生成的class文件，获取需要被实现的jni文件（c/cpp头文件）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac HelloJni.java</span><br><span class="line">javah HelloJni</span><br></pre></td></tr></table></figure>
+
+<p>然后可以获取 HelloJni.h文件，学过c++的都应该知道接下来是什么了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* DO NOT EDIT THIS FILE - it is machine generated */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="comment">/* Header for class HelloJni */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Included_HelloJni</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _Included_HelloJni</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Class:     HelloJni</span></span><br><span class="line"><span class="comment"> * Method:    sayHello</span></span><br><span class="line"><span class="comment"> * Signature: ()V</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">JNIEXPORT <span class="keyword">void</span> JNICALL Java_HelloJni_sayHello</span><br><span class="line">  (JNIEnv *, jclass);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>接下来，用c/c++实现该头文件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"HelloJni.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_HelloJni_sayHello</span><span class="params">(JNIEnv *, jclass)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello,JNI"</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用gcc编译</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wl,--add-stdcall-alias -I"<span class="variable">%JAVA_HOME%</span>\include" -I"<span class="variable">%JAVA_HOME%</span>\include\win32" -shared -o HelloJni.dll HelloJNI.cpp</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/08/Java-jni体验/10/08/Java-jni体验/1.png" alt="dll文件"></p>
+<hr>
+<p>现在就可以运行class文件了</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloJni</span><br></pre></td></tr></table></figure>
+
+<p>输出结果 Hello,JNI</p>
+
       
 
       
@@ -238,7 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思考</a>
         		</li>
       		
 		</ul>
@@ -294,7 +320,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/03/Linux防火墙常用命令/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +334,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/07/jenkins体验CI-CD/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/10/vmware安装/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jenkins体验CI/CD
+          vmware安装
         
       </div>
     </a>
   
   
-    <a href="/2019/10/01/frp实现内网穿透/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">frp实现内网穿透</div>
+    <a href="/2019/10/07/jenkins体验CI-CD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jenkins体验CI/CD</div>
       <i class="icon-circle-right"></i>
     </a>
   

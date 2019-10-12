@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="SpringMVC使用swagger自动生成接口文档">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png">
 <meta property="og:updated_time" content="2019-07-23T03:16:20.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swagger 自动生成接口文档">
 <meta name="twitter:description" content="SpringMVC使用swagger自动生成接口文档">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -63,7 +63,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/Java-Web/">Java Web</a></li>
+				<li><a href="/tags/Java-Web/">Java</a></li>
+	        
+				<li><a href="/tags/数据库/">数据库</a></li>
 	        
 				<li><a href="/tags/踩坑/">踩坑</a></li>
 	        
@@ -96,6 +98,8 @@
 					<a class="github" target="_blank" href="https://github.com/MMMMMMMingor" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/145827650" title="bilibili"><i class="icon-bilibili"></i></a>
+		        
+					<a class="mail" target="_blank" href="/947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -133,6 +137,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -142,6 +148,8 @@
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/145827650" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
+						<a class="mail" target="_blank" href="/947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -149,17 +157,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/Java-Web/">Java Web</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/Java-Web/">Java</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/踩坑/">踩坑</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/数据库/">数据库</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/踩坑/">踩坑</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/技巧/">技巧</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/思考/">思考</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/技巧/">技巧</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/思考/">思考</a></li>
 		        
 				</ul>
 			</nav>
@@ -202,8 +212,8 @@
 
 <h3 id="然后编写swagger配置类"><a href="#然后编写swagger配置类" class="headerlink" title="然后编写swagger配置类"></a>然后编写swagger配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span><br><span class="line"><span class="keyword">import</span> documentation.builders.RequestHandlerSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfiguration</span>  </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))<span class="comment">//这是注意的代码</span></span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"BBS接口文档"</span>)</span><br><span class="line">                .description(<span class="string">"BBS相关接口的文档"</span>)</span><br><span class="line">                .termsOfServiceUrl(<span class="string">"207.148.112.5:8080"</span>)</span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用swagger注解示例"><a href="#使用swagger注解示例" class="headerlink" title="使用swagger注解示例"></a>使用swagger注解示例</h3><p><img src="/2019/07/12/swagger-自动生成接口文档/0.png" alt="示例"></p>
-<p> 每次运行只需要访问 <a href="http://localhost/swagger-ui.html" target="_blank" rel="noopener">http://localhost/swagger-ui.html</a> 即可看到自动生成的文档<br><img src="/2019/07/12/swagger-自动生成接口文档/1.png" alt="文档"> </p>
+<h3 id="使用swagger注解示例"><a href="#使用swagger注解示例" class="headerlink" title="使用swagger注解示例"></a>使用swagger注解示例</h3><p><img src="/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/0.png" alt="示例"></p>
+<p> 每次运行只需要访问 <a href="http://localhost/swagger-ui.html" target="_blank" rel="noopener">http://localhost/swagger-ui.html</a> 即可看到自动生成的文档<br><img src="/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png" alt="文档"> </p>
 <h3 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>： 描述 Controller</span><br><span class="line"><span class="meta">@ApiIgnore</span>： 忽略该 Controller，指不对当前类做扫描</span><br><span class="line"><span class="meta">@ApiOperation</span>： 描述 Controller类中的 method接口</span><br><span class="line"><span class="meta">@ApiParam</span>： 单个参数描述，与 <span class="meta">@ApiImplicitParam</span>不同的是，他是写在参数左侧的。如（ <span class="meta">@ApiParam</span>(name=<span class="string">"username"</span>,value=<span class="string">"用户名"</span>)Stringusername）</span><br><span class="line"><span class="meta">@ApiModel</span>： 描述 POJO对象</span><br><span class="line"><span class="meta">@ApiProperty</span>： 描述 POJO对象中的属性值</span><br><span class="line"><span class="meta">@ApiImplicitParam</span>： 描述单个入参信息</span><br><span class="line"><span class="meta">@ApiImplicitParams</span>： 描述多个入参信息</span><br><span class="line"><span class="meta">@ApiResponse</span>： 描述单个出参信息</span><br><span class="line"><span class="meta">@ApiResponses</span>： 描述多个出参信息</span><br><span class="line"><span class="meta">@ApiError</span>： 接口错误所返回的信息</span><br></pre></td></tr></table></figure>
       
 
@@ -217,7 +227,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -312,7 +322,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          centos docker踩坑记录
+          centos下docker踩坑记录
         
       </div>
     </a>
@@ -462,15 +472,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,14 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="/fierygit.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>文哥的博客</a>
-            </li>
-          
-        </ul>
   		
     	</section>
     

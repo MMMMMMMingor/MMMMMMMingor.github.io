@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/0.png">
-<meta property="og:updated_time" content="2019-10-01T10:03:35.805Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/10/01/frp实现内网穿透/0.png">
+<meta property="og:updated_time" content="2019-10-07T12:10:43.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frp实现内网穿透">
 <meta name="twitter:description" content="使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/01/frp实现内网穿透/10/01/frp实现内网穿透/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -62,7 +62,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/Java-Web/">Java Web</a></li>
+				<li><a href="/tags/Java-Web/">Java</a></li>
+	        
+				<li><a href="/tags/数据库/">数据库</a></li>
 	        
 				<li><a href="/tags/踩坑/">踩坑</a></li>
 	        
@@ -95,6 +97,8 @@
 					<a class="github" target="_blank" href="https://github.com/MMMMMMMingor" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/145827650" title="bilibili"><i class="icon-bilibili"></i></a>
+		        
+					<a class="mail" target="_blank" href="/947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -132,6 +136,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,6 +147,8 @@
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/145827650" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
+						<a class="mail" target="_blank" href="/947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -148,17 +156,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/Java-Web/">Java Web</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/Java-Web/">Java</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/踩坑/">踩坑</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/数据库/">数据库</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/踩坑/">踩坑</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/技巧/">技巧</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/思考/">思考</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/技巧/">技巧</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/思考/">思考</a></li>
 		        
 				</ul>
 			</nav>
@@ -195,7 +205,7 @@
       
         <p>使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。</p>
 <a id="more"></a>
-<p>需要用到的工具工具：</p>
+<p>需要用到的工具：</p>
 <ul>
 <li>树莓派</li>
 <li>一台vps</li>
@@ -214,8 +224,8 @@
 <p>配置完成后，使用以下命令启动服务端的frp。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
 
-<p>推荐设置开机自启动，方法：在 /etc/rc.local 添加上诉命令行</p>
-<p>然后即可访问  vps的ip:您设置的端口<br><img src="/2019/10/01/frp实现内网穿透/0.png" alt="登陆后可以看到"></p>
+<p>推荐设置开机自启动，方法：在 /etc/rc.local 添加上述命令行</p>
+<p>然后即可访问  vps的ip:您设置的端口<br><img src="/2019/10/01/frp实现内网穿透/10/01/frp实现内网穿透/0.png" alt="登陆后可以看到"></p>
 <hr>
 <h3 id="接着就是树莓派上的设置"><a href="#接着就是树莓派上的设置" class="headerlink" title="接着就是树莓派上的设置"></a>接着就是树莓派上的设置</h3><p>在树莓派执行以下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_arm.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf frp_0.29.0_linux_arm.tar.gz</span><br><span class="line"></span><br><span class="line">cd frp_0.29.0_linux_arm</span><br><span class="line"></span><br><span class="line">vim frpc.ini</span><br></pre></td></tr></table></figure>
@@ -244,7 +254,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -489,15 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,14 +563,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="/fierygit.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>文哥的博客</a>
-            </li>
-          
-        </ul>
   		
     	</section>
     
