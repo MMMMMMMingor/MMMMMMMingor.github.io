@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/3.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/4.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/5.png">
-<meta property="og:updated_time" content="2019-09-26T15:17:13.023Z">
+<meta property="og:updated_time" content="2019-10-15T10:50:41.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh免密码登录">
 <meta name="twitter:description" content="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。">
@@ -219,7 +219,7 @@
 <li><p>2.在本地pc的.ssh目录下创建一个config的文件，并根据自己的情况配置信息。<br><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/2.png" alt="创建config"><br>Host 为服务器别名<br>HostName 为服务器域名(ip)<br>User 为登录的账号<br><img src="/2019/08/08/ssh免密码登录/08/08/ssh免密码登录/3.png" alt="config内容"></p>
 </li>
 <li><p>3.在本地pc上使用以下命令将公钥复制到服务器上，随后可查看服务器.ssh/是否出现authorized_keys文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 你的服务器ip</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id root@你的服务器ip</span><br></pre></td></tr></table></figure>
 
 <p>  或者手动在服务器的.ssh目录下新建名为authorized_keys的文件，并在内添加本地pc的公钥。</p>
 </li>
@@ -492,11 +492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思考</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">

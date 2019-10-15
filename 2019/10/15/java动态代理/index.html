@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>springboot集成MongoDB | Mingor的博客</title>
+  <title>java动态代理 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一下springboot集成MongoDB的过程。">
-<meta name="keywords" content="Java,数据库">
+  <meta name="description" content="Java的动态代理机制是spring实现AOP的根本手段，今天我们来探讨一下如何使用 注解 + 反射 + 动态代理  实现AOP。">
+<meta name="keywords" content="Java,思考">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot集成MongoDB">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/index.html">
+<meta property="og:title" content="java动态代理">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="记录一下springboot集成MongoDB的过程。">
+<meta property="og:description" content="Java的动态代理机制是spring实现AOP的根本手段，今天我们来探讨一下如何使用 注解 + 反射 + 动态代理  实现AOP。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png">
-<meta property="og:updated_time" content="2019-10-12T12:04:57.229Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/10/15/java动态代理/0.png">
+<meta property="og:updated_time" content="2019-10-15T15:19:38.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot集成MongoDB">
-<meta name="twitter:description" content="记录一下springboot集成MongoDB的过程。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png">
+<meta name="twitter:title" content="java动态代理">
+<meta name="twitter:description" content="Java的动态代理机制是spring实现AOP的根本手段，今天我们来探讨一下如何使用 注解 + 反射 + 动态代理  实现AOP。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/10/15/java动态代理/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -183,60 +183,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springboot集成MongoDB" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java动态代理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      springboot集成MongoDB
+      java动态代理
     </h1>
   
 
         
-        <a href="/2019/10/12/springboot集成MongoDB/" class="archive-article-date">
-  	<time datetime="2019-10-12T03:31:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+        <a href="/2019/10/15/java动态代理/" class="archive-article-date">
+  	<time datetime="2019-10-15T12:09:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记录一下springboot集成MongoDB的过程。</p>
+        <p>Java的动态代理机制是spring实现AOP的根本手段，今天我们来探讨一下如何使用 注解 + 反射 + 动态代理  实现AOP。</p>
 <a id="more"></a>
-<h2 id="首先，修改配文件："><a href="#首先，修改配文件：" class="headerlink" title="首先，修改配文件："></a>首先，修改配文件：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mongod.conf</span><br></pre></td></tr></table></figure>
-
-<p>修改以下两处内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">net:</span><br><span class="line">  port: 27017</span><br><span class="line">  bindIp: 0.0.0.0  # 修改外部可访问IP为所有</span><br><span class="line"></span><br><span class="line">security:           # 开启权限认证</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
-
-<p>为一个数据库创建用户</p>
-<ul>
-<li>user: 用户名</li>
-<li>pwd: 密码</li>
-<li>role: 权限，dbOwner为所有者</li>
-<li>db: 授权数据库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> db.createUser(&#123;user:"admin",pwd:"123456",roles:[&#123;role:"dbOwner",db:"questionnaire"&#125;]&#125;)</span><br><span class="line">Successfully added user: &#123;</span><br><span class="line">        "user" : "admin",</span><br><span class="line">        "roles" : [</span><br><span class="line">                &#123;</span><br><span class="line">                        "role" : "dbOwner",</span><br><span class="line">                        "db" : "questionnaire"</span><br><span class="line">                &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>重启MongoDB</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mongod</span><br></pre></td></tr></table></figure>
+<p>这里模拟一个业务场景，通过一个Praying注解，实现指定方法，在调用前会打印祈祷语句。</p>
+<p>首先，自定义注解:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME) <span class="comment">//保留策略: 保留到运行时</span></span><br><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)         <span class="comment">//标记为方法上的注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Praying &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>远程登录mongodb，推荐使用MongoDB Campass<br><img src="/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png" alt="登录"></p>
-<h2 id="springboot集成mongodb"><a href="#springboot集成mongodb" class="headerlink" title="springboot集成mongodb"></a>springboot集成mongodb</h2><p>添加pom依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>配置数据库信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># MongoDB config</span><br><span class="line">spring.data.mongodb.host= 你的服务器IP</span><br><span class="line">spring.data.mongodb.port= 27017 </span><br><span class="line">spring.data.mongodb.database= 数据库明</span><br><span class="line">spring.data.mongodb.username= 账号</span><br><span class="line">spring.data.mongodb.password= 密码</span><br></pre></td></tr></table></figure>
+<p>开发接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Develop</span>  </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">code</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>DAO示例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuestionnaireDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MongoTemplate mongoTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">save</span><span class="params">(Questionnaire questionnaire)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mongoTemplate.save(questionnaire) !=<span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Questionnaire&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mongoTemplate.findAll(Questionnaire.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Java程序员类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaDeveloper</span> <span class="keyword">implements</span> <span class="title">Develop</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JavaDeveloper</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">code</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">this</span>.name + <span class="string">" is coding java"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Praying</span>(<span class="string">"佛祖保佑，永无Bug"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debug</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">this</span>.name + <span class="string">" is debugging java"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>参考文档：</p>
-<p><a href="https://blog.csdn.net/github_39457740/article/details/84076610" target="_blank" rel="noopener">mongoDB之创建用户与认证模式启动</a></p>
-<p><a href="https://blog.csdn.net/u012373281/article/details/93747350" target="_blank" rel="noopener">springboot整合mongodb，并配置账户名和密码登录验证</a></p>
+<hr>
+<p>使用Java的动态代理机制 + 反射，对Praying注解的方法实现特殊处理:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeveloperProxy</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> JavaDeveloper developer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">newProxy</span><span class="params">(JavaDeveloper developer)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.developer = developer;</span><br><span class="line">        <span class="keyword">return</span>  Proxy.newProxyInstance(developer.getClass().getClassLoader(),developer.getClass().getInterfaces(),<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line"></span><br><span class="line">        Praying praying = developer.getClass().getMethod(method.getName(), <span class="keyword">null</span>).getAnnotation(Praying.class);</span><br><span class="line">        <span class="keyword">if</span>(praying != <span class="keyword">null</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">"-----------祈祷技能------------------"</span>);</span><br><span class="line">            System.out.println(praying.value());</span><br><span class="line">            System.out.println(<span class="string">"-------------------------------------"</span>);</span><br><span class="line">            <span class="keyword">return</span> method.invoke(developer,args);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> method.invoke(developer,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">---</span><br><span class="line">测试一下:</span><br><span class="line">```java</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        JavaDeveloper developer = <span class="keyword">new</span> JavaDeveloper(<span class="string">"Mingor"</span>);</span><br><span class="line">        Develop mingorProxy = (Develop) <span class="keyword">new</span> DeveloperProxy().newProxy(developer);</span><br><span class="line"></span><br><span class="line">        mingorProxy.code();</span><br><span class="line">        mingorProxy.debug();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：<br><img src="/2019/10/15/java动态代理/10/15/java动态代理/0.png" alt="运行结果"></p>
+<p>```</p>
+<p>参考文章:</p>
+<p><a href="https://www.jianshu.com/p/95970b089360" target="_blank" rel="noopener">你真的完全了解Java动态代理吗？看这篇就够了</a></p>
 
       
 
@@ -275,7 +263,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思考</a>
         		</li>
       		
 		</ul>
@@ -331,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/15/java动态代理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -345,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/15/java动态代理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java动态代理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/12/centos安装MongoDB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">centos安装MongoDB</div>
+    <a href="/2019/10/12/springboot集成MongoDB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot集成MongoDB</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -383,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#首先，修改配文件："><span class="toc-number">1.</span> <span class="toc-text">首先，修改配文件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springboot集成mongodb"><span class="toc-number">2.</span> <span class="toc-text">springboot集成mongodb</span></a></li></ol>
+                    该目录为空
                     </div>
                 </span>
             </div>
