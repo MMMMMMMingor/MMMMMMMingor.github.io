@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="当初学Java的时候就对神秘的 native 关键字满怀好奇，今天就来揭开 native 关键字的神秘面纱吧！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/10/08/Java-jni体验/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/10/08/Java-jni体验/1.png">
 <meta property="og:updated_time" content="2019-10-12T02:28:01.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java jni体验">
 <meta name="twitter:description" content="当初学Java的时候就对神秘的 native 关键字满怀好奇，今天就来揭开 native 关键字的神秘面纱吧！">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/08/Java-jni体验/10/08/Java-jni体验/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -63,7 +63,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/Java-Web/">Java</a></li>
+				<li><a href="/tags/Java/">Java</a></li>
 	        
 				<li><a href="/tags/数据库/">数据库</a></li>
 	        
@@ -159,7 +159,7 @@
 				
 					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/Java-Web/">Java</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/Java/">Java</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/数据库/">数据库</a></li>
 		        
@@ -208,7 +208,7 @@
 <a id="more"></a>
 <p><strong>native 即人们常说的 jni（Java native interface)</strong></p>
 <p>jni是Java调用本地方法（主要是操作系统调用和c/c++第三方接口）的手段。</p>
-<p><img src="/2019/10/08/Java-jni体验/0.png" alt="网上盗了张图"><br>由于还没有编写对应的文件，所以不能运行。</p>
+<p><img src="/2019/10/08/Java-jni体验/10/08/Java-jni体验/0.png" alt="网上盗了张图"><br>由于还没有编写对应的文件，所以不能运行。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 共享库文件（Linux为.so, Windows为.dll）</span></span><br><span class="line">        System.loadLibrary(<span class="string">"HelloJni"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">// native方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"static-access"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> HelloJni().sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>根据生成的class文件，获取需要被实现的jni文件（c/cpp头文件）。</p>
@@ -224,7 +224,7 @@
 <p>使用gcc编译</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wl,--add-stdcall-alias -I"<span class="variable">%JAVA_HOME%</span>\include" -I"<span class="variable">%JAVA_HOME%</span>\include\win32" -shared -o HelloJni.dll HelloJNI.cpp</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/10/08/Java-jni体验/1.png" alt="dll文件"></p>
+<p><img src="/2019/10/08/Java-jni体验/10/08/Java-jni体验/1.png" alt="dll文件"></p>
 <hr>
 <p>现在就可以运行class文件了</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloJni</span><br></pre></td></tr></table></figure>
@@ -501,10 +501,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java-Web</a>
               </li>
              
               <li class="article-tag-list-item">
