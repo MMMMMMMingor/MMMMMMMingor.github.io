@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>springboot解决Access-Control-Allow-Origin跨域请求问题 | Mingor的博客</title>
+  <title>gitignore不生效问题 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
-<meta name="keywords" content="踩坑,Java">
+  <meta name="description" content="今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。">
+<meta name="keywords" content="技巧">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/index.html">
+<meta property="og:title" content="gitignore不生效问题">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/22/gitignore不生效问题/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
+<meta property="og:description" content="今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-12T02:29:11.998Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/22/gitignore不生效问题/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/22/gitignore不生效问题/1.png">
+<meta property="og:updated_time" content="2019-10-22T10:52:03.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
-<meta name="twitter:description" content="springboot解决Access-Control-Allow-Origin跨域请求问题">
+<meta name="twitter:title" content="gitignore不生效问题">
+<meta name="twitter:description" content="今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/22/gitignore不生效问题/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -181,28 +184,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springboot解决Access-Control-Allow-Origin跨域请求问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-gitignore不生效问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      springboot解决Access-Control-Allow-Origin跨域请求问题
+      gitignore不生效问题
     </h1>
   
 
         
-        <a href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" class="archive-article-date">
-  	<time datetime="2019-07-09T04:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
+        <a href="/2019/10/22/gitignore不生效问题/" class="archive-article-date">
+  	<time datetime="2019-10-22T10:41:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="springboot解决Access-Control-Allow-Origin跨域请求问题"><a href="#springboot解决Access-Control-Allow-Origin跨域请求问题" class="headerlink" title="springboot解决Access-Control-Allow-Origin跨域请求问题"></a>springboot解决Access-Control-Allow-Origin跨域请求问题</h3><a id="more"></a>
-<h2 id="通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题"><a href="#通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题" class="headerlink" title="通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题"></a>通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题</h2><h3 id="通过继承Filter类实现自定义CrossFilter"><a href="#通过继承Filter类实现自定义CrossFilter" class="headerlink" title="通过继承Filter类实现自定义CrossFilter"></a>通过继承Filter类实现自定义CrossFilter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        HttpServletResponse response = (HttpServletResponse) res;</span><br><span class="line"></span><br><span class="line">        HttpServletRequest reqs = (HttpServletRequest) req;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// response.setHeader("Access-Control-Allow-Origin",reqs.getHeader("Origin"));</span></span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Credentials"</span>, <span class="string">"true"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"POST, GET, PATCH, DELETE, PUT"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Max-Age"</span>, <span class="string">"3600"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Origin, X-Requested-With, Content-Type, Accept"</span>);</span><br><span class="line">        chain.doFilter(req, res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。</p>
+<a id="more"></a>
+<p>首先，确保你的项目目录下有.gitignore文件，并且填写了需要忽略的文件名，例如 /target/.<br><img src="/2019/10/22/gitignore不生效问题/0.png" alt=".gitignore"></p>
+<p><img src="/2019/10/22/gitignore不生效问题/1.png" alt="target文件"></p>
+<hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 先清空，在重新添加</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m "add .gitignore file"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 推送到远程服务器</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
       
 
       
@@ -236,11 +243,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
         		</li>
       		
 		</ul>
@@ -296,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/22/gitignore不生效问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +313,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/12/swagger-自动生成接口文档/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          swagger 自动生成接口文档
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/08/mybatis逆向工程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mybatis逆向工程</div>
+    <a href="/2019/10/15/java动态代理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java动态代理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -348,7 +342,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#springboot解决Access-Control-Allow-Origin跨域请求问题"><span class="toc-number">1.</span> <span class="toc-text">springboot解决Access-Control-Allow-Origin跨域请求问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题"><span class="toc-number"></span> <span class="toc-text">通过配置过滤器Filter解决跨域请求Access-Control-Allow-Origin问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过继承Filter类实现自定义CrossFilter"><span class="toc-number">1.</span> <span class="toc-text">通过继承Filter类实现自定义CrossFilter</span></a></li></ol>
+                    该目录为空
                     </div>
                 </span>
             </div>
