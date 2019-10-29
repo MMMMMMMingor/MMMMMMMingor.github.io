@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Mingor的博客</title>
+  <title>自制spring-boot starter | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的博客">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/page/2/index.html">
+  <meta name="description" content="最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。">
+<meta name="keywords" content="Java,思考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自制spring-boot starter">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="Mingor&apos;s hub">
+<meta property="og:description" content="最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/3.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/4.png">
+<meta property="og:updated_time" content="2019-10-29T01:57:29.648Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的博客">
-<meta name="twitter:description" content="Mingor&apos;s hub">
+<meta name="twitter:title" content="自制spring-boot starter">
+<meta name="twitter:description" content="最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -193,106 +201,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-frp实现内网穿透" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-自制spring-boot-starter" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/frp实现内网穿透/">frp实现内网穿透</a>
+    <h1 class="article-title" itemprop="name">
+      自制spring-boot starter
     </h1>
   
 
         
-        <a href="/2019/10/01/frp实现内网穿透/" class="archive-article-date">
-  	<time datetime="2019-10-01T08:45:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
+        <a href="/2019/10/28/自制spring-boot-starter/" class="archive-article-date">
+  	<time datetime="2019-10-28T14:56:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用frp内网穿透控制家里的树莓派，这样即便在外面也可以随时控制树莓派，然后看到家里的一举一动了。</p>
-        
+        <p>最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="制作自制的-spring-boot-starter"><a href="#制作自制的-spring-boot-starter" class="headerlink" title="制作自制的 spring boot starter"></a>制作自制的 spring boot starter</h2><ul>
+<li>首先，创建一个maven项目，</li>
+</ul>
+<p><img src="/2019/10/28/自制spring-boot-starter/0.png" alt="新建Maven项目"></p>
+<p>在pom.xml中添加自动配置依赖.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编写配置类，ConfigurationProperties注解中的 prefix， 可以安全地注入application.properties 中的内容到Bean中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String msg ;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>编写服务类，<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello "</span> + msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>自动装配类，自动将HelloServiceProperties的配置注入到HelloService Bean中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(HelloServiceProperties.class)</span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(HelloService.class)</span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>(prefix = <span class="string">"hello"</span>, value = <span class="string">"enabled"</span>, havingValue = <span class="string">"true"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceAutoConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HelloServiceProperties helloServiceProperties;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span>(HelloService.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> HelloService <span class="title">helloService</span><span class="params">()</span></span>&#123;</span><br><span class="line">        HelloService helloService = <span class="keyword">new</span> HelloService();</span><br><span class="line">        helloService.setMsg(helloServiceProperties.getMsg());</span><br><span class="line">        <span class="keyword">return</span> helloService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在resources中新建META-INF文件夹，并在新建spring.factories文件中添加自动配置依赖。<br><img src="/2019/10/28/自制spring-boot-starter/1.png" alt="添加自动配置"></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration = \</span><br><span class="line">com.mingor.HelloServiceAutoConfiguration</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最后，使用 mvn install 或者idea 右侧的可视化插件进行打包部署到本地mvn仓库。<br><img src="/2019/10/28/自制spring-boot-starter/2.png" alt="打包部署"></li>
+</ul>
+<hr>
+<h2 id="使用自制的-spring-boot-starter"><a href="#使用自制的-spring-boot-starter" class="headerlink" title="使用自制的 spring boot starter"></a>使用自制的 spring boot starter</h2><ul>
+<li>首先，创建一个空的 spring boot 项目。</li>
+</ul>
+<p><img src="/2019/10/28/自制spring-boot-starter/3.png" alt="新建spring boot项目"></p>
+<ul>
+<li><p>在 pom.xml 添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.mingor<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hello-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 application.properties 中添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello.msg = mingor</span><br><span class="line">hello.enabled = true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写测试用例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HelloService helloService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(helloService.sayHello());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/28/自制spring-boot-starter/4.png" alt="运行结果"></p>
+
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/frp实现内网穿透/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java容器的缺点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/26/java容器的缺点/">java容器的缺点</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/26/java容器的缺点/" class="archive-article-date">
-  	<time datetime="2019-09-26T15:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天在刷leetcode时，突然发现了Java容器的缺点，其实应该说时Java只有值(地址)传递的内存机制的缺点…</p>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -316,16 +321,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/26/java容器的缺点/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/24/alpha-beta剪枝/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">alpha-beta剪枝</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -340,621 +404,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nginx反向代理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/nginx反向代理/">nginx反向代理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/02/nginx反向代理/" class="archive-article-date">
-  	<time datetime="2019-09-02T03:16:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用nginx反向代理-二级域名实现端口共用"><a href="#使用nginx反向代理-二级域名实现端口共用" class="headerlink" title="使用nginx反向代理 + 二级域名实现端口共用"></a>使用nginx反向代理 + 二级域名实现端口共用</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/02/nginx反向代理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#制作自制的-spring-boot-starter"><span class="toc-number">1.</span> <span class="toc-text">制作自制的 spring boot starter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用自制的-spring-boot-starter"><span class="toc-number">2.</span> <span class="toc-text">使用自制的 spring boot starter</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-webbench网站压力测试工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/10/webbench网站压力测试工具/">webbench网站压力测试工具</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/10/webbench网站压力测试工具/" class="archive-article-date">
-  	<time datetime="2019-08-10T10:25:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于数据库课程设计要求对成品进行测试，所以找到了webbench这款网站压力测试软件。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/10/webbench网站压力测试工具/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis的安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/09/redis的安装/">redis的安装(windows、linux)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/09/redis的安装/" class="archive-article-date">
-  	<time datetime="2019-08-09T05:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下windows10和centos7下redis的安装"><a href="#记录一下windows10和centos7下redis的安装" class="headerlink" title="记录一下windows10和centos7下redis的安装"></a>记录一下windows10和centos7下redis的安装</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/09/redis的安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ssh免密码登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/08/ssh免密码登录/">ssh免密码登录</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/08/ssh免密码登录/" class="archive-article-date">
-  	<time datetime="2019-08-08T06:58:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。"><a href="#突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。" class="headerlink" title="突然发现有很长一段时间没有水写文章了，所以有了这篇文章。。"></a>突然发现有很长一段时间没有<del>水</del>写文章了，所以有了这篇文章。。</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/08/ssh免密码登录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用mono跨平台远程调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/使用mono跨平台远程调试/">使用mono跨平台远程调试</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/23/使用mono跨平台远程调试/" class="archive-article-date">
-  	<time datetime="2019-07-23T02:08:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下使用mono-开源的跨平台-net-framework远程调试-所遇到的一些坑。"><a href="#记录一下使用mono-开源的跨平台-net-framework远程调试-所遇到的一些坑。" class="headerlink" title="记录一下使用mono(开源的跨平台.net framework远程调试)所遇到的一些坑。"></a>记录一下使用mono(开源的跨平台.net framework远程调试)所遇到的一些坑。</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/使用mono跨平台远程调试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-centos-docker踩坑记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/19/centos-docker踩坑记录/">centos下docker踩坑记录</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/19/centos-docker踩坑记录/" class="archive-article-date">
-  	<time datetime="2019-07-19T10:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="记录一下centos下docker安装的踩坑记录"><a href="#记录一下centos下docker安装的踩坑记录" class="headerlink" title="记录一下centos下docker安装的踩坑记录"></a>记录一下centos下docker安装的踩坑记录</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/19/centos-docker踩坑记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-swagger-自动生成接口文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/12/swagger-自动生成接口文档/">swagger 自动生成接口文档</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/12/swagger-自动生成接口文档/" class="archive-article-date">
-  	<time datetime="2019-07-12T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="SpringMVC使用swagger自动生成接口文档"><a href="#SpringMVC使用swagger自动生成接口文档" class="headerlink" title="SpringMVC使用swagger自动生成接口文档"></a>SpringMVC使用swagger自动生成接口文档</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/12/swagger-自动生成接口文档/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springboot解决Access-Control-Allow-Origin跨域请求问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/">springboot解决Access-Control-Allow-Origin跨域请求问题</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" class="archive-article-date">
-  	<time datetime="2019-07-09T04:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="springboot解决Access-Control-Allow-Origin跨域请求问题"><a href="#springboot解决Access-Control-Allow-Origin跨域请求问题" class="headerlink" title="springboot解决Access-Control-Allow-Origin跨域请求问题"></a>springboot解决Access-Control-Allow-Origin跨域请求问题</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -977,8 +452,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
