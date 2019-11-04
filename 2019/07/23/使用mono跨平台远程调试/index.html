@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="记录一下使用mono(开源的跨平台.net framework远程调试)所遇到的一些坑。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/1.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/3.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/5.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/6.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/4.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/3.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/5.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/6.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/4.png">
 <meta property="og:updated_time" content="2019-10-22T15:14:09.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用mono跨平台远程调试">
 <meta name="twitter:description" content="记录一下使用mono(开源的跨平台.net framework远程调试)所遇到的一些坑。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -225,11 +225,11 @@
       
         <h3 id="记录一下使用mono-开源的跨平台-net-framework远程调试-所遇到的一些坑。"><a href="#记录一下使用mono-开源的跨平台-net-framework远程调试-所遇到的一些坑。" class="headerlink" title="记录一下使用mono(开源的跨平台.net framework远程调试)所遇到的一些坑。"></a>记录一下使用mono(开源的跨平台.net framework远程调试)所遇到的一些坑。</h3><a id="more"></a>
 <h3 id="如果Linux还没有下载Mono，可根据-https-www-mono-project-com-download-stable-download-lin-下载。"><a href="#如果Linux还没有下载Mono，可根据-https-www-mono-project-com-download-stable-download-lin-下载。" class="headerlink" title="如果Linux还没有下载Mono，可根据 https://www.mono-project.com/download/stable/#download-lin 下载。"></a>如果Linux还没有下载Mono，可根据 <a href="https://www.mono-project.com/download/stable/#download-lin" target="_blank" rel="noopener">https://www.mono-project.com/download/stable/#download-lin</a> 下载。</h3><hr>
-<h2 id="Mono远程调试的使用"><a href="#Mono远程调试的使用" class="headerlink" title="Mono远程调试的使用"></a>Mono远程调试的使用</h2><h3 id="首先在visual-studio上下载VSMonoDebugger插件，下载完成后重启VS。"><a href="#首先在visual-studio上下载VSMonoDebugger插件，下载完成后重启VS。" class="headerlink" title="首先在visual studio上下载VSMonoDebugger插件，下载完成后重启VS。"></a>首先在visual studio上下载VSMonoDebugger插件，下载完成后重启VS。</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/0.png" alt="下载插件"> </p>
-<h3 id="下载完成后重新打开VS，在上方可选项中点击-扩展-Mono-Settings"><a href="#下载完成后重新打开VS，在上方可选项中点击-扩展-Mono-Settings" class="headerlink" title="下载完成后重新打开VS，在上方可选项中点击 扩展/Mono/Settings"></a>下载完成后重新打开VS，在上方可选项中点击 扩展/Mono/Settings</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/1.png" alt="设置"> </p>
-<h3 id="根据自身信息按照如下进行配置，Remote-Deploy-Path根据自身要求进行配置-建议每位小组成员配置单独的一个文件名，以免冲突"><a href="#根据自身信息按照如下进行配置，Remote-Deploy-Path根据自身要求进行配置-建议每位小组成员配置单独的一个文件名，以免冲突" class="headerlink" title="根据自身信息按照如下进行配置，Remote Deploy Path根据自身要求进行配置(建议每位小组成员配置单独的一个文件名，以免冲突)"></a>根据自身信息按照如下进行配置，Remote Deploy Path根据自身要求进行配置(建议每位小组成员配置单独的一个文件名，以免冲突)</h3><h2 id><a href="#" class="headerlink" title=" "></a><img src="/2019/07/23/使用mono跨平台远程调试/2.png" alt="设置"> </h2><h3 id="配置完成后，点击扩展-Mono-Deploy-and-Debug-即可完成部署并且远程调试"><a href="#配置完成后，点击扩展-Mono-Deploy-and-Debug-即可完成部署并且远程调试" class="headerlink" title="配置完成后，点击扩展/Mono/Deploy and Debug 即可完成部署并且远程调试"></a>配置完成后，点击扩展/Mono/Deploy and Debug 即可完成部署并且远程调试</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/3.png" alt="部署并且调试"> </p>
-<h3 id="使用断点调试结果-可打好断点后，再进行部署调试"><a href="#使用断点调试结果-可打好断点后，再进行部署调试" class="headerlink" title="使用断点调试结果(可打好断点后，再进行部署调试)"></a>使用断点调试结果(可打好断点后，再进行部署调试)</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/5.png" alt="查看部署结果"> </p>
-<h3 id="远程返回的结果"><a href="#远程返回的结果" class="headerlink" title="远程返回的结果"></a>远程返回的结果</h3><h2 id="-1"><a href="#-1" class="headerlink" title=" "></a><img src="/2019/07/23/使用mono跨平台远程调试/6.png" alt="查看部署结果"> </h2><h3 id="使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。"><a href="#使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。" class="headerlink" title="使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。"></a>使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/4.png" alt="查看部署结果"> </p>
+<h2 id="Mono远程调试的使用"><a href="#Mono远程调试的使用" class="headerlink" title="Mono远程调试的使用"></a>Mono远程调试的使用</h2><h3 id="首先在visual-studio上下载VSMonoDebugger插件，下载完成后重启VS。"><a href="#首先在visual-studio上下载VSMonoDebugger插件，下载完成后重启VS。" class="headerlink" title="首先在visual studio上下载VSMonoDebugger插件，下载完成后重启VS。"></a>首先在visual studio上下载VSMonoDebugger插件，下载完成后重启VS。</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/0.png" alt="下载插件"> </p>
+<h3 id="下载完成后重新打开VS，在上方可选项中点击-扩展-Mono-Settings"><a href="#下载完成后重新打开VS，在上方可选项中点击-扩展-Mono-Settings" class="headerlink" title="下载完成后重新打开VS，在上方可选项中点击 扩展/Mono/Settings"></a>下载完成后重新打开VS，在上方可选项中点击 扩展/Mono/Settings</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/1.png" alt="设置"> </p>
+<h3 id="根据自身信息按照如下进行配置，Remote-Deploy-Path根据自身要求进行配置-建议每位小组成员配置单独的一个文件名，以免冲突"><a href="#根据自身信息按照如下进行配置，Remote-Deploy-Path根据自身要求进行配置-建议每位小组成员配置单独的一个文件名，以免冲突" class="headerlink" title="根据自身信息按照如下进行配置，Remote Deploy Path根据自身要求进行配置(建议每位小组成员配置单独的一个文件名，以免冲突)"></a>根据自身信息按照如下进行配置，Remote Deploy Path根据自身要求进行配置(建议每位小组成员配置单独的一个文件名，以免冲突)</h3><h2 id><a href="#" class="headerlink" title=" "></a><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/2.png" alt="设置"> </h2><h3 id="配置完成后，点击扩展-Mono-Deploy-and-Debug-即可完成部署并且远程调试"><a href="#配置完成后，点击扩展-Mono-Deploy-and-Debug-即可完成部署并且远程调试" class="headerlink" title="配置完成后，点击扩展/Mono/Deploy and Debug 即可完成部署并且远程调试"></a>配置完成后，点击扩展/Mono/Deploy and Debug 即可完成部署并且远程调试</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/3.png" alt="部署并且调试"> </p>
+<h3 id="使用断点调试结果-可打好断点后，再进行部署调试"><a href="#使用断点调试结果-可打好断点后，再进行部署调试" class="headerlink" title="使用断点调试结果(可打好断点后，再进行部署调试)"></a>使用断点调试结果(可打好断点后，再进行部署调试)</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/5.png" alt="查看部署结果"> </p>
+<h3 id="远程返回的结果"><a href="#远程返回的结果" class="headerlink" title="远程返回的结果"></a>远程返回的结果</h3><h2 id="-1"><a href="#-1" class="headerlink" title=" "></a><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/6.png" alt="查看部署结果"> </h2><h3 id="使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。"><a href="#使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。" class="headerlink" title="使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。"></a>使用ssh登录服务器后，进入相应的文件夹，即可看到部署结果。</h3><p><img src="/2019/07/23/使用mono跨平台远程调试/07/23/使用mono跨平台远程调试/4.png" alt="查看部署结果"> </p>
 
       
 
@@ -488,10 +488,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -500,7 +496,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,7 +512,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,14 +525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
             
             <div class="clearfix"></div>
