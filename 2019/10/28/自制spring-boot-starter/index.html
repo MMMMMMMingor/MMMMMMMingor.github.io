@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/2.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/3.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/4.png">
-<meta property="og:updated_time" content="2019-10-29T01:57:29.648Z">
+<meta property="og:updated_time" content="2019-10-29T02:20:40.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自制spring-boot starter">
 <meta name="twitter:description" content="最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。">
@@ -274,6 +274,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HelloService helloService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(helloService.sayHello());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/10/28/自制spring-boot-starter/4.png" alt="运行结果"></p>
+<hr>
+<p>参考资料：</p>
+<p>《Spring Boot 实战》-汪云飞</p>
+<p><a href="https://www.cnblogs.com/yuansc/p/9088212.html" target="_blank" rel="noopener">编写自己的SpringBoot-starter</a></p>
 
       
 
@@ -381,6 +385,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/11/04/压力测试工具Jmeter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          压力测试工具Jmeter
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/24/alpha-beta剪枝/" id="article-nav-older" class="article-nav-link-wrap">
@@ -523,7 +536,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,15 +544,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +556,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
             
             <div class="clearfix"></div>

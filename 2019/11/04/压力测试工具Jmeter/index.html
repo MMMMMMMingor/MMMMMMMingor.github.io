@@ -6,18 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Archives | Mingor的博客</title>
+  <title>压力测试工具Jmeter | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的博客">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/archives/page/3/index.html">
+  <meta name="description" content="好久没来水文章了，今天来水一篇Jmeter压力测试工具的使用。  Jmeter下载 Jmeter使用 导出Jmeter测试结果   Jmeter下载注意：使用Jemter需要有Java8及以上的jre，因为Jmeter是基于Java的，所以是跨平台的。 Jmeter 官网    Jmeter使用 双击 bin 目录下的 ApacheJMeter.jar即可运行。（或者下面的bat文件）   创建">
+<meta name="keywords" content="Web,测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="压力测试工具Jmeter">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="Mingor&apos;s hub">
+<meta property="og:description" content="好久没来水文章了，今天来水一篇Jmeter压力测试工具的使用。  Jmeter下载 Jmeter使用 导出Jmeter测试结果   Jmeter下载注意：使用Jemter需要有Java8及以上的jre，因为Jmeter是基于Java的，所以是跨平台的。 Jmeter 官网    Jmeter使用 双击 bin 目录下的 ApacheJMeter.jar即可运行。（或者下面的bat文件）   创建">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/3.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/4.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/5.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/6.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/7.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/8.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/9.png">
+<meta property="og:updated_time" content="2019-11-04T03:20:10.198Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的博客">
-<meta name="twitter:description" content="Mingor&apos;s hub">
+<meta name="twitter:title" content="压力测试工具Jmeter">
+<meta name="twitter:description" content="好久没来水文章了，今天来水一篇Jmeter压力测试工具的使用。  Jmeter下载 Jmeter使用 导出Jmeter测试结果   Jmeter下载注意：使用Jemter需要有Java8及以上的jre，因为Jmeter是基于Java的，所以是跨平台的。 Jmeter 官网    Jmeter使用 双击 bin 目录下的 ApacheJMeter.jar即可运行。（或者下面的bat文件）   创建">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -193,273 +206,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-压力测试工具Jmeter" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      压力测试工具Jmeter
+    </h1>
+  
+
+        
+        <a href="/2019/11/04/压力测试工具Jmeter/" class="archive-article-date">
+  	<time datetime="2019-11-04T02:29:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p>好久没来水文章了，今天来水一篇Jmeter压力测试工具的使用。</p>
+<ul>
+<li><a href="#1">Jmeter下载</a></li>
+<li><a href="#2">Jmeter使用</a></li>
+<li><a href="#3">导出Jmeter测试结果</a></li>
+</ul>
+<p><span id="1"></span></p>
+<h3 id="Jmeter下载"><a href="#Jmeter下载" class="headerlink" title="Jmeter下载"></a>Jmeter下载</h3><p>注意：使用Jemter需要有Java8及以上的jre，因为Jmeter是基于Java的，所以是跨平台的。</p>
+<p><a href="https://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="noopener">Jmeter 官网</a></p>
+<p><img src="/2019/11/04/压力测试工具Jmeter/0.png" alt="官网下载"></p>
+<hr>
+<p><span id="2"></span></p>
+<h3 id="Jmeter使用"><a href="#Jmeter使用" class="headerlink" title="Jmeter使用"></a>Jmeter使用</h3><ul>
+<li>双击 bin 目录下的 ApacheJMeter.jar即可运行。（或者下面的bat文件）<br><img src="/2019/11/04/压力测试工具Jmeter/1.png" alt="启动"></li>
+</ul>
+<ul>
+<li><p>创建线程组：<br><img src="/2019/11/04/压力测试工具Jmeter/2.png" alt="创建线程组"></p>
+</li>
+<li><p>其中Ramp-Up为线程在多长时间内全部启动（根据自己的机器选择线程数量，我的笔记本比较垃圾，开10个就好了/(ㄒoㄒ)/~~）<br><img src="/2019/11/04/压力测试工具Jmeter/3.png" alt="创建线程组"></p>
+</li>
+<li><p>添加测试（这里以http测试为例）<br><img src="/2019/11/04/压力测试工具Jmeter/4.png" alt="创建测试用例"><br>以 百度作为测试对象<br><img src="/2019/11/04/压力测试工具Jmeter/5.png" alt="创建测试用例"></p>
+</li>
+<li><p>添加监听器（用于查看测试结果，我添加的是下述3个）<br><img src="/2019/11/04/压力测试工具Jmeter/6.png" alt="添加监听器"></p>
+</li>
+<li><p>点击上方绿色箭头运行，（首次运行时，需要保存测试配置）<br><img src="/2019/11/04/压力测试工具Jmeter/7.png" alt="运行"></p>
+</li>
+</ul>
+<hr>
+<p><span id="3"></span></p>
+<h3 id="导出测试结果"><a href="#导出测试结果" class="headerlink" title="导出测试结果"></a>导出测试结果</h3><p>首先，进入到Jmeter的bin目录下。</p>
+<p>请根据自己的配置文件保存的路径，运行以下命令</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\jmeter -n -t  C:\Users\Mingor\Desktop\httpdemo.jmx -l C:\Users\Mingor\Desktop\log -e -o C:\Users\Mingor\Desktop\output</span><br></pre></td></tr></table></figure>
+
+<p>注意，上述的线程组配置不能是永远，否则会死循环，卡死。<br><img src="/2019/11/04/压力测试工具Jmeter/8.png" alt="导出"></p>
+<p>点击即可查看运行结果<br><img src="/2019/11/04/压力测试工具Jmeter/9.png" alt="导出结果"></p>
+<p>参考资料：</p>
+<p><a href="https://www.bilibili.com/video/av74483959/" target="_blank" rel="noopener">【测试】压测工具jmeter与压测平台xmeter介绍</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/" class="archive-article-date">
-  	<time datetime="2019-07-09T04:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/springboot解决Access-Control-Allow-Origin跨域请求问题/">springboot解决Access-Control-Allow-Origin跨域请求问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/11/04/压力测试工具Jmeter/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/mybatis逆向工程/" class="archive-article-date">
-  	<time datetime="2019-07-08T11:35:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/28/自制spring-boot-starter/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自制spring-boot starter</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/mybatis逆向工程/">mybatis逆向工程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jmeter下载"><span class="toc-number">1.</span> <span class="toc-text">Jmeter下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jmeter使用"><span class="toc-number">2.</span> <span class="toc-text">Jmeter使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出测试结果"><span class="toc-number">3.</span> <span class="toc-text">导出测试结果</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/03/Windows10下安装jdk8/" class="archive-article-date">
-  	<time datetime="2019-07-03T13:36:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/03/Windows10下安装jdk8/">Windows10下安装jdk8</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/22/windows安装maven/" class="archive-article-date">
-  	<time datetime="2019-06-22T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/22/windows安装maven/">Windows10下maven的安装以及自定义仓库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/21/windows下的mysql安装/" class="archive-article-date">
-  	<time datetime="2019-06-21T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/21/windows下的mysql安装/">Windows10下MySQL数据库的安装以及配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/10/暑期目标/" class="archive-article-date">
-  	<time datetime="2019-06-10T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/10/暑期目标/">2019暑期计划</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -483,8 +443,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
