@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Tag: 测试 | Mingor的博客</title>
+  <title>Java实现布隆过滤器 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的博客">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/tags/测试/index.html">
+  <meta name="description" content="好久之前就已经听说过布隆过滤器了，当视一听这个概念还以为是很高深的算法，没想到原来如此简单。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java实现布隆过滤器">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/11/05/Java实现布隆过滤器/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="Mingor&apos;s hub">
+<meta property="og:description" content="好久之前就已经听说过布隆过滤器了，当视一听这个概念还以为是很高深的算法，没想到原来如此简单。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/05/Java实现布隆过滤器/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/05/Java实现布隆过滤器/0.png">
+<meta property="og:updated_time" content="2019-11-05T14:44:17.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的博客">
-<meta name="twitter:description" content="Mingor&apos;s hub">
+<meta name="twitter:title" content="Java实现布隆过滤器">
+<meta name="twitter:description" content="好久之前就已经听说过布隆过滤器了，当视一听这个概念还以为是很高深的算法，没想到原来如此简单。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/05/Java实现布隆过滤器/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -203,64 +208,208 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java实现布隆过滤器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/04/压力测试工具Jmeter/" class="archive-article-date">
-  	<time datetime="2019-11-04T02:29:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/04/压力测试工具Jmeter/">压力测试工具Jmeter</a>
+    <h1 class="article-title" itemprop="name">
+      Java实现布隆过滤器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/05/Java实现布隆过滤器/" class="archive-article-date">
+  	<time datetime="2019-11-05T14:24:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好久之前就已经听说过布隆过滤器了，当视一听这个概念还以为是很高深的算法，没想到原来如此简单。</p>
+<a id="more"></a>
+<ul>
+<li><a href="#1">介绍</a></li>
+<li><a href="#2">实现</a></li>
+</ul>
+<p><span id="1"></span></p>
+<h2 id="布隆过滤器介绍"><a href="#布隆过滤器介绍" class="headerlink" title="布隆过滤器介绍"></a>布隆过滤器介绍</h2><ol>
+<li><p>原理：通过多个hash函数进行对同一个对象的映射，每个哈希函数都得到一个值，该值将作为 <strong><em>bitmap</em></strong>（初始化bit全为0） 上对应的一个 bit 的索引，将对应的索引的bit置为1，进而多个hash函数可以组合出多个bit.</p>
+</li>
+<li><p>作用：大幅度减少内存空间的使用。</p>
+</li>
+<li><p>缺点：返回值为true是，实际上不一定为true（但是true的可能很大）<br>但返回值为false时，则实际上一定是false。</p>
+</li>
+</ol>
+<p>原理如下图所示。<br><img src="/2019/11/05/Java实现布隆过滤器/1.png" alt></p>
+<p><span id="2"></span></p>
+<h2 id="布隆过滤器Java代码实现"><a href="#布隆过滤器Java代码实现" class="headerlink" title="布隆过滤器Java代码实现"></a>布隆过滤器Java代码实现</h2><hr>
+<h3 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashFunction</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> seed;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HashFunction</span><span class="params">(<span class="keyword">int</span> seed, <span class="keyword">int</span> capacity)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.seed = seed;</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(String in)</span></span>&#123;</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = in.getBytes();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> b : bytes) &#123;</span><br><span class="line">            result = seed*result + b;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        result = (capacity-<span class="number">1</span>) &amp; result;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="BloomFilter（布隆过滤器类）"><a href="#BloomFilter（布隆过滤器类）" class="headerlink" title="BloomFilter（布隆过滤器类）"></a>BloomFilter（布隆过滤器类）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BloomFilter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity = <span class="number">2</span> &lt;&lt; <span class="number">24</span>;</span><br><span class="line">    <span class="keyword">private</span> BitSet bitmap = <span class="keyword">new</span> BitSet(capacity);</span><br><span class="line">    <span class="keyword">private</span> List&lt;HashFunction&gt; hashFunctions = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BloomFilter</span><span class="params">(<span class="keyword">int</span>[] seeds)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> seed : seeds) &#123;</span><br><span class="line">            <span class="keyword">this</span>.hashFunctions.add(<span class="keyword">new</span> HashFunction(seed, <span class="keyword">this</span>.capacity));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(String in)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (HashFunction hashFunction : <span class="keyword">this</span>.hashFunctions) &#123;</span><br><span class="line">            <span class="keyword">this</span>.bitmap.set(hashFunction.hash(in));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">get</span><span class="params">(String in)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (HashFunction hashFunction : <span class="keyword">this</span>.hashFunctions) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.bitmap.get(hashFunction.hash(in))) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        BloomFilter bloomFilter = <span class="keyword">new</span> BloomFilter(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">31</span>&#125;);</span><br><span class="line"></span><br><span class="line">        bloomFilter.set(<span class="string">"123"</span>);</span><br><span class="line">        bloomFilter.set(<span class="string">"456"</span>);</span><br><span class="line">        bloomFilter.set(<span class="string">"789"</span>);</span><br><span class="line">        bloomFilter.set(<span class="string">"abc"</span>);</span><br><span class="line">        bloomFilter.set(<span class="string">"def"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"123"</span>));</span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"456"</span>));</span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"789"</span>));</span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"abc"</span>));</span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"def"</span>));</span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"aaa"</span>));</span><br><span class="line">        System.out.println(bloomFilter.get(<span class="string">"bbb"</span>));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果。</p>
+<p><img src="/2019/11/05/Java实现布隆过滤器/0.png" alt></p>
+<h3 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h3><p><a href="http://www.justdojava.com/2019/10/22/bloomfilter/" target="_blank" rel="noopener">到底是存在还是不存在之 BloomFilter</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/11/05/Java实现布隆过滤器/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/04/压力测试工具Jmeter/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">压力测试工具Jmeter</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#布隆过滤器介绍"><span class="toc-number">1.</span> <span class="toc-text">布隆过滤器介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布隆过滤器Java代码实现"><span class="toc-number">2.</span> <span class="toc-text">布隆过滤器Java代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash函数"><span class="toc-number">2.1.</span> <span class="toc-text">Hash函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BloomFilter（布隆过滤器类）"><span class="toc-number">2.2.</span> <span class="toc-text">BloomFilter（布隆过滤器类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.3.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章："><span class="toc-number">2.4.</span> <span class="toc-text">参考文章：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -283,9 +432,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
