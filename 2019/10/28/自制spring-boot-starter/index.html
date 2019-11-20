@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/1.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/3.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/4.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/3.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/4.png">
 <meta property="og:updated_time" content="2019-10-29T02:20:40.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自制spring-boot starter">
 <meta name="twitter:description" content="最近在重新学习spring技术栈，一直以来很好奇spring boot是如何完成自动配置的，所以尝试一下自制一个spring boot starter来感受一下。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/28/自制spring-boot-starter/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -244,7 +244,7 @@
 <h2 id="制作自制的-spring-boot-starter"><a href="#制作自制的-spring-boot-starter" class="headerlink" title="制作自制的 spring boot starter"></a>制作自制的 spring boot starter</h2><ul>
 <li>首先，创建一个maven项目，</li>
 </ul>
-<p><img src="/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/0.png" alt="新建Maven项目"></p>
+<p><img src="/2019/10/28/自制spring-boot-starter/0.png" alt="新建Maven项目"></p>
 <p>在pom.xml中添加自动配置依赖.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -264,19 +264,19 @@
 <li><p>自动装配类，自动将HelloServiceProperties的配置注入到HelloService Bean中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(HelloServiceProperties.class)</span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(HelloService.class)</span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>(prefix = <span class="string">"hello"</span>, value = <span class="string">"enabled"</span>, havingValue = <span class="string">"true"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceAutoConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HelloServiceProperties helloServiceProperties;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span>(HelloService.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> HelloService <span class="title">helloService</span><span class="params">()</span></span>&#123;</span><br><span class="line">        HelloService helloService = <span class="keyword">new</span> HelloService();</span><br><span class="line">        helloService.setMsg(helloServiceProperties.getMsg());</span><br><span class="line">        <span class="keyword">return</span> helloService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在resources中新建META-INF文件夹，并在新建spring.factories文件中添加自动配置依赖。<br><img src="/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/1.png" alt="添加自动配置"></p>
+<li><p>在resources中新建META-INF文件夹，并在新建spring.factories文件中添加自动配置依赖。<br><img src="/2019/10/28/自制spring-boot-starter/1.png" alt="添加自动配置"></p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration = \</span><br><span class="line">com.mingor.HelloServiceAutoConfiguration</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>最后，使用 mvn install 或者idea 右侧的可视化插件进行打包部署到本地mvn仓库。<br><img src="/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/2.png" alt="打包部署"></li>
+<li>最后，使用 mvn install 或者idea 右侧的可视化插件进行打包部署到本地mvn仓库。<br><img src="/2019/10/28/自制spring-boot-starter/2.png" alt="打包部署"></li>
 </ul>
 <hr>
 <h2 id="使用自制的-spring-boot-starter"><a href="#使用自制的-spring-boot-starter" class="headerlink" title="使用自制的 spring boot starter"></a>使用自制的 spring boot starter</h2><ul>
 <li>首先，创建一个空的 spring boot 项目。</li>
 </ul>
-<p><img src="/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/3.png" alt="新建spring boot项目"></p>
+<p><img src="/2019/10/28/自制spring-boot-starter/3.png" alt="新建spring boot项目"></p>
 <ul>
 <li><p>在 pom.xml 添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.mingor<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hello-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -289,7 +289,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HelloService helloService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(helloService.sayHello());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/10/28/自制spring-boot-starter/10/28/自制spring-boot-starter/4.png" alt="运行结果"></p>
+<p><img src="/2019/10/28/自制spring-boot-starter/4.png" alt="运行结果"></p>
 <hr>
 <p>参考资料：</p>
 <p>《Spring Boot 实战》-汪云飞</p>
@@ -556,7 +556,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,19 +564,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,11 +596,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

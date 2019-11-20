@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="记录一下centos下docker安装的踩坑记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/07/19/centos-docker踩坑记录/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/07/19/centos-docker踩坑记录/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/1.png">
 <meta property="og:updated_time" content="2019-10-12T02:10:00.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos下docker踩坑记录">
 <meta name="twitter:description" content="记录一下centos下docker安装的踩坑记录">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/07/19/centos-docker踩坑记录/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/19/centos-docker踩坑记录/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -244,12 +244,12 @@
 
 <h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
 
-<h2 id="哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可"><a href="#哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可" class="headerlink" title="哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可."></a>哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可.</h2><p><img src="/2019/07/19/centos-docker踩坑记录/07/19/centos-docker踩坑记录/0.png" alt="报错"> </p>
+<h2 id="哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可"><a href="#哈哈哈，是不是在启动docke时出错了？-因为使用了国内源的原因，需要把-etc-docker-daemon-json-改成-conf-的结尾格式-使用下面的命令行即可-然后重新启动没有报错即可" class="headerlink" title="哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可."></a>哈哈哈，是不是在启动docke时出错了？ 因为使用了国内源的原因，需要把/etc/docker/daemon.json 改成 .conf 的结尾格式,使用下面的命令行即可.然后重新启动没有报错即可.</h2><p><img src="/2019/07/19/centos-docker踩坑记录/0.png" alt="报错"> </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/docker/daemon.json /etc/docker/daemon.conf</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试一下是否成功"><a href="#测试一下是否成功" class="headerlink" title="测试一下是否成功"></a>测试一下是否成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
 
-<h3 id="出现以下结果说明成功了"><a href="#出现以下结果说明成功了" class="headerlink" title="出现以下结果说明成功了"></a>出现以下结果说明成功了</h3><p><img src="/2019/07/19/centos-docker踩坑记录/07/19/centos-docker踩坑记录/1.png" alt="结果"> </p>
+<h3 id="出现以下结果说明成功了"><a href="#出现以下结果说明成功了" class="headerlink" title="出现以下结果说明成功了"></a>出现以下结果说明成功了</h3><p><img src="/2019/07/19/centos-docker踩坑记录/1.png" alt="结果"> </p>
 <h2 id="dokcer常用命令"><a href="#dokcer常用命令" class="headerlink" title="dokcer常用命令"></a>dokcer常用命令</h2><ul>
 <li><p>运行镜像</p>
 <p>  docker container run -it -d(后端运行) -p 外部端口:内部端口 -v 外部文件路径:内部文件路径 IMAGE ID COMMAND</p>
@@ -550,7 +550,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,19 +558,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,11 +590,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
