@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Tag: 测试 | Mingor的博客</title>
+  <title>git使用代理 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的博客">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/tags/测试/index.html">
+  <meta name="description" content="最近学了点golang，想搞点东西玩玩，所以选择选择了gin。但是在下载gin的过程中出现了点问题，最后通过挂代理来解决，在这里记录一下。">
+<meta name="keywords" content="技巧,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git使用代理">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="Mingor&apos;s hub">
+<meta property="og:description" content="最近学了点golang，想搞点东西玩玩，所以选择选择了gin。但是在下载gin的过程中出现了点问题，最后通过挂代理来解决，在这里记录一下。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/error.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/ssr.png">
+<meta property="og:updated_time" content="2019-11-21T01:57:25.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的博客">
-<meta name="twitter:description" content="Mingor&apos;s hub">
+<meta name="twitter:title" content="git使用代理">
+<meta name="twitter:description" content="最近学了点golang，想搞点东西玩玩，所以选择选择了gin。但是在下载gin的过程中出现了点问题，最后通过挂代理来解决，在这里记录一下。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/error.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -209,64 +214,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-git使用代理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/04/压力测试工具Jmeter/" class="archive-article-date">
-  	<time datetime="2019-11-04T02:29:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/04/压力测试工具Jmeter/">压力测试工具Jmeter</a>
+    <h1 class="article-title" itemprop="name">
+      git使用代理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/21/git使用代理/" class="archive-article-date">
+  	<time datetime="2019-11-21T01:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近学了点golang，想搞点东西玩玩，所以选择选择了gin。但是在下载gin的过程中出现了点问题，最后通过挂代理来解决，在这里记录一下。</p>
+<a id="more"></a>
+<p>golang的包管理工具是基于git的，由于gin是在GitHub上的，而且依赖了GitHub上面很多的包，加上中国网络不太好的缘故，所以可能导致部分包下载不了，需要使用代理。</p>
+<p>出现如下提示：unable to access ‘<a href="https://github.com/go-playground/locales/&#39;" target="_blank" rel="noopener">https://github.com/go-playground/locales/&#39;</a>: Proxy CONNECT aborted</p>
+<p><img src="/2019/11/21/git使用代理/error.png" alt="打开ssr"></p>
+<hr>
+<h3 id="首先，打开并启动shadowsocks，查看是否勾选一下选项。"><a href="#首先，打开并启动shadowsocks，查看是否勾选一下选项。" class="headerlink" title="首先，打开并启动shadowsocks，查看是否勾选一下选项。"></a>首先，打开并启动shadowsocks，查看是否勾选一下选项。</h3><p><img src="/2019/11/21/git使用代理/ssr.png" alt="打开ssr"></p>
+<h3 id="接着，为git添加代理。"><a href="#接着，为git添加代理。" class="headerlink" title="接着，为git添加代理。"></a>接着，为git添加代理。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+
+<p>之后便可以愉快的使用 go get 了。</p>
+<h3 id="如果需要删除代理"><a href="#如果需要删除代理" class="headerlink" title="如果需要删除代理"></a>如果需要删除代理</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy </span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><p><a href="https://blog.csdn.net/dashi_lu/article/details/89641778" target="_blank" rel="noopener">git clone出现 fatal: unable to access ‘https://github.com/…’的解决办法(亲测有效)</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/11/21/git使用代理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/20/git常见命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git常见命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，打开并启动shadowsocks，查看是否勾选一下选项。"><span class="toc-number">1.</span> <span class="toc-text">首先，打开并启动shadowsocks，查看是否勾选一下选项。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接着，为git添加代理。"><span class="toc-number">2.</span> <span class="toc-text">接着，为git添加代理。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果需要删除代理"><span class="toc-number">3.</span> <span class="toc-text">如果需要删除代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章："><span class="toc-number"></span> <span class="toc-text">参考文章：</span></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -289,9 +426,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
