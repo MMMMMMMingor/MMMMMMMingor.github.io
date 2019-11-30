@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Archives: 2019/8 | Mingor的博客</title>
+  <title>spring boot返回数据格式规范化 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mingor&apos;s hub">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的博客">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/archives/2019/08/index.html">
+  <meta name="description" content="前后端分离这么火，不学多点restful格式都不好意思了，而且好久没有水笔记了，今天来水一下。">
+<meta name="keywords" content="Java,Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring boot返回数据格式规范化">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/11/30/spring-boot返回数据格式规范化/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="Mingor&apos;s hub">
+<meta property="og:description" content="前后端分离这么火，不学多点restful格式都不好意思了，而且好久没有水笔记了，今天来水一下。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-11-30T07:11:29.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的博客">
-<meta name="twitter:description" content="Mingor&apos;s hub">
+<meta name="twitter:title" content="spring boot返回数据格式规范化">
+<meta name="twitter:description" content="前后端分离这么火，不学多点restful格式都不好意思了，而且好久没有水笔记了，今天来水一下。">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -209,140 +211,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-spring-boot返回数据格式规范化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/10/webbench网站压力测试工具/" class="archive-article-date">
-  	<time datetime="2019-08-10T10:25:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/webbench网站压力测试工具/">webbench网站压力测试工具</a>
+    <h1 class="article-title" itemprop="name">
+      spring boot返回数据格式规范化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/30/spring-boot返回数据格式规范化/" class="archive-article-date">
+  	<time datetime="2019-11-30T06:46:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前后端分离这么火，不学多点restful格式都不好意思了，而且好久没有<del>水</del>笔记了，今天来<del>水</del>一下。</p>
+<a id="more"></a>
+<ul>
+<li><a href="#1">格式化效果</a></li>
+<li><a href="#2">返回类型统一处理</a></li>
+<li><a href="#3">统一异常处理</a></li>
+</ul>
+<p><span id="1"></span></p>
+<h2 id="先来感受一下什么是统一格式处理"><a href="#先来感受一下什么是统一格式处理" class="headerlink" title="先来感受一下什么是统一格式处理:"></a>先来感受一下什么是统一格式处理:</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">----- 统一格式处理前  --------</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attr">"users"</span>: [&#123;</span><br><span class="line">		<span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">		<span class="attr">"name"</span>: <span class="string">"Jone"</span>,</span><br><span class="line">		<span class="attr">"age"</span>: <span class="number">18</span>,</span><br><span class="line">		<span class="attr">"email"</span>: <span class="string">"test1@baomidou.com"</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">----- 统一格式处理后  --------</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attr">"code"</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="attr">"msg"</span>: <span class="string">"成功"</span>,</span><br><span class="line">	<span class="attr">"success"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"data"</span>: [&#123;</span><br><span class="line">		<span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">		<span class="attr">"name"</span>: <span class="string">"Jone"</span>,</span><br><span class="line">		<span class="attr">"age"</span>: <span class="number">18</span>,</span><br><span class="line">		<span class="attr">"email"</span>: <span class="string">"test1@baomidou.com"</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你觉得没区别的话，那请你关闭文章，慢走不送，谢谢！</p>
+<hr>
+<p><span id="2"></span></p>
+<h2 id="统一返回数据格式："><a href="#统一返回数据格式：" class="headerlink" title="统一返回数据格式："></a>统一返回数据格式：</h2><h3 id="1-定义Result类，用来统一包装返回数据："><a href="#1-定义Result类，用来统一包装返回数据：" class="headerlink" title="1. 定义Result类，用来统一包装返回数据："></a>1. 定义Result类，用来统一包装返回数据：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Result</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 状态码、信息说明. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> code;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 信息说明 */</span></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 提示信息. */</span></span><br><span class="line">    <span class="keyword">private</span> Boolean success;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 具体的内容. */</span></span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-使用枚举类型规范化状态码："><a href="#2-使用枚举类型规范化状态码：" class="headerlink" title="2. 使用枚举类型规范化状态码："></a>2. 使用枚举类型规范化状态码：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> CodeEnum &#123;</span><br><span class="line">    SUCCESS(<span class="number">200</span>, <span class="string">"成功"</span>),</span><br><span class="line">    PARAMETER_ERROR(<span class="number">400</span>, <span class="string">"参数错误"</span>),</span><br><span class="line">    UNKNOWN_ERROR(<span class="number">500</span>, <span class="string">"未知错误"</span>),</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer code;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    CodeEnum(Integer code, String msg) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Result工具类（工厂方法）"><a href="#3-Result工具类（工厂方法）" class="headerlink" title="3. Result工具类（工厂方法）"></a>3. Result工具类（工厂方法）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResultUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 有返回值的成功请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data 返回数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;T&gt; 返回数据类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 包装后的数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Result&lt;T&gt; <span class="title">success</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        Result&lt;T&gt; result = <span class="keyword">new</span> Result&lt;&gt;();</span><br><span class="line">        result.setCode(CodeEnum.SUCCESS.getCode());</span><br><span class="line">        result.setMsg(CodeEnum.SUCCESS.getMsg());</span><br><span class="line">        result.setSuccess(<span class="keyword">true</span>);</span><br><span class="line">        result.setData(data);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 无返回值的成功请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 包装后的数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Result <span class="title">success</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> success(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 有返回值的错误请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> code 状态码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 包装后的数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Result <span class="title">error</span><span class="params">(CodeEnum code)</span> </span>&#123;</span><br><span class="line">        Result result = <span class="keyword">new</span> Result();</span><br><span class="line">        result.setCode(code.getCode());</span><br><span class="line">        result.setMsg(code.getMsg());</span><br><span class="line">        result.setSuccess(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 无返回值的错误请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 包装后的数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Result <span class="title">error</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Result result = <span class="keyword">new</span> Result();</span><br><span class="line">        result.setSuccess(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，统一格式处理就完成了。</p>
+<hr>
+<p><span id="3"></span></p>
+<h2 id="统一异常处理："><a href="#统一异常处理：" class="headerlink" title="统一异常处理："></a>统一异常处理：</h2><p>使用spring提供的统一异常处理和全局异常捕获注解：@ControllerAdvice + @ExceptionHandler</p>
+<h3 id="接口参数错误处理、全局错误异常处理（可用于捕获自定义的事务回滚异常）。"><a href="#接口参数错误处理、全局错误异常处理（可用于捕获自定义的事务回滚异常）。" class="headerlink" title="接口参数错误处理、全局错误异常处理（可用于捕获自定义的事务回滚异常）。"></a>接口参数错误处理、全局错误异常处理（可用于捕获自定义的事务回滚异常）。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionHandle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 请求接口参数错误</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> e MethodArgumentNotValidException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(value = MethodArgumentNotValidException.class)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">handleParameterError</span><span class="params">(MethodArgumentNotValidException e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"【请求参数错误】: &#123;&#125;"</span>, e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> ResultUtil.error(CodeEnum.PARAMETER_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理所谓未知错误</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> e Exception</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(value = Exception.class)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">handleSystemError</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"【系统异常】: "</span>, e);</span><br><span class="line">        <span class="keyword">return</span> ResultUtil.error(CodeEnum.UNKNOWN_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考文章：</p>
+<p><a href="https://blog.csdn.net/ZHWang102107/article/details/82931584" target="_blank" rel="noopener">SpringBoot 规范化封装统一返回数据格式和异常处理</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/09/redis的安装/" class="archive-article-date">
-  	<time datetime="2019-08-09T05:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/09/redis的安装/">redis的安装(windows、linux)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/11/30/spring-boot返回数据格式规范化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/08/ssh免密码登录/" class="archive-article-date">
-  	<time datetime="2019-08-08T06:58:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/27/chrome使用selenium/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">chrome使用selenium</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/08/ssh免密码登录/">ssh免密码登录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先来感受一下什么是统一格式处理"><span class="toc-number">1.</span> <span class="toc-text">先来感受一下什么是统一格式处理:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统一返回数据格式："><span class="toc-number">2.</span> <span class="toc-text">统一返回数据格式：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义Result类，用来统一包装返回数据："><span class="toc-number">2.1.</span> <span class="toc-text">1. 定义Result类，用来统一包装返回数据：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用枚举类型规范化状态码："><span class="toc-number">2.2.</span> <span class="toc-text">2. 使用枚举类型规范化状态码：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Result工具类（工厂方法）"><span class="toc-number">2.3.</span> <span class="toc-text">3. Result工具类（工厂方法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统一异常处理："><span class="toc-number">3.</span> <span class="toc-text">统一异常处理：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接口参数错误处理、全局错误异常处理（可用于捕获自定义的事务回滚异常）。"><span class="toc-number">3.1.</span> <span class="toc-text">接口参数错误处理、全局错误异常处理（可用于捕获自定义的事务回滚异常）。</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -365,8 +437,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
