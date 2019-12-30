@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="由于软件测试实验中的一项是功能性测试，老师给的工具是UTP，然而我真的受不了UTP那界面，所以换成selenium + python来进行自动化的功能性测试。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/query1.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/query2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/py_package.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/py_package.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/query1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/query2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/py_package.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/py_package.png">
 <meta property="og:updated_time" content="2019-11-27T14:06:08.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chrome使用selenium">
 <meta name="twitter:description" content="由于软件测试实验中的一项是功能性测试，老师给的工具是UTP，然而我真的受不了UTP那界面，所以换成selenium + python来进行自动化的功能性测试。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/query1.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/27/chrome使用selenium/query1.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -243,14 +243,14 @@
 <h3 id="selenium下载，"><a href="#selenium下载，" class="headerlink" title="selenium下载，"></a>selenium下载，</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip insatll selenium</span><br></pre></td></tr></table></figure>
 
 <p>注意，直接下载万selenium的pip包是不能直接调用chrome的。</p>
-<p>需要下载chrome的驱动, 下载前先查看自己的chrome版本，否则会不兼容。<br><img src="/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/query1.png" alt></p>
-<p><img src="/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/query2.png" alt></p>
+<p>需要下载chrome的驱动, 下载前先查看自己的chrome版本，否则会不兼容。<br><img src="/2019/11/27/chrome使用selenium/query1.png" alt></p>
+<p><img src="/2019/11/27/chrome使用selenium/query2.png" alt></p>
 <p>根据自己的chrome版本前往chrome官网下载（需要翻墙）<br><a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></p>
 <p>将下载好的驱动 chromedriver.exe 放置到python目录下：</p>
-<p><img src="/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/py_package.png" alt></p>
+<p><img src="/2019/11/27/chrome使用selenium/py_package.png" alt></p>
 <h3 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/11/27/chrome使用selenium/11/27/chrome使用selenium/py_package.png" alt></p>
+<p><img src="/2019/11/27/chrome使用selenium/py_package.png" alt></p>
 <hr>
 <p>参考资料:</p>
 <p><a href="https://blog.csdn.net/qq_36279445/article/details/80110333" target="_blank" rel="noopener">Python_使用selenium webdriver 启动报错：Traceback (most recent call last):</a></p>
@@ -512,14 +512,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
               </li>
              
@@ -529,6 +521,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,15 +552,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

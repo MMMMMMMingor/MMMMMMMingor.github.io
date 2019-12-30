@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="最近学了点golang，想搞点东西玩玩，所以选择选择了gin。但是在下载gin的过程中出现了点问题，最后通过挂代理来解决，在这里记录一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/11/21/git使用代理/error.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/11/21/git使用代理/ssr.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/error.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/ssr.png">
 <meta property="og:updated_time" content="2019-11-21T01:57:25.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用代理">
 <meta name="twitter:description" content="最近学了点golang，想搞点东西玩玩，所以选择选择了gin。但是在下载gin的过程中出现了点问题，最后通过挂代理来解决，在这里记录一下。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/11/21/git使用代理/error.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/21/git使用代理/error.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -238,9 +238,9 @@
 <a id="more"></a>
 <p>golang的包管理工具是基于git的，由于gin是在GitHub上的，而且依赖了GitHub上面很多的包，加上中国网络不太好的缘故，所以可能导致部分包下载不了，需要使用代理。</p>
 <p>出现如下提示：unable to access ‘<a href="https://github.com/go-playground/locales/&#39;" target="_blank" rel="noopener">https://github.com/go-playground/locales/&#39;</a>: Proxy CONNECT aborted</p>
-<p><img src="/2019/11/21/git使用代理/11/21/git使用代理/error.png" alt="打开ssr"></p>
+<p><img src="/2019/11/21/git使用代理/error.png" alt="打开ssr"></p>
 <hr>
-<h3 id="首先，打开并启动shadowsocks，查看是否勾选一下选项。"><a href="#首先，打开并启动shadowsocks，查看是否勾选一下选项。" class="headerlink" title="首先，打开并启动shadowsocks，查看是否勾选一下选项。"></a>首先，打开并启动shadowsocks，查看是否勾选一下选项。</h3><p><img src="/2019/11/21/git使用代理/11/21/git使用代理/ssr.png" alt="打开ssr"></p>
+<h3 id="首先，打开并启动shadowsocks，查看是否勾选一下选项。"><a href="#首先，打开并启动shadowsocks，查看是否勾选一下选项。" class="headerlink" title="首先，打开并启动shadowsocks，查看是否勾选一下选项。"></a>首先，打开并启动shadowsocks，查看是否勾选一下选项。</h3><p><img src="/2019/11/21/git使用代理/ssr.png" alt="打开ssr"></p>
 <h3 id="接着，为git添加代理。"><a href="#接着，为git添加代理。" class="headerlink" title="接着，为git添加代理。"></a>接着，为git添加代理。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
 
 <p>之后便可以愉快的使用 go get 了。</p>
@@ -505,14 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
               </li>
              
@@ -522,6 +514,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,15 +545,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="最近做的项目用的是Ubuntu的服务器，因为需要用到MySQL，然而如果使用默认的apt工具下载的话，会默认下载MySQL5。因此，在这里记录一下Linux如何安装MySQL8.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/download.jpg">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/download2.jpg">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/config.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/config2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/config3.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/test.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/download.jpg">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/download2.jpg">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/config.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/config2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/config3.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/test.png">
 <meta property="og:updated_time" content="2019-11-25T08:26:16.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux安装MySQL8.0">
 <meta name="twitter:description" content="最近做的项目用的是Ubuntu的服务器，因为需要用到MySQL，然而如果使用默认的apt工具下载的话，会默认下载MySQL5。因此，在这里记录一下Linux如何安装MySQL8.">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/download.jpg">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/25/Linux安装MySQL8-0/download.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -247,8 +247,8 @@
 </li>
 </ol>
 <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><span id="1"></span><br>官方下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
-<p><img src="/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/download.jpg" alt="官网下载"></p>
-<p><img src="/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/download2.jpg" alt="官网下载"></p>
+<p><img src="/2019/11/25/Linux安装MySQL8-0/download.jpg" alt="官网下载"></p>
+<p><img src="/2019/11/25/Linux安装MySQL8-0/download2.jpg" alt="官网下载"></p>
 <p>右键点击图中圈出的下方蓝色字体，选择复制链接地址。</p>
 <p>在终端中使用wget进行下载。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql-apt-config_0.8.14-1_all.deb</span><br></pre></td></tr></table></figure>
@@ -257,15 +257,15 @@
 <p><span id="2"></span></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/config.png" alt="官网下载"></p>
+<p><img src="/2019/11/25/Linux安装MySQL8-0/config.png" alt="官网下载"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
 
-<p>设置密码和授权方式：<br><img src="/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/config2.png" alt="官网下载"></p>
-<p><img src="/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/config3.png" alt="官网下载"></p>
+<p>设置密码和授权方式：<br><img src="/2019/11/25/Linux安装MySQL8-0/config2.png" alt="官网下载"></p>
+<p><img src="/2019/11/25/Linux安装MySQL8-0/config3.png" alt="官网下载"></p>
 <hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 输入刚才设置的密码</span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/11/25/Linux安装MySQL8-0/11/25/Linux安装MySQL8-0/test.png" alt="官网下载"></p>
+<p><img src="/2019/11/25/Linux安装MySQL8-0/test.png" alt="官网下载"></p>
 <h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><p><a href="https://blog.csdn.net/weixin_40208575/article/details/84961586" target="_blank" rel="noopener">ubuntu16 安装MySQL8.0 deb包 （腾讯云服务器）</a></p>
 
       
@@ -525,14 +525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
               </li>
              
@@ -542,6 +534,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,15 +565,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

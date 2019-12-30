@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="Java的动态代理机制是spring实现AOP的根本手段，今天我们来探讨一下如何使用 注解 + 反射 + 动态代理  实现AOP。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/10/15/java动态代理/0.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/0.png">
 <meta property="og:updated_time" content="2019-10-22T14:12:06.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java动态代理">
 <meta name="twitter:description" content="Java的动态代理机制是spring实现AOP的根本手段，今天我们来探讨一下如何使用 注解 + 反射 + 动态代理  实现AOP。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/10/15/java动态代理/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/15/java动态代理/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -255,7 +255,7 @@
 <p>测试一下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        JavaDeveloper developer = <span class="keyword">new</span> JavaDeveloper(<span class="string">"Mingor"</span>);</span><br><span class="line">        Develop mingorProxy = (Develop) <span class="keyword">new</span> DeveloperProxy().newProxy(developer);</span><br><span class="line"></span><br><span class="line">        mingorProxy.code();</span><br><span class="line">        mingorProxy.debug();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>结果：<br><img src="/2019/10/15/java动态代理/10/15/java动态代理/0.png" alt="运行结果"></p>
+<p>结果：<br><img src="/2019/10/15/java动态代理/0.png" alt="运行结果"></p>
 <p>```</p>
 <p>参考文章:</p>
 <p><a href="https://www.jianshu.com/p/95970b089360" target="_blank" rel="noopener">你真的完全了解Java动态代理吗？看这篇就够了</a></p>
@@ -517,14 +517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
               </li>
              
@@ -534,6 +526,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,15 +557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="最近在应付期末考试，没有时间水文章了。今天才考完试，有两个多月的寒假时间（人生第一次放这么长的寒假），由于下学期可能要参加工作了，所以决定多写点有技术含量的博客，今天回顾了一下之前写的内容，流水账太多了…">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/register.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/app.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/front1.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/auth.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/front2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/json.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/register.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/app.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/front1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/auth.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/front2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/json.png">
 <meta property="og:updated_time" content="2019-12-21T15:14:33.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OAuth2.0初体验">
 <meta name="twitter:description" content="最近在应付期末考试，没有时间水文章了。今天才考完试，有两个多月的寒假时间（人生第一次放这么长的寒假），由于下学期可能要参加工作了，所以决定多写点有技术含量的博客，今天回顾了一下之前写的内容，流水账太多了…">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/register.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/12/20/OAuth2-0初体验/register.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -250,8 +250,8 @@
 <p><span id="1"> </span></p>
 <h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>OAuth是一种单点登陆的认证形式，常常应用于为第三方登录提供接口，国内外很多互联网企业都是使用OAuth。OAuth目前有2个版本——OAuth1.0和OAuth2.0，由于OAuth1.0过于复杂，现在已经几乎没有企业会使用，基本都是使用OAuth2.0.</p>
 <h2 id="首先，申请OAuth-应用。"><a href="#首先，申请OAuth-应用。" class="headerlink" title="首先，申请OAuth 应用。"></a>首先，申请OAuth 应用。</h2><p>前往GitHub申请GitHub的开放接口能力，重点是获取其ClientID和Client Secret。<br><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">github申请oauth连接</a></p>
-<p><img src="/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/register.png" alt="注册OAuth"></p>
-<p><img src="/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/app.png" alt="查看ClientID和Client Secret"></p>
+<p><img src="/2019/12/20/OAuth2-0初体验/register.png" alt="注册OAuth"></p>
+<p><img src="/2019/12/20/OAuth2-0初体验/app.png" alt="查看ClientID和Client Secret"></p>
 <hr>
 <p><span id="2"> </span></p>
 <h2 id="编写前端交互逻辑（react-antd）"><a href="#编写前端交互逻辑（react-antd）" class="headerlink" title="编写前端交互逻辑（react + antd）"></a>编写前端交互逻辑（react + antd）</h2><p>前端页面我使用的是react + antd的组合（前端小白，能跑就行😂）</p>
@@ -260,9 +260,9 @@
 
 <p>前端代码这里就不放了，主要是用页面跳转的的形式进行登陆验证。</p>
 <p>文章最后会放上GitHub连接。</p>
-<p><img src="/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/front1.png" alt="login页"></p>
-<h3 id="授权一次过后，以后不需要用户再主动授权。"><a href="#授权一次过后，以后不需要用户再主动授权。" class="headerlink" title="授权一次过后，以后不需要用户再主动授权。"></a>授权一次过后，以后不需要用户再主动授权。</h3><p><img src="/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/auth.png" alt="授权页"></p>
-<p><img src="/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/front2.png" alt="index页"></p>
+<p><img src="/2019/12/20/OAuth2-0初体验/front1.png" alt="login页"></p>
+<h3 id="授权一次过后，以后不需要用户再主动授权。"><a href="#授权一次过后，以后不需要用户再主动授权。" class="headerlink" title="授权一次过后，以后不需要用户再主动授权。"></a>授权一次过后，以后不需要用户再主动授权。</h3><p><img src="/2019/12/20/OAuth2-0初体验/auth.png" alt="授权页"></p>
+<p><img src="/2019/12/20/OAuth2-0初体验/front2.png" alt="index页"></p>
 <hr>
 <p><span id="3"> </span></p>
 <h2 id="后端代码（spring-boot）"><a href="#后端代码（spring-boot）" class="headerlink" title="后端代码（spring boot）"></a>后端代码（spring boot）</h2><ul>
@@ -270,7 +270,7 @@
 
 </li>
 </ul>
-<h3 id="根据前端回调的方式，获取到的用户数据（来自GitHub）"><a href="#根据前端回调的方式，获取到的用户数据（来自GitHub）" class="headerlink" title="根据前端回调的方式，获取到的用户数据（来自GitHub）"></a>根据前端回调的方式，获取到的用户数据（来自GitHub）</h3><p><img src="/2019/12/20/OAuth2-0初体验/12/20/OAuth2-0初体验/json.png" alt="index页"></p>
+<h3 id="根据前端回调的方式，获取到的用户数据（来自GitHub）"><a href="#根据前端回调的方式，获取到的用户数据（来自GitHub）" class="headerlink" title="根据前端回调的方式，获取到的用户数据（来自GitHub）"></a>根据前端回调的方式，获取到的用户数据（来自GitHub）</h3><p><img src="/2019/12/20/OAuth2-0初体验/json.png" alt="index页"></p>
 <ul>
 <li>Service层<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GithubService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String URL = <span class="string">"https://api.github.com/user"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, User&gt; cache = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这里也写的很匆忙，没有用数据库，用的是内存。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> accessToken access token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 用户信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getUserInfoFromGitHub</span><span class="params">(AccessToken accessToken)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        HttpHeaders headers = <span class="keyword">new</span> HttpHeaders();</span><br><span class="line">        headers.add(<span class="string">"Authorization"</span>, <span class="string">"token "</span> + accessToken.getAccess_token());</span><br><span class="line">        headers.setContentType(MediaType.APPLICATION_JSON);</span><br><span class="line"></span><br><span class="line">        HttpEntity&lt;String&gt; entity = <span class="keyword">new</span> HttpEntity&lt;&gt;(<span class="keyword">null</span>, headers);</span><br><span class="line">        ResponseEntity&lt;User&gt; responseEntity = restTemplate.exchange(URL, HttpMethod.GET, entity, User.class);</span><br><span class="line"></span><br><span class="line">        User user = responseEntity.getBody();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(user == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            cache.put(user.getId(), user);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 检查内存中是否已经有用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id userID</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 用户信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getUserInfo</span><span class="params">(String id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(id != <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> cache.get(id);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> User();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -381,6 +381,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/12/30/ssh不能登录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ssh不能登录
+        
+      </div>
+    </a>
   
   
     <a href="/2019/12/11/windows10获取管理员权限/" id="article-nav-older" class="article-nav-link-wrap">
@@ -523,14 +532,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Web安全</a>
               </li>
              
@@ -540,6 +541,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,15 +572,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
