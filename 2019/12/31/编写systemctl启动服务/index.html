@@ -6,25 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>JWT实现SSO | Mingor的博客</title>
+  <title>编写systemctl启动服务 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在学Web安全认证相关的知识，学的有点乱，写点东西记录一下。">
-<meta name="keywords" content="Java,Web安全,踩坑">
+  <meta name="description" content="今天用搭建了一个开源的用go语言写的轻量级云文件服务——filebrowser，由于其是以二进制的形式发布的，考虑到云文件服务的高可用性特点，想当然的应该将其设置为开机自启动。对比写成开机启动的shell脚本，写成systemctl的服务形式更便于管理，而且好处是systemctl启动服务，在Ubuntu和Centos均可以使用。">
+<meta name="keywords" content="Linux,云盘服务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JWT实现SSO">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/index.html">
+<meta property="og:title" content="编写systemctl启动服务">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/index.html">
 <meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="最近在学Web安全认证相关的知识，学的有点乱，写点东西记录一下。">
+<meta property="og:description" content="今天用搭建了一个开源的用go语言写的轻量级云文件服务——filebrowser，由于其是以二进制的形式发布的，考虑到云文件服务的高可用性特点，想当然的应该将其设置为开机自启动。对比写成开机启动的shell脚本，写成systemctl的服务形式更便于管理，而且好处是systemctl启动服务，在Ubuntu和Centos均可以使用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/auth.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/auth_result.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/result.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/jwt.png">
-<meta property="og:updated_time" content="2019-11-18T11:35:15.094Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/res.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/res2.png">
+<meta property="og:updated_time" content="2019-12-31T12:35:37.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JWT实现SSO">
-<meta name="twitter:description" content="最近在学Web安全认证相关的知识，学的有点乱，写点东西记录一下。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/auth.png">
+<meta name="twitter:title" content="编写systemctl启动服务">
+<meta name="twitter:description" content="今天用搭建了一个开源的用go语言写的轻量级云文件服务——filebrowser，由于其是以二进制的形式发布的，考虑到云文件服务的高可用性特点，想当然的应该将其设置为开机自启动。对比写成开机启动的shell脚本，写成systemctl的服务形式更便于管理，而且好处是systemctl启动服务，在Ubuntu和Centos均可以使用。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/res.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -216,45 +214,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JWT实现SSO" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-编写systemctl启动服务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JWT实现SSO
+      编写systemctl启动服务
     </h1>
   
 
         
-        <a href="/2019/11/18/JWT实现SSO/" class="archive-article-date">
-  	<time datetime="2019-11-18T10:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
+        <a href="/2019/12/31/编写systemctl启动服务/" class="archive-article-date">
+  	<time datetime="2019-12-31T11:59:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在学Web安全认证相关的知识，学的有点乱，写点东西记录一下。</p>
+        <p>今天用搭建了一个开源的用go语言写的轻量级云文件服务——filebrowser，由于其是以二进制的形式发布的，考虑到云文件服务的高可用性特点，想当然的应该将其设置为开机自启动。对比写成开机启动的shell脚本，写成systemctl的服务形式更便于管理，而且好处是systemctl启动服务，在Ubuntu和Centos均可以使用。</p>
 <a id="more"></a>
-<p>GitHub连接：<a href="https://github.com/MMMMMMMingor/jwt-springsecurity" target="_blank" rel="noopener">https://github.com/MMMMMMMingor/jwt-springsecurity</a></p>
-<p>请注意，我在代码中使用了Lombok插件，请自行在idea中下载Lombok插件。</p>
-<p>JWT即 Json Web Token，是单点登录(SSO)的一种实现方式。</p>
-<p>jwt由3部分组成：Header、Payload 和 Signature.</p>
-<p>JWT认证授权流程很简单：</p>
-<ol>
-<li><p>进入特定页面获取登陆凭证（Bearer Token）</p>
-</li>
-<li><p>凭借此Bearer Token即可访问其他受保护页面。</p>
-</li>
-</ol>
-<p>详情见官网：<a href="https://jwt.io/" target="_blank" rel="noopener">https://jwt.io/</a></p>
-<h3 id="首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。"><a href="#首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。" class="headerlink" title="首先，访问 http://localhost:8080/auth 进行认证授权，并获取bearer token。"></a>首先，访问 <a href="http://localhost:8080/auth" target="_blank" rel="noopener">http://localhost:8080/auth</a> 进行认证授权，并获取bearer token。</h3><p><img src="/2019/11/18/JWT实现SSO/auth.png" alt="授权"></p>
-<p><img src="/2019/11/18/JWT实现SSO/auth_result.png" alt="获取token"></p>
+<p>所以，这里就以如何为filebrowser编写systemctl自启动服务作为例子。</p>
+<p><a href="https://github.com/filebrowser/filebrowser/releases" target="_blank" rel="noopener">filebrowser的GitHub release</a></p>
+<h3 id="首先，前往systemctl索引的目录创建service脚本文——filebrowser-service。"><a href="#首先，前往systemctl索引的目录创建service脚本文——filebrowser-service。" class="headerlink" title="首先，前往systemctl索引的目录创建service脚本文——filebrowser.service。"></a>首先，前往systemctl索引的目录创建service脚本文——filebrowser.service。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 推荐使用vscode连接服务器，并且使用vscode的conf语法高亮插件——Systemd Support</span><br><span class="line">code /etc/systemd/system/filebrowser.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 硬核大佬可以使用vim</span><br><span class="line">vim /etc/systemd/system/filebrowser.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="filebrowser-service-文件的编写"><a href="#filebrowser-service-文件的编写" class="headerlink" title="filebrowser.service 文件的编写"></a>filebrowser.service 文件的编写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#[Unit]部分主要是对这个服务的说明，内容包括Description和After，</span><br><span class="line">#Description用于描述服务</span><br><span class="line">#After用于描述服务类别,network.targe 是指往往启动后运行（用于自启动服务）</span><br><span class="line">[Unit]</span><br><span class="line">Description=filebrowser</span><br><span class="line">After=network.target </span><br><span class="line"></span><br><span class="line">#[Service]部分是服务的关键，是服务的一些具体运行参数的设置，</span><br><span class="line">#ExecStart为服务的具体运行命</span><br><span class="line">#ExecReload为重启命令 （可不写）</span><br><span class="line">#ExecStop为停止命令 （可不写）</span><br><span class="line">#为服务分配User、Group</span><br><span class="line">#注意：[Service]部分的启动、重启、停止命令全部要求使用绝对路径</span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">ExecStart=/root/Downloads/filebrowser/filebrowser   -r /root/Downloads/filebrowser/file  \</span><br><span class="line">                                                    -l /root/Downloads/filebrowser/log/log.txt  \</span><br><span class="line">                                                    -d /root/Downloads/filebrowser/filebrowser.db \</span><br><span class="line">                                                    -p 9999</span><br><span class="line"></span><br><span class="line">#[Install]部分是服务安装的相关设置，可设置为多用户的</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写完成后，尝试启动命令"><a href="#编写完成后，尝试启动命令" class="headerlink" title="编写完成后，尝试启动命令."></a>编写完成后，尝试启动命令.</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>刷新service脚本</span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>启动服务</span><br><span class="line">systemctl start filebrowser.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>查看服务状态</span><br><span class="line">systemctl status filebrowser.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>如果启动失败，或者启动参数配置错误，</span><br><span class="line"><span class="meta">#</span>重新编写脚本后，先刷新脚本，然后用restart，而不是start（start是无效的）</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart filebrowser.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="systemctl-status-filebrowser-service-结果如下则说明成功了。"><a href="#systemctl-status-filebrowser-service-结果如下则说明成功了。" class="headerlink" title="systemctl status filebrowser.service 结果如下则说明成功了。"></a>systemctl status filebrowser.service 结果如下则说明成功了。</h3><p><img src="/2019/12/31/编写systemctl启动服务/res.png" alt="status"></p>
+<p>使用浏览器访问刚才filebrowser，发现可以正常使用了<br><img src="/2019/12/31/编写systemctl启动服务/res2.png" alt="浏览器访问结果"></p>
 <hr>
-<h3 id="根据拿到bearer-token，对jwt对资源进行访问。"><a href="#根据拿到bearer-token，对jwt对资源进行访问。" class="headerlink" title="根据拿到bearer token，对jwt对资源进行访问。"></a>根据拿到bearer token，对jwt对资源进行访问。</h3><p><img src="/2019/11/18/JWT实现SSO/result.png" alt="访问资源"></p>
-<h3 id="对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"><a href="#对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。" class="headerlink" title="对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"></a>对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。</h3><p><img src="/2019/11/18/JWT实现SSO/jwt.png" alt="验证jwt"></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h3><p><a href="https://blog.csdn.net/akin_zhou/article/details/50373503" target="_blank" rel="noopener">关于systemctl及systemd service的一些使用经验</a></p>
 
       
 
@@ -289,15 +282,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Web安全</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">云盘服务</a>
         		</li>
       		
 		</ul>
@@ -353,7 +342,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -367,18 +356,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/19/Java使用levelDB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java使用levelDB
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/14/GitHub关键词搜索技巧/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GitHub关键词搜索技巧</div>
+    <a href="/2019/12/30/golang交叉编译/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">golang交叉编译</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,7 +385,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。"><span class="toc-number">1.</span> <span class="toc-text">首先，访问 http://localhost:8080/auth 进行认证授权，并获取bearer token。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据拿到bearer-token，对jwt对资源进行访问。"><span class="toc-number">2.</span> <span class="toc-text">根据拿到bearer token，对jwt对资源进行访问。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"><span class="toc-number">3.</span> <span class="toc-text">对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，前往systemctl索引的目录创建service脚本文——filebrowser-service。"><span class="toc-number">1.</span> <span class="toc-text">首先，前往systemctl索引的目录创建service脚本文——filebrowser.service。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filebrowser-service-文件的编写"><span class="toc-number">2.</span> <span class="toc-text">filebrowser.service 文件的编写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写完成后，尝试启动命令"><span class="toc-number">3.</span> <span class="toc-text">编写完成后，尝试启动命令.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemctl-status-filebrowser-service-结果如下则说明成功了。"><span class="toc-number">4.</span> <span class="toc-text">systemctl status filebrowser.service 结果如下则说明成功了。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料:</span></a></li></ol>
                     </div>
                 </span>
             </div>
