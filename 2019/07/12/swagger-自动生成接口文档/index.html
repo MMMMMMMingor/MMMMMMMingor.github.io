@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="SpringMVC使用swagger自动生成接口文档">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png">
 <meta property="og:updated_time" content="2019-12-11T07:01:22.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swagger 自动生成接口文档">
 <meta name="twitter:description" content="SpringMVC使用swagger自动生成接口文档">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/1.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -243,7 +243,7 @@
 
 <h3 id="使用swagger注解示例"><a href="#使用swagger注解示例" class="headerlink" title="使用swagger注解示例"></a>使用swagger注解示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(tags = <span class="string">"活动室接口"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/activityRoom"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActivityRoomController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ActivityRoomService activityRoomService;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"获取所有活动室信息"</span>)</span><br><span class="line">    <span class="meta">@GetMapping</span>(value = <span class="string">"/listActivityRoom"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String,Object&gt; <span class="title">listActivityRoom</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">"activityRooms"</span>,activityRoomService.queryActivityRoom());</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"添加活动室信息"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParams</span>(&#123;</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"building"</span>, value = <span class="string">"楼栋"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"String"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"room"</span>, value = <span class="string">"楼层房间"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"userId"</span>, value = <span class="string">"用户ID"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"String"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="meta">@PostMapping</span>(value = <span class="string">"/addActivityRoom"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String,Object&gt; <span class="title">addActivityRoom</span><span class="params">(@RequestParam(value = <span class="string">"building"</span>)</span> String building,</span></span><br><span class="line"><span class="function">                                              @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"room"</span>)</span> Integer room,</span></span><br><span class="line"><span class="function">                                              @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"userId"</span>)</span> String userId)</span>&#123;</span><br><span class="line">        Map&lt;String,Object&gt; map =  <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">boolean</span> success =  activityRoomService.addActivityRoom(userId,building,room) ;</span><br><span class="line">        map.put(<span class="string">"success"</span>,success);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p> 每次运行只需要访问 <a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a> 即可看到自动生成的文档<br><img src="/2019/07/12/swagger-自动生成接口文档/1.png" alt="文档"> </p>
+<p> 每次运行只需要访问 <a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a> 即可看到自动生成的文档<br><img src="/2019/07/12/swagger-自动生成接口文档/07/12/swagger-自动生成接口文档/1.png" alt="文档"> </p>
 <h3 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>： 描述 Controller</span><br><span class="line"><span class="meta">@ApiIgnore</span>： 忽略该 Controller，指不对当前类做扫描</span><br><span class="line"><span class="meta">@ApiOperation</span>： 描述 Controller类中的 method接口</span><br><span class="line"><span class="meta">@ApiParam</span>： 单个参数描述，与 <span class="meta">@ApiImplicitParam</span>不同的是，他是写在参数左侧的。如（ <span class="meta">@ApiParam</span>(name=<span class="string">"username"</span>,value=<span class="string">"用户名"</span>)Stringusername）</span><br><span class="line"><span class="meta">@ApiModel</span>： 描述 POJO对象</span><br><span class="line"><span class="meta">@ApiProperty</span>： 描述 POJO对象中的属性值</span><br><span class="line"><span class="meta">@ApiImplicitParam</span>： 描述单个入参信息</span><br><span class="line"><span class="meta">@ApiImplicitParams</span>： 描述多个入参信息</span><br><span class="line"><span class="meta">@ApiResponse</span>： 描述单个出参信息</span><br><span class="line"><span class="meta">@ApiResponses</span>： 描述多个出参信息</span><br><span class="line"><span class="meta">@ApiError</span>： 接口错误所返回的信息</span><br></pre></td></tr></table></figure>
       
 
@@ -415,7 +415,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Mingor
+    		&copy; 2020 Mingor
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -498,7 +498,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,11 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技巧</a>
+                <a href="javascript:void(0)" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,11 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
