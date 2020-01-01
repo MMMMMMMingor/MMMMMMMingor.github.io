@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="今天用搭建了一个开源的用go语言写的轻量级云文件服务——filebrowser，由于其是以二进制的形式发布的，考虑到云文件服务的高可用性特点，想当然的应该将其设置为开机自启动。对比写成开机启动的shell脚本，写成systemctl的服务形式更便于管理，而且好处是systemctl启动服务，在Ubuntu和Centos均可以使用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/12/31/编写systemctl启动服务/res.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/12/31/编写systemctl启动服务/res2.png">
-<meta property="og:updated_time" content="2019-12-31T12:35:37.118Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/res.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/res2.png">
+<meta property="og:updated_time" content="2020-01-01T09:07:36.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编写systemctl启动服务">
 <meta name="twitter:description" content="今天用搭建了一个开源的用go语言写的轻量级云文件服务——filebrowser，由于其是以二进制的形式发布的，考虑到云文件服务的高可用性特点，想当然的应该将其设置为开机自启动。对比写成开机启动的shell脚本，写成systemctl的服务形式更便于管理，而且好处是systemctl启动服务，在Ubuntu和Centos均可以使用。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/12/31/编写systemctl启动服务/res.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/12/31/编写systemctl启动服务/res.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -256,34 +256,13 @@
 
 <h3 id="编写完成后，尝试启动命令"><a href="#编写完成后，尝试启动命令" class="headerlink" title="编写完成后，尝试启动命令."></a>编写完成后，尝试启动命令.</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>刷新service脚本</span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>启动服务</span><br><span class="line">systemctl start filebrowser.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>查看服务状态</span><br><span class="line">systemctl status filebrowser.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>如果启动失败，或者启动参数配置错误，</span><br><span class="line"><span class="meta">#</span>重新编写脚本后，先刷新脚本，然后用restart，而不是start（start是无效的）</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart filebrowser.service</span><br></pre></td></tr></table></figure>
 
-<h3 id="systemctl-status-filebrowser-service-结果如下则说明成功了。"><a href="#systemctl-status-filebrowser-service-结果如下则说明成功了。" class="headerlink" title="systemctl status filebrowser.service 结果如下则说明成功了。"></a>systemctl status filebrowser.service 结果如下则说明成功了。</h3><p><img src="/2019/12/31/编写systemctl启动服务/12/31/编写systemctl启动服务/res.png" alt="status"></p>
-<p>使用浏览器访问刚才filebrowser，发现可以正常使用了<br><img src="/2019/12/31/编写systemctl启动服务/12/31/编写systemctl启动服务/res2.png" alt="浏览器访问结果"></p>
+<h3 id="systemctl-status-filebrowser-service-结果如下则说明成功了。"><a href="#systemctl-status-filebrowser-service-结果如下则说明成功了。" class="headerlink" title="systemctl status filebrowser.service 结果如下则说明成功了。"></a>systemctl status filebrowser.service 结果如下则说明成功了。</h3><p><img src="/2019/12/31/编写systemctl启动服务/res.png" alt="status"></p>
+<p>使用浏览器访问刚才filebrowser，发现可以正常使用了<br><img src="/2019/12/31/编写systemctl启动服务/res2.png" alt="浏览器访问结果"></p>
 <hr>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h3><p><a href="https://blog.csdn.net/akin_zhou/article/details/50373503" target="_blank" rel="noopener">关于systemctl及systemd service的一些使用经验</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>辣鸡文章，不需要打赏😓<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
