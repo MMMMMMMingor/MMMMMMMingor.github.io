@@ -9,19 +9,19 @@
   <title>springboot集成MongoDB | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录一下springboot集成MongoDB的过程。">
-<meta name="keywords" content="Java,数据库">
+<meta name="keywords" content="Java,数据库,spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot集成MongoDB">
 <meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/index.html">
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="记录一下springboot集成MongoDB的过程。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png">
-<meta property="og:updated_time" content="2019-10-12T12:04:57.229Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/0.png">
+<meta property="og:updated_time" content="2020-01-01T09:02:03.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot集成MongoDB">
 <meta name="twitter:description" content="记录一下springboot集成MongoDB的过程。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -71,6 +71,8 @@
 				<li><a href="/tags/golang/">golang</a></li>
 	        
 				<li><a href="/tags/Cpp">Cpp</a></li>
+	        
+				<li><a href="/tags/后端">后端</a></li>
 	        
 				<li><a href="/tags/数据库/">数据库</a></li>
 	        
@@ -162,6 +164,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -184,27 +188,29 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 9.090909090909092%"><a href="/">主页</a></li>
+					<li style="width: 8.333333333333334%"><a href="/">主页</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Java/">Java</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Java/">Java</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/spring/">spring</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/spring/">spring</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/golang/">golang</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/golang/">golang</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Cpp">Cpp</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Cpp">Cpp</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/数据库/">数据库</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/后端">后端</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Linux/">Linux</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/数据库/">数据库</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/git/">git</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Linux/">Linux</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/测试/">测试</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/git/">git</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/踩坑/">踩坑</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/测试/">测试</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/树莓派/">树莓派</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/踩坑/">踩坑</a></li>
+		        
+					<li style="width: 8.333333333333334%"><a href="/tags/树莓派/">树莓派</a></li>
 		        
 				</ul>
 			</nav>
@@ -259,7 +265,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mongod</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>远程登录mongodb，推荐使用MongoDB Campass<br><img src="/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png" alt="登录"></p>
+<p>远程登录mongodb，推荐使用MongoDB Campass<br><img src="/2019/10/12/springboot集成MongoDB/0.png" alt="登录"></p>
 <h2 id="springboot集成mongodb"><a href="#springboot集成mongodb" class="headerlink" title="springboot集成mongodb"></a>springboot集成mongodb</h2><p>添加pom依赖：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -312,6 +318,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -596,6 +606,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
             
             <div class="clearfix"></div>

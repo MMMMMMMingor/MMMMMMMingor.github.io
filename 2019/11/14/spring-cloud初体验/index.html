@@ -9,22 +9,22 @@
   <title>spring cloud初体验 | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="之前学springMVC的时候，就老是听到大佬们说，单体架构不好，现在都是微服务的天下了。所以一直觉得微服务是很难的东西（因为学spring都感觉挺难的了）。结果经过对spring cloud一番深入浅出的了解之后，原来spring cloud这么简单（仅仅指的是用起来简单）。">
-<meta name="keywords" content="Java">
+<meta name="keywords" content="spring,后端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring cloud初体验">
 <meta property="og:url" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/index.html">
 <meta property="og:site_name" content="Mingor的博客">
 <meta property="og:description" content="之前学springMVC的时候，就老是听到大佬们说，单体架构不好，现在都是微服务的天下了。所以一直觉得微服务是很难的东西（因为学spring都感觉挺难的了）。结果经过对spring cloud一番深入浅出的了解之后，原来spring cloud这么简单（仅仅指的是用起来简单）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/run.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/eureka.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/hystrix.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/zipkin.png">
-<meta property="og:updated_time" content="2019-11-14T02:52:34.591Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/run.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/eureka.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/hystrix.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/zipkin.png">
+<meta property="og:updated_time" content="2020-01-01T09:01:53.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring cloud初体验">
 <meta name="twitter:description" content="之前学springMVC的时候，就老是听到大佬们说，单体架构不好，现在都是微服务的天下了。所以一直觉得微服务是很难的东西（因为学spring都感觉挺难的了）。结果经过对spring cloud一番深入浅出的了解之后，原来spring cloud这么简单（仅仅指的是用起来简单）。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/run.png">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/14/spring-cloud初体验/run.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
   
@@ -74,6 +74,8 @@
 				<li><a href="/tags/golang/">golang</a></li>
 	        
 				<li><a href="/tags/Cpp">Cpp</a></li>
+	        
+				<li><a href="/tags/后端">后端</a></li>
 	        
 				<li><a href="/tags/数据库/">数据库</a></li>
 	        
@@ -165,6 +167,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -187,27 +191,29 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 9.090909090909092%"><a href="/">主页</a></li>
+					<li style="width: 8.333333333333334%"><a href="/">主页</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Java/">Java</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Java/">Java</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/spring/">spring</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/spring/">spring</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/golang/">golang</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/golang/">golang</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Cpp">Cpp</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Cpp">Cpp</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/数据库/">数据库</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/后端">后端</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Linux/">Linux</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/数据库/">数据库</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/git/">git</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Linux/">Linux</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/测试/">测试</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/git/">git</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/踩坑/">踩坑</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/测试/">测试</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/树莓派/">树莓派</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/踩坑/">踩坑</a></li>
+		        
+					<li style="width: 8.333333333333334%"><a href="/tags/树莓派/">树莓派</a></li>
 		        
 				</ul>
 			</nav>
@@ -278,10 +284,10 @@
 <li><p>剩下的次序不分先后</p>
 </li>
 </ol>
-<p><img src="/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/run.png" alt></p>
-<h3 id="Eureka为服务治理页面：http-localhost-8761"><a href="#Eureka为服务治理页面：http-localhost-8761" class="headerlink" title="Eureka为服务治理页面：http://localhost:8761"></a>Eureka为服务治理页面：<a href="http://localhost:8761" target="_blank" rel="noopener">http://localhost:8761</a></h3><p><img src="/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/eureka.png" alt></p>
-<h3 id="熔断器监控可视化-http-localhost-8769-api-assciation-hystrix"><a href="#熔断器监控可视化-http-localhost-8769-api-assciation-hystrix" class="headerlink" title="熔断器监控可视化: http://localhost:8769/api/assciation/hystrix"></a>熔断器监控可视化: <a href="http://localhost:8769/api/assciation/hystrix" target="_blank" rel="noopener">http://localhost:8769/api/assciation/hystrix</a></h3><p>然后选着需要被监控的微服务。<br><img src="/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/hystrix.png" alt></p>
-<h3 id="链路追踪可视化：http-localhost-9411"><a href="#链路追踪可视化：http-localhost-9411" class="headerlink" title="链路追踪可视化：http://localhost:9411"></a>链路追踪可视化：<a href="http://localhost:9411" target="_blank" rel="noopener">http://localhost:9411</a></h3><p><img src="/2019/11/14/spring-cloud初体验/11/14/spring-cloud初体验/zipkin.png" alt></p>
+<p><img src="/2019/11/14/spring-cloud初体验/run.png" alt></p>
+<h3 id="Eureka为服务治理页面：http-localhost-8761"><a href="#Eureka为服务治理页面：http-localhost-8761" class="headerlink" title="Eureka为服务治理页面：http://localhost:8761"></a>Eureka为服务治理页面：<a href="http://localhost:8761" target="_blank" rel="noopener">http://localhost:8761</a></h3><p><img src="/2019/11/14/spring-cloud初体验/eureka.png" alt></p>
+<h3 id="熔断器监控可视化-http-localhost-8769-api-assciation-hystrix"><a href="#熔断器监控可视化-http-localhost-8769-api-assciation-hystrix" class="headerlink" title="熔断器监控可视化: http://localhost:8769/api/assciation/hystrix"></a>熔断器监控可视化: <a href="http://localhost:8769/api/assciation/hystrix" target="_blank" rel="noopener">http://localhost:8769/api/assciation/hystrix</a></h3><p>然后选着需要被监控的微服务。<br><img src="/2019/11/14/spring-cloud初体验/hystrix.png" alt></p>
+<h3 id="链路追踪可视化：http-localhost-9411"><a href="#链路追踪可视化：http-localhost-9411" class="headerlink" title="链路追踪可视化：http://localhost:9411"></a>链路追踪可视化：<a href="http://localhost:9411" target="_blank" rel="noopener">http://localhost:9411</a></h3><p><img src="/2019/11/14/spring-cloud初体验/zipkin.png" alt></p>
 <hr>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h2><p><a href="https://www.funtl.com/zh/spring-cloud-netflix/" target="_blank" rel="noopener">Spring Cloud Netflix</a></p>
 
@@ -318,7 +324,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		
 		</ul>
@@ -603,6 +613,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
             
             <div class="clearfix"></div>

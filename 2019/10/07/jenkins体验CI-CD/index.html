@@ -9,7 +9,7 @@
   <title>jenkins体验CI/CD | Mingor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
-<meta name="keywords" content="踩坑">
+<meta name="keywords" content="踩坑,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jenkins体验CI&#x2F;CD">
 <meta property="og:url" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/index.html">
@@ -17,10 +17,10 @@
 <meta property="og:description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/1.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/3.png">
-<meta property="og:updated_time" content="2019-11-25T14:30:51.747Z">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/1.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/2.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/3.png">
+<meta property="og:updated_time" content="2020-01-01T08:59:43.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins体验CI&#x2F;CD">
 <meta name="twitter:description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
@@ -74,6 +74,8 @@
 				<li><a href="/tags/golang/">golang</a></li>
 	        
 				<li><a href="/tags/Cpp">Cpp</a></li>
+	        
+				<li><a href="/tags/后端">后端</a></li>
 	        
 				<li><a href="/tags/数据库/">数据库</a></li>
 	        
@@ -165,6 +167,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -187,27 +191,29 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 9.090909090909092%"><a href="/">主页</a></li>
+					<li style="width: 8.333333333333334%"><a href="/">主页</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Java/">Java</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Java/">Java</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/spring/">spring</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/spring/">spring</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/golang/">golang</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/golang/">golang</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Cpp">Cpp</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Cpp">Cpp</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/数据库/">数据库</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/后端">后端</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/Linux/">Linux</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/数据库/">数据库</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/git/">git</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/Linux/">Linux</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/测试/">测试</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/git/">git</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/踩坑/">踩坑</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/测试/">测试</a></li>
 		        
-					<li style="width: 9.090909090909092%"><a href="/tags/树莓派/">树莓派</a></li>
+					<li style="width: 8.333333333333334%"><a href="/tags/踩坑/">踩坑</a></li>
+		        
+					<li style="width: 8.333333333333334%"><a href="/tags/树莓派/">树莓派</a></li>
 		        
 				</ul>
 			</nav>
@@ -249,11 +255,11 @@
 <ul>
 <li><p>新建任务后，首先配置git仓库地址。<br><img src="/2019/10/07/jenkins体验CI-CD/0.png" alt="git仓库配置"></p>
 </li>
-<li><p>接着，配置触发器，因为这个仓库不是我建的，所以没有权限创建 WebHook，所以此处我使用的是轮询的方式（建议使用WebHook），<br>轮询频率为 <strong>10</strong> 分钟一次。<br><img src="/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/1.png" alt="触发器配置"></p>
+<li><p>接着，配置触发器，因为这个仓库不是我建的，所以没有权限创建 WebHook，所以此处我使用的是轮询的方式（建议使用WebHook），<br>轮询频率为 <strong>10</strong> 分钟一次。<br><img src="/2019/10/07/jenkins体验CI-CD/1.png" alt="触发器配置"></p>
 </li>
-<li><p>这里我使用的是maven作为构建工具<br><img src="/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/2.png" alt="构建工具配置"></p>
+<li><p>这里我使用的是maven作为构建工具<br><img src="/2019/10/07/jenkins体验CI-CD/2.png" alt="构建工具配置"></p>
 </li>
-<li><p>构建成功后的执行脚本<br><img src="/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/3.png" alt="执行脚本"></p>
+<li><p>构建成功后的执行脚本<br><img src="/2019/10/07/jenkins体验CI-CD/3.png" alt="执行脚本"></p>
 </li>
 <li><p>执行脚本的内容如下：</p>
 </li>
@@ -300,6 +306,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">踩坑</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -584,6 +594,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
             
             <div class="clearfix"></div>
