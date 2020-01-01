@@ -6,28 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>git-workflow实践 | Mingor的博客</title>
+  <title>git-workflow实践 | Mingor的在线笔记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要目的是记录个人对git-workflow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
+  <meta name="description" content="本文主要目的是记录个人对GitFlow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git-workflow实践">
 <meta property="og:url" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/index.html">
-<meta property="og:site_name" content="Mingor的博客">
-<meta property="og:description" content="本文主要目的是记录个人对git-workflow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
+<meta property="og:site_name" content="Mingor的在线笔记本">
+<meta property="og:description" content="本文主要目的是记录个人对GitFlow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/describe.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/PR.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/PR2.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/deal.png">
 <meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/codereview.png">
-<meta property="og:updated_time" content="2020-01-01T08:58:42.077Z">
+<meta property="og:updated_time" content="2020-01-01T10:45:34.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-workflow实践">
-<meta name="twitter:description" content="本文主要目的是记录个人对git-workflow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
+<meta name="twitter:description" content="本文主要目的是记录个人对GitFlow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
 <meta name="twitter:image" content="https://mmmmmmmingor.github.io/2020/01/01/git-workflow实践/describe.png">
   
-    <link rel="alternative" href="/atom.xml" title="Mingor的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/img/dinosaur.jpg">
@@ -249,18 +249,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要目的是记录个人对git-workflow的实践方式，有什么不当或值得改进的地方，请<del>不要</del>指出，本人<del>也不</del>会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。</p>
+        <p>本文主要目的是记录个人对GitFlow的实践方式，有什么不当或值得改进的地方，请<del>不要</del>指出，本人<del>也不</del>会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。</p>
 <a id="more"></a>
 <p>实践工具：git、gogs（开源的git仓库）<br>参与人员：开发者、PM（项目经理）</p>
-<p>本文将先介绍gworkflow，然后再从两种参与人员的角度进行实践操作：，然后再从两种参与人员的角度进行实践操作：</p>
+<p>本文将先介绍git-workflow，然后再从两种参与人员的角度进行实践操作：，然后再从两种参与人员的角度进行实践操作：</p>
 <ul>
 <li><a href="#1">介绍</a></li>
 <li><a href="#2">开发者角度</a></li>
 <li><a href="#3">管理者角度</a></li>
 </ul>
 <p><span id="1"> </span></p>
-<h2 id="git-workflow简介："><a href="#git-workflow简介：" class="headerlink" title="git-workflow简介："></a>git-workflow简介：</h2><p><img src="/2020/01/01/git-workflow实践/describe.png" alt></p>
-<p>上图是对git-workflow模式的大致展示，git-workflow主要包含5种分支：</p>
+<h2 id="git-workflow简介："><a href="#git-workflow简介：" class="headerlink" title="git-workflow简介："></a>git-workflow简介：</h2><p>git-workflow（git工作流）分为：</p>
+<ul>
+<li>集中式工作流</li>
+<li>功能分支工作流</li>
+<li>Forking 工作流</li>
+<li>GitFlow工作流 （本文的实践采用的是GitFlow）<br><img src="/2020/01/01/git-workflow实践/describe.png" alt></li>
+</ul>
+<p>上图是对GitFlow工作流模式的大致展示，git-workflow主要包含5种分支：</p>
 <ol>
 <li>master：主分支，主要用于产品的发布，所以必须确保master分支是最稳定的分支。</li>
 <li>develop：开发分支，主要用于派生feature分支、与开发完成的feature分支进行合并、派生release分支。</li>
@@ -290,6 +296,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge develop</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 <h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p><a href="https://blog.csdn.net/top_code/article/details/52516259" target="_blank" rel="noopener">Git Workflow最佳实践</a></p>
+<p><a href="https://www.funtl.com/zh/git/Git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%AE%80%E4%BB%8B.html#%E6%A6%82%E8%BF%B0" target="_blank" rel="noopener">Git 工作流简介</a></p>
 
       
 
