@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mmmmmmmingor.github.io">
-  <title>Tag: 随笔 | Mingor的在线笔记本</title>
+  <title>Json序列化工具比较 | Mingor的在线笔记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在线笔记本，不是博客.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingor的在线笔记本">
-<meta property="og:url" content="https://mmmmmmmingor.github.io/tags/随笔/index.html">
+  <meta name="description" content="先说结论，在Java中，json序列化用FastJson，反序列化用Gson。">
+<meta name="keywords" content="Java,后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Json序列化工具比较">
+<meta property="og:url" content="https://mmmmmmmingor.github.io/2020/01/07/Json序列化工具比较/index.html">
 <meta property="og:site_name" content="Mingor的在线笔记本">
-<meta property="og:description" content="在线笔记本，不是博客.">
+<meta property="og:description" content="先说结论，在Java中，json序列化用FastJson，反序列化用Gson。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/07/Json序列化工具比较/res.png">
+<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/01/07/Json序列化工具比较/res2.png">
+<meta property="og:updated_time" content="2020-01-08T05:32:28.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingor的在线笔记本">
-<meta name="twitter:description" content="在线笔记本，不是博客.">
+<meta name="twitter:title" content="Json序列化工具比较">
+<meta name="twitter:description" content="先说结论，在Java中，json序列化用FastJson，反序列化用Gson。">
+<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2020/01/07/Json序列化工具比较/res.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -58,29 +63,29 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="../../index.html">主页</a></li>
+				<li><a href="../../../../index.html">主页</a></li>
 	        
-				<li><a href="../../tags/Java/">Java</a></li>
+				<li><a href="../../../../tags/Java/">Java</a></li>
 	        
-				<li><a href="../../tags/spring/">spring</a></li>
+				<li><a href="../../../../tags/spring/">spring</a></li>
 	        
-				<li><a href="../../tags/golang/">golang</a></li>
+				<li><a href="../../../../tags/golang/">golang</a></li>
 	        
-				<li><a href="../../tags/Cpp">Cpp</a></li>
+				<li><a href="../../../../tags/Cpp">Cpp</a></li>
 	        
-				<li><a href="../../tags/后端">后端</a></li>
+				<li><a href="../../../../tags/后端">后端</a></li>
 	        
-				<li><a href="../../tags/数据库/">数据库</a></li>
+				<li><a href="../../../../tags/数据库/">数据库</a></li>
 	        
-				<li><a href="../../tags/Linux/">Linux</a></li>
+				<li><a href="../../../../tags/Linux/">Linux</a></li>
 	        
-				<li><a href="../../tags/git/">git</a></li>
+				<li><a href="../../../../tags/git/">git</a></li>
 	        
-				<li><a href="../../tags/测试/">测试</a></li>
+				<li><a href="../../../../tags/测试/">测试</a></li>
 	        
-				<li><a href="../../tags/踩坑/">踩坑</a></li>
+				<li><a href="../../../../tags/踩坑/">踩坑</a></li>
 	        
-				<li><a href="../../tags/树莓派/">树莓派</a></li>
+				<li><a href="../../../../tags/树莓派/">树莓派</a></li>
 	        
 			</ul>
 		</nav>
@@ -104,13 +109,13 @@
 				
 					<a class="github" target="_blank" href="https://github.com/MMMMMMMingor" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="../../947462457" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="../../../../947462457" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="weixin" target="_blank" href="../../Xwm981121" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="../../../../Xwm981121" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/145827650" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
-					<a class="mail" target="_blank" href="../../947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../../947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -169,13 +174,13 @@
 					
 						<a class="github" target="_blank" href="https://github.com/MMMMMMMingor" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="../../947462457" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="../../../../947462457" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="weixin" target="_blank" href="../../Xwm981121" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="../../../../Xwm981121" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/145827650" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
-						<a class="mail" target="_blank" href="../../947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../../947462457@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -184,29 +189,29 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 8.333333333333334%"><a href="../../index.html">主页</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/Java/">Java</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/Java/">Java</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/spring/">spring</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/spring/">spring</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/golang/">golang</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/golang/">golang</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/Cpp">Cpp</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/Cpp">Cpp</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/后端">后端</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/后端">后端</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/数据库/">数据库</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/数据库/">数据库</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/Linux/">Linux</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/Linux/">Linux</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/git/">git</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/git/">git</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/测试/">测试</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/测试/">测试</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/踩坑/">踩坑</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/踩坑/">踩坑</a></li>
 		        
-					<li style="width: 8.333333333333334%"><a href="../../tags/树莓派/">树莓派</a></li>
+					<li style="width: 8.333333333333334%"><a href="../../../../tags/树莓派/">树莓派</a></li>
 		        
 				</ul>
 			</nav>
@@ -221,60 +226,336 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Json序列化工具比较" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="../../archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/06/10/暑期目标/" class="archive-article-date">
-  	<time datetime="2019-06-10T11:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/06/10/暑期目标/">2019暑期计划</a>
+    <h1 class="article-title" itemprop="name">
+      Json序列化工具比较
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="" class="archive-article-date">
+  	<time datetime="2020-01-07T14:27:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先说结论，在Java中，json序列化用FastJson，反序列化用Gson。</p>
+<a id="more"></a>
+
+<h3 id="实验过程："><a href="#实验过程：" class="headerlink" title="实验过程："></a>实验过程：</h3><p>比较Gson, jackson和fastjson, 这三个Java常用的json序列化工具.</p>
+<p>使用maven作为项目的构建工具，pom.xml文件如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Google Gson --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.code.gson<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- jackson --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.10.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.10.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 阿里巴巴fastjson --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.62<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Java语法增强Lombok --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>!-- https://mvnrepository.com/artifact/org.projectlombok/lombok --&gt;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 测试框架 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.openjdk.jmh<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jmh-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.openjdk.jmh<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jmh-generator-annprocess<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="entity对象"><a href="#entity对象" class="headerlink" title="entity对象"></a>entity对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> FullName fullName;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> LocalDate birthday;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; hobbies;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; clothes;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Person&gt; friends;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FullName</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String firstName;</span><br><span class="line">    <span class="keyword">private</span> String middleName;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="对3个json序列化工具进行初步封装"><a href="#对3个json序列化工具进行初步封装" class="headerlink" title="对3个json序列化工具进行初步封装:"></a>对3个json序列化工具进行初步封装:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bean2Json</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> JSON.toJSONString(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">json2Bean</span><span class="params">( String jsonStr, Class &lt;T&gt; objClass)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> JSON.parseObject(jsonStr, objClass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">new</span> GsonBuilder().create();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bean2Json</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> gson.toJson(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt;  <span class="function">T <span class="title">json2Bean</span><span class="params">(String jsonStr, Class&lt;T&gt; objClass)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> gson.fromJson(jsonStr, objClass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">jsonFormatter</span><span class="params">(String uglyJsonStr)</span></span>&#123;</span><br><span class="line">        Gson gson = <span class="keyword">new</span> GsonBuilder().setPrettyPrinting().create();</span><br><span class="line">        JsonParser jp = <span class="keyword">new</span> JsonParser();</span><br><span class="line">        JsonElement je = jp.parse(uglyJsonStr);</span><br><span class="line">        <span class="keyword">return</span> gson.toJson(je);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JacksonUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bean2Json</span><span class="params">(Object object)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mapper.writeValueAsString(object);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (JsonProcessingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">json2Bean</span><span class="params">(String jsonStr, Class&lt;T&gt; objClass)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mapper.readValue(jsonStr, objClass);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (JsonProcessingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试:"></a>性能测试:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// json序列化测试</span></span><br><span class="line"><span class="meta">@BenchmarkMode</span>(Mode.SingleShotTime)</span><br><span class="line"><span class="meta">@OutputTimeUnit</span>(TimeUnit.SECONDS)</span><br><span class="line"><span class="meta">@State</span>(Scope.Benchmark)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonSerializeBenchmark</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Param</span>(&#123;<span class="string">"1000"</span>, <span class="string">"10000"</span>, <span class="string">"100000"</span>&#125;)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Benchmark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Gson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            GsonUtil.bean2Json(person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Benchmark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">FastJson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            FastJsonUtil.bean2Json(person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Benchmark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Jackson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            JacksonUtil.bean2Json(person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setup</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Prepare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Person&gt; friends = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        friends.add(createPerson(<span class="string">"张三"</span>, <span class="keyword">null</span>));</span><br><span class="line">        friends.add(createPerson(<span class="string">"李四"</span>, <span class="keyword">null</span>));</span><br><span class="line">        friends.add(createPerson(<span class="string">"王五"</span>, <span class="keyword">null</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.person = createPerson(<span class="string">"mingor"</span>, friends);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TearDown</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Person <span class="title">createPerson</span><span class="params">(String name, List&lt;Person&gt; friends)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; hobbies = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        hobbies.add(<span class="string">"篮球"</span>);</span><br><span class="line">        hobbies.add(<span class="string">"游泳"</span>);</span><br><span class="line">        hobbies.add(<span class="string">"coding"</span>);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; clothes = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        clothes.put(<span class="string">"coat"</span>,<span class="string">"Nike"</span>);</span><br><span class="line">        clothes.put(<span class="string">"trousers"</span>,<span class="string">"adidas"</span>);</span><br><span class="line">        clothes.put(<span class="string">"shoes"</span>,<span class="string">"安踏"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Person.builder()</span><br><span class="line">                .name(name)</span><br><span class="line">                .fullName(<span class="keyword">new</span> FullName(<span class="string">"first_name"</span>, <span class="string">"middle_name"</span>, <span class="string">"last_name"</span>))</span><br><span class="line">                .age(<span class="number">22</span>)</span><br><span class="line">                .hobbies(hobbies)</span><br><span class="line">                .friends(friends)</span><br><span class="line">                .clothes(clothes)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BenchmarkMode</span>(Mode.SingleShotTime)</span><br><span class="line"><span class="meta">@OutputTimeUnit</span>(TimeUnit.SECONDS)</span><br><span class="line"><span class="meta">@State</span>(Scope.Benchmark)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonDeserializeBenchmark</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Param</span>(&#123;<span class="string">"1000"</span>, <span class="string">"10000"</span>, <span class="string">"100000"</span>&#125;)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String jsonStr;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Benchmark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Gson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            GsonUtil.json2Bean(jsonStr, Person.class);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Benchmark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">FastJson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            FastJsonUtil.json2Bean(jsonStr, Person.class);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Benchmark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Jackson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            JacksonUtil.json2Bean(jsonStr, Person.class);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setup</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Prepare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.jsonStr = <span class="string">"&#123;\"name\":\"mingor\",\"fullName\":&#123;\"firstName\":\"zjj_first\",\"middleName\":\"zjj_middle\",\"lastName\":\"zjj_last\"&#125;,\"age\":24,\"birthday\":null,\"hobbies\":[\"篮球\",\"游泳\",\"coding\"],\"clothes\":&#123;\"shoes\":\"安踏\",\"trousers\":\"adidas\",\"coat\":\"Nike\"&#125;,\"friends\":[&#123;\"name\":\"小明\",\"fullName\":&#123;\"firstName\":\"xxx_first\",\"middleName\":\"xxx_middle\",\"lastName\":\"xxx_last\"&#125;,\"age\":24,\"birthday\":null,\"hobbies\":[\"篮球\",\"游泳\",\"coding\"],\"clothes\":&#123;\"shoes\":\"安踏\",\"trousers\":\"adidas\",\"coat\":\"Nike\"&#125;,\"friends\":null&#125;,&#123;\"name\":\"Tony\",\"fullName\":&#123;\"firstName\":\"xxx_first\",\"middleName\":\"xxx_middle\",\"lastName\":\"xxx_last\"&#125;,\"age\":24,\"birthday\":null,\"hobbies\":[\"篮球\",\"游泳\",\"coding\"],\"clothes\":&#123;\"shoes\":\"安踏\",\"trousers\":\"adidas\",\"coat\":\"Nike\"&#125;,\"friends\":null&#125;,&#123;\"name\":\"陈小二\",\"fullName\":&#123;\"firstName\":\"xxx_first\",\"middleName\":\"xxx_middle\",\"lastName\":\"xxx_last\"&#125;,\"age\":24,\"birthday\":null,\"hobbies\":[\"篮球\",\"游泳\",\"coding\"],\"clothes\":&#123;\"shoes\":\"安踏\",\"trousers\":\"adidas\",\"coat\":\"Nike\"&#125;,\"friends\":null&#125;]&#125;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TearDown</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="调用："><a href="#调用：" class="headerlink" title="调用："></a>调用：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> RunnerException </span>&#123;</span><br><span class="line"><span class="comment">//        jsonSerializeBenchmark();</span></span><br><span class="line">        jsonDeserializeBenchmark();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">jsonSerializeBenchmark</span><span class="params">()</span> <span class="keyword">throws</span> RunnerException </span>&#123;</span><br><span class="line">        Options options = <span class="keyword">new</span> OptionsBuilder()</span><br><span class="line">                .include(JsonSerializeBenchmark.class.getSimpleName())</span><br><span class="line">                .forks(<span class="number">1</span>)</span><br><span class="line">                .warmupIterations(<span class="number">0</span>)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        Collection&lt;RunResult&gt; results = <span class="keyword">new</span> Runner(options).run();</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (RunResult result : results) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(result);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">jsonDeserializeBenchmark</span><span class="params">()</span> <span class="keyword">throws</span> RunnerException </span>&#123;</span><br><span class="line">        Options options = <span class="keyword">new</span> OptionsBuilder()</span><br><span class="line">                .include(JsonDeserializeBenchmark.class.getSimpleName())</span><br><span class="line">                .forks(<span class="number">1</span>)</span><br><span class="line">                .warmupIterations(<span class="number">0</span>)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        Collection&lt;RunResult&gt; results = <span class="keyword">new</span> Runner(options).run();</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (RunResult result : results) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(result);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果:"></a>测试结果:</h3><p>以下时间结果在实际过程中存在波动, 故取其中较为稳定的结果.</p>
+<p>序列化:<br><img src="/2020/01/07/Json序列化工具比较/res.png" alt="序列化结果"></p>
+<table>
+<thead>
+<tr>
+<th>序列化工具</th>
+<th>次数</th>
+<th>时间(秒)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastJson</td>
+<td>1000</td>
+<td>0.324</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>1000</td>
+<td>0.153</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>1000</td>
+<td>0.301</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>序列化工具</th>
+<th>次数</th>
+<th>时间(秒)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastJson</td>
+<td>10000</td>
+<td>0.577</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>10000</td>
+<td>0.314</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>10000</td>
+<td>0.383</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>序列化工具</th>
+<th>次数</th>
+<th>时间(秒)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastJson</td>
+<td>100000</td>
+<td>0.934</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>100000</td>
+<td>1.764</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>100000</td>
+<td>0.765</td>
+</tr>
+</tbody></table>
+<p>反序列化:<br><img src="/2020/01/07/Json序列化工具比较/res2.png" alt="反序列化"></p>
+<table>
+<thead>
+<tr>
+<th>序列化工具</th>
+<th>次数</th>
+<th>时间(秒)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastJson</td>
+<td>1000</td>
+<td>0.313</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>1000</td>
+<td>0.113</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>1000</td>
+<td>0.334</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>序列化工具</th>
+<th>次数</th>
+<th>时间(秒)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastJson</td>
+<td>10000</td>
+<td>0.398</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>10000</td>
+<td>0.229</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>10000</td>
+<td>0.437</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>序列化工具</th>
+<th>次数</th>
+<th>时间(秒)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastJson</td>
+<td>100000</td>
+<td>1.087</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>100000</td>
+<td>0.770</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>100000</td>
+<td>0.957</td>
+</tr>
+</tbody></table>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论:"></a>结论:</h3><p>json序列化用FastJson，反序列化用Gson.</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章:"></a>参考文章:</h3><p><a href="https://mp.weixin.qq.com/s/Z1u8ERiLPUCz0fR_3ApaiA" target="_blank" rel="noopener">Java几种常用JSON库性能比较</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mmmmmmmingor.github.io/2020/01/07/Json序列化工具比较/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="../../01/git-workflow实践/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git-workflow实践</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验过程："><span class="toc-number">1.</span> <span class="toc-text">实验过程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#entity对象"><span class="toc-number">2.</span> <span class="toc-text">entity对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对3个json序列化工具进行初步封装"><span class="toc-number">3.</span> <span class="toc-text">对3个json序列化工具进行初步封装:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能测试"><span class="toc-number">4.</span> <span class="toc-text">性能测试:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用："><span class="toc-number">5.</span> <span class="toc-text">调用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果"><span class="toc-number">6.</span> <span class="toc-text">测试结果:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">7.</span> <span class="toc-text">结论:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">8.</span> <span class="toc-text">参考文章:</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -297,9 +578,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
