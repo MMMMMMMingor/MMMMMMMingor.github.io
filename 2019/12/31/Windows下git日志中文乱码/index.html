@@ -16,14 +16,10 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="解决Windows下git log乱码的问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/error.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/env.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/correct.png">
-<meta property="og:updated_time" content="2020-01-01T09:06:15.291Z">
+<meta property="og:updated_time" content="2020-02-22T10:51:18.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下git日志中文乱码">
 <meta name="twitter:description" content="解决Windows下git log乱码的问题。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/error.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -250,11 +246,11 @@
         <p>解决Windows下git log乱码的问题。</p>
 <a id="more"></a>
 <p>其实很久之前都已经发现Windows下cmd或者powershell使用git log中文乱码的问题了，但由于平时都是用idea查看git log，所以没怎么在意。现在git用多了之后，觉得每次都要使用idea的git功能有点麻烦，为了<del>装逼</del>方便，所以还是用回命令工具吧。所以对于乱码问题不能忍。乱码现象如下所示。</p>
-<p><img src="/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/error.png" alt="中文乱码现象"></p>
+<p>(![中文乱码现象]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222185100.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222185100.png</a>)</p>
 <h3 id="解决办法，首先打开cmd或者powshell"><a href="#解决办法，首先打开cmd或者powshell" class="headerlink" title="解决办法，首先打开cmd或者powshell"></a>解决办法，首先打开cmd或者powshell</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath false </span><br><span class="line">git config --global gui.encoding utf-<span class="number">8</span></span><br><span class="line">git config --global i18n.commit.encoding utf-<span class="number">8</span> </span><br><span class="line">git config --global i18n.logoutputencoding utf-<span class="number">8</span></span><br></pre></td></tr></table></figure>
 
-<p>接着在系统的环境变量中添加LESSCHARSET=utf-8。<br><img src="/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/env.png" alt="环境变量"></p>
-<h3 id="nice-成功解决中文乱码现象"><a href="#nice-成功解决中文乱码现象" class="headerlink" title="nice, 成功解决中文乱码现象"></a>nice, 成功解决中文乱码现象</h3><p><img src="/2019/12/31/Windows下git日志中文乱码/12/31/Windows下git日志中文乱码/correct.png" alt="解决乱码现象"></p>
+<p>接着在系统的环境变量中添加LESSCHARSET=utf-8。<br>(![环境变量]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222185040.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222185040.png</a>)</p>
+<h3 id="nice-成功解决中文乱码现象"><a href="#nice-成功解决中文乱码现象" class="headerlink" title="nice, 成功解决中文乱码现象"></a>nice, 成功解决中文乱码现象</h3><p>(![解决乱码现象]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222185022.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222185022.png</a>)</p>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章:"></a>参考文章:</h3><p><a href="https://blog.csdn.net/sunjinshengli/article/details/81283009" target="_blank" rel="noopener">git- win10 cmd git log 中文乱码 解决方法</a></p>
 
       

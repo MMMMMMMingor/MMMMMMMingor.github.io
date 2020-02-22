@@ -16,15 +16,10 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="最近在学Web安全认证相关的知识，学的有点乱，写点东西记录一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/auth.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/auth_result.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/result.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/jwt.png">
-<meta property="og:updated_time" content="2020-01-01T09:00:37.194Z">
+<meta property="og:updated_time" content="2020-02-22T10:25:31.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JWT实现SSO">
 <meta name="twitter:description" content="最近在学Web安全认证相关的知识，学的有点乱，写点东西记录一下。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/auth.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -262,11 +257,11 @@
 </li>
 </ol>
 <p>详情见官网：<a href="https://jwt.io/" target="_blank" rel="noopener">https://jwt.io/</a></p>
-<h3 id="首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。"><a href="#首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。" class="headerlink" title="首先，访问 http://localhost:8080/auth 进行认证授权，并获取bearer token。"></a>首先，访问 <a href="http://localhost:8080/auth" target="_blank" rel="noopener">http://localhost:8080/auth</a> 进行认证授权，并获取bearer token。</h3><p><img src="/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/auth.png" alt="授权"></p>
-<p><img src="/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/auth_result.png" alt="获取token"></p>
+<h3 id="首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。"><a href="#首先，访问-http-localhost-8080-auth-进行认证授权，并获取bearer-token。" class="headerlink" title="首先，访问 http://localhost:8080/auth 进行认证授权，并获取bearer token。"></a>首先，访问 <a href="http://localhost:8080/auth" target="_blank" rel="noopener">http://localhost:8080/auth</a> 进行认证授权，并获取bearer token。</h3><p>(![授权]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182158.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182158.png</a>)</p>
+<p>(![获取token]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182447.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182447.png</a>)</p>
 <hr>
-<h3 id="根据拿到bearer-token，对jwt对资源进行访问。"><a href="#根据拿到bearer-token，对jwt对资源进行访问。" class="headerlink" title="根据拿到bearer token，对jwt对资源进行访问。"></a>根据拿到bearer token，对jwt对资源进行访问。</h3><p><img src="/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/result.png" alt="访问资源"></p>
-<h3 id="对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"><a href="#对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。" class="headerlink" title="对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"></a>对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。</h3><p><img src="/2019/11/18/JWT实现SSO/11/18/JWT实现SSO/jwt.png" alt="验证jwt"></p>
+<h3 id="根据拿到bearer-token，对jwt对资源进行访问。"><a href="#根据拿到bearer-token，对jwt对资源进行访问。" class="headerlink" title="根据拿到bearer token，对jwt对资源进行访问。"></a>根据拿到bearer token，对jwt对资源进行访问。</h3><p>(![访问资源]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182526.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182526.png</a>)</p>
+<h3 id="对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"><a href="#对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。" class="headerlink" title="对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。"></a>对于得到的jwt，可前往官网进行jwt验证。可以看到header和payload的信息。</h3><p>(![验证jwt]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182505.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182505.png</a>)</p>
 
       
 

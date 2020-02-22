@@ -16,15 +16,10 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/0.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/1.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/2.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/3.png">
-<meta property="og:updated_time" content="2020-01-01T08:59:43.547Z">
+<meta property="og:updated_time" content="2020-02-22T10:18:34.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins体验CI&#x2F;CD">
 <meta name="twitter:description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/07/jenkins体验CI-CD/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -253,13 +248,13 @@
 <p>首先，是Jenkins的安装，这个原本想自己写的，但发现已经有大佬写好了，那就直接放链接了。<br><a href="https://blog.csdn.net/qq_24230139/article/details/86529638" target="_blank" rel="noopener">Jenkins安装教程连接</a></p>
 <hr>
 <ul>
-<li><p>新建任务后，首先配置git仓库地址。<br><img src="/2019/10/07/jenkins体验CI-CD/0.png" alt="git仓库配置"></p>
+<li><p>新建任务后，首先配置git仓库地址。<br>(![git仓库配置]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png</a>)</p>
 </li>
-<li><p>接着，配置触发器，因为这个仓库不是我建的，所以没有权限创建 WebHook，所以此处我使用的是轮询的方式（建议使用WebHook），<br>轮询频率为 <strong>10</strong> 分钟一次。<br><img src="/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/1.png" alt="触发器配置"></p>
+<li><p>接着，配置触发器，因为这个仓库不是我建的，所以没有权限创建 WebHook，所以此处我使用的是轮询的方式（建议使用WebHook），<br>轮询频率为 <strong>10</strong> 分钟一次。<br>(![触发器配置]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181753.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181753.png</a>)</p>
 </li>
-<li><p>这里我使用的是maven作为构建工具<br><img src="/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/2.png" alt="构建工具配置"></p>
+<li><p>这里我使用的是maven作为构建工具<br>(![构建工具配置]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181814.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181814.png</a>)</p>
 </li>
-<li><p>构建成功后的执行脚本<br><img src="/2019/10/07/jenkins体验CI-CD/10/07/jenkins体验CI-CD/3.png" alt="执行脚本"></p>
+<li><p>构建成功后的执行脚本<br>(![执行脚本]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181832.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181832.png</a>)</p>
 </li>
 <li><p>执行脚本的内容如下：</p>
 </li>

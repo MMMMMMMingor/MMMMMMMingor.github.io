@@ -16,18 +16,12 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="kali作为Linux中最为著名的网络渗透系统，由于其自带很多的网络渗透工具，而且操作都比较简单，所以深受很多技术小白和大牛们的喜爱。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/kali.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/scan.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/listen.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/attack.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/compute.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/handshake.png">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/result.png">
-<meta property="og:updated_time" content="2020-02-14T13:00:34.203Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222150429.png">
+<meta property="og:updated_time" content="2020-02-22T11:09:56.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派kali破解WiFi密码">
 <meta name="twitter:description" content="kali作为Linux中最为著名的网络渗透系统，由于其自带很多的网络渗透工具，而且操作都比较简单，所以深受很多技术小白和大牛们的喜爱。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/kali.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222150429.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -258,8 +252,8 @@
 <hr>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>其实就是让树莓派抓取其它终端再登录目标路由器时的”握手包”（handshake），根据该握手包暴力破解WiFi密码。</p>
 <h2 id="准备kali镜像"><a href="#准备kali镜像" class="headerlink" title="准备kali镜像"></a>准备kali镜像</h2><p>镜像比较大，推荐使用迅雷之类的下载工具下载。</p>
-<p><a href="https://www.offensive-security.com/kali-linux-arm-images" target="_blank" rel="noopener">树莓派kali镜像下载地址</a></p>
-<p><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/kali.png" alt="下载地址"></p>
+<p><a href="https://www.offensive-security.com/kali-linux-arm-images" target="_blank" rel="noopener">下载地址</a></p>
+<p>(![树莓派kali镜像下载]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222190624.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222190624.png</a>)</p>
 <p>使用 Win32DiskImager 工具将系统镜像烧写到SD卡中。</p>
 <p>如果烧写后，系统启动失败，可以多烧写几次（我就是这样解决的）。</p>
 <hr>
@@ -279,8 +273,8 @@
 </li>
 </ul>
 <p>可以查看到附近的AP的详细信息：</p>
-<p><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/scan.png" alt="附近的AP信息"></p>
-<p>如果什么都扫描不到，重新启动再试一下，直到可以扫描为止。</p>
+<p>(![附近的AP信息]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222172913.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222172913.png</a>)
+如果什么都扫描不到，重新启动再试一下，直到可以扫描为止。</p>
 <ul>
 <li><ol start="3">
 <li>对特定AP进行监听</li>
@@ -296,7 +290,8 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 我的命令是</span><br><span class="line">airodump-ng wlan0mon --bssid 3C:0C:DB:DB:65:B9 -c 1 -w wificrack</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/listen.png" alt="监听指定的AP"><br>可以看到，这家人一共有6个终端设备。</p>
+<p>(![监听指定的AP]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222190644.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222190644.png</a>)
+可以看到，这家人一共有6个终端设备。</p>
 <ul>
 <li><ol start="4">
 <li>利用WPA的漏洞，强制使其中的一个终端掉线，利用终端会对AP进行自动重连的特性，这样就可以获取到握手包（handshake）</li>
@@ -305,7 +300,7 @@
 </ul>
 <p>选择其中一个终端强制掉线，进行认证攻击，在这里就选择 50:04:B8:FA:85:DB 这个倒霉蛋吧，哈哈😄。</p>
 <p>再开启一个terminal窗口：</p>
-<p><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/attack.png" alt="攻击"></p>
+<p><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222150429.png" alt="攻击"></p>
 <p>aireplay-ng -0 {num} -a {BSSID} -c {STATION} wlan0mon</p>
 <ul>
 <li>num : 攻击次数</li>
@@ -333,8 +328,8 @@
 <p>aircrack-ng -w {密码字典路径} {.cap文件}</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 示例</span><br><span class="line">aircrack-ng -w ../password/jikefeng.txt wificrack-02.cap</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/compute.png" alt="计算"></p>
-<p>若出现以下的情况，说明没捕获到握手包，此时重复第4步的操作。<br><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/handshake.png" alt="握手包不存在"></p>
+<p>(![计算]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222172653.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222172653.png</a>)</p>
+<p>若出现以下的情况，说明没捕获到握手包，此时重复第4步的操作。<br>(![握手包不存在])</p>
 <ul>
 <li><ol start="7">
 <li>最终结果：</li>
@@ -342,7 +337,7 @@
 </li>
 </ul>
 <p>我的运气非常的好，只用了21w次计算就成功算到了！</p>
-<p><img src="/2020/02/14/树莓派kali破解WiFi密码/02/14/树莓派kali破解WiFi密码/result.png" alt="成功破解"></p>
+<p>(![成功破解]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222190702.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222190702.png</a>)</p>
 <h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a href="https://www.jianshu.com/p/6622d80bcc15" target="_blank" rel="noopener">用kali linux抓取wifi握手包并暴力破解</a></p>
 <p><a href="https://blog.csdn.net/kxwinxp/article/details/79187472" target="_blank" rel="noopener">树莓派3B+ 破解Wi-Fi密码</a></p>
 

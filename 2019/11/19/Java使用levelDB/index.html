@@ -16,12 +16,10 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="最近做的项目需要用到levelDB做缓存中间件，记录一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/11/19/Java使用levelDB/11/19/Java使用levelDB/test.png">
-<meta property="og:updated_time" content="2019-11-19T10:19:51.718Z">
+<meta property="og:updated_time" content="2020-02-22T10:13:51.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java使用levelDB">
 <meta name="twitter:description" content="最近做的项目需要用到levelDB做缓存中间件，记录一下。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/11/19/Java使用levelDB/11/19/Java使用levelDB/test.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -271,7 +269,7 @@
 <h2 id="测试levelDB"><a href="#测试levelDB" class="headerlink" title="测试levelDB"></a>测试levelDB</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LevelDBTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> LevelDBUtil levelDBUtil;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String key = <span class="string">"key"</span>;</span><br><span class="line">        String value = <span class="string">"value"</span>;</span><br><span class="line">        levelDBUtil.put(key, value);</span><br><span class="line"></span><br><span class="line">        String result = levelDBUtil.get(key, String.class);</span><br><span class="line">        log.info(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<p><img src="/2019/11/19/Java使用levelDB/11/19/Java使用levelDB/test.png" alt="测试结果"></p>
+<p>(![测试结果]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181348.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181348.png</a>)</p>
 <h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><p><a href="https://blog.csdn.net/chenchu123/article/details/87010235" target="_blank" rel="noopener">LevelDB使用例子</a></p>
 
       

@@ -16,12 +16,10 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="记录一下springboot集成MongoDB的过程。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png">
-<meta property="og:updated_time" content="2020-01-01T09:02:03.071Z">
+<meta property="og:updated_time" content="2020-02-22T10:34:15.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot集成MongoDB">
 <meta name="twitter:description" content="记录一下springboot集成MongoDB的过程。">
-<meta name="twitter:image" content="https://mmmmmmmingor.github.io/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -265,7 +263,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mongod</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>远程登录mongodb，推荐使用MongoDB Campass<br><img src="/2019/10/12/springboot集成MongoDB/10/12/springboot集成MongoDB/0.png" alt="登录"></p>
+<p>远程登录mongodb，推荐使用MongoDB Campass<br>(![登录]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183412.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183412.png</a>)</p>
 <h2 id="springboot集成mongodb"><a href="#springboot集成mongodb" class="headerlink" title="springboot集成mongodb"></a>springboot集成mongodb</h2><p>添加pom依赖：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
