@@ -16,10 +16,13 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="ProtoBuf是由谷歌开源的序列化协议，由于其极高的序列化性能，在对通信带宽和速度又比较高的要求的场景下有着广泛的应用（游戏和rpc）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-02-22T10:31:22.173Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183100.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183042.png">
+<meta property="og:updated_time" content="2020-02-22T11:47:46.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="protobuf初体验">
 <meta name="twitter:description" content="ProtoBuf是由谷歌开源的序列化协议，由于其极高的序列化性能，在对通信带宽和速度又比较高的要求的场景下有着广泛的应用（游戏和rpc）。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183100.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -246,13 +249,13 @@
         <p>ProtoBuf是由谷歌开源的序列化协议，由于其极高的序列化性能，在对通信带宽和速度又比较高的要求的场景下有着广泛的应用（游戏和rpc）。</p>
 <a id="more"></a>
 <p>第一步：下载(在这里我下载的是windows版本的)，下载完成后，将bin/文件夹下的protoc添加至环境变量。</p>
-<p><a href="https://github.com/protocolbuffers/protobuf/releases" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf/releases</a><br>(![下载]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183100.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183100.png</a>)</p>
-<h3 id="使用idea创建一个maven脚手架："><a href="#使用idea创建一个maven脚手架：" class="headerlink" title="使用idea创建一个maven脚手架："></a>使用idea创建一个maven脚手架：</h3><p>在resources下创建protobuf文件夹，创建Person.proto文件</p>
+<p><a href="https://github.com/protocolbuffers/protobuf/releases" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf/releases</a><br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183100.png" alt="下载">### 使用idea创建一个maven脚手架：</p>
+<p>在resources下创建protobuf文件夹，创建Person.proto文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 声明使用proto3语法</span><br><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">// 指定生成的pojo的报名和类名</span><br><span class="line">option java_package = &quot;com.mingor.entity&quot;;</span><br><span class="line">option java_outer_classname = &quot;MsgProto&quot;;</span><br><span class="line"></span><br><span class="line">// 自定义协议格式，protoc将根据此消息格式创建pojo。</span><br><span class="line">message Person &#123;</span><br><span class="line">    int32 id = 1;</span><br><span class="line">    string name = 2;</span><br><span class="line">    string email = 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="使用方法1（命令行运行）："><a href="#使用方法1（命令行运行）：" class="headerlink" title="使用方法1（命令行运行）："></a>使用方法1（命令行运行）：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc --java_out=./java ./resources/protobuf/Person.proto</span><br></pre></td></tr></table></figure>
 
-<p>目录结构：<br>(![目录结构]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183042.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183042.png</a>)</p>
+<p>目录结构：<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222183042.png" alt="目录结构"></p>
 <hr>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h3><p>《Netty、Redis、Zookeeper高并发实战》</p>
 <p><a href="https://www.cnblogs.com/kaituorensheng/p/9022591.html" target="_blank" rel="noopener">用Maven实现一个protobuf的Java例子</a></p>
@@ -382,7 +385,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用idea创建一个maven脚手架："><span class="toc-number">1.</span> <span class="toc-text">使用idea创建一个maven脚手架：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法1（命令行运行）："><span class="toc-number">2.</span> <span class="toc-text">使用方法1（命令行运行）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料:</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法1（命令行运行）："><span class="toc-number">1.</span> <span class="toc-text">使用方法1（命令行运行）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">2.</span> <span class="toc-text">参考资料:</span></a></li></ol>
                     </div>
                 </span>
             </div>

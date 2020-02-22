@@ -16,10 +16,15 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-02-22T10:18:34.949Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181753.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181814.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181832.png">
+<meta property="og:updated_time" content="2020-02-22T11:47:46.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins体验CI&#x2F;CD">
 <meta name="twitter:description" content="好久之前就想体验一下CI/CD了，抽空记录一下使用Jenkins自动部署spring boot应用。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -248,16 +253,7 @@
 <p>首先，是Jenkins的安装，这个原本想自己写的，但发现已经有大佬写好了，那就直接放链接了。<br><a href="https://blog.csdn.net/qq_24230139/article/details/86529638" target="_blank" rel="noopener">Jenkins安装教程连接</a></p>
 <hr>
 <ul>
-<li><p>新建任务后，首先配置git仓库地址。<br>(![git仓库配置]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png</a>)</p>
-</li>
-<li><p>接着，配置触发器，因为这个仓库不是我建的，所以没有权限创建 WebHook，所以此处我使用的是轮询的方式（建议使用WebHook），<br>轮询频率为 <strong>10</strong> 分钟一次。<br>(![触发器配置]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181753.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181753.png</a>)</p>
-</li>
-<li><p>这里我使用的是maven作为构建工具<br>(![构建工具配置]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181814.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181814.png</a>)</p>
-</li>
-<li><p>构建成功后的执行脚本<br>(![执行脚本]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181832.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181832.png</a>)</p>
-</li>
-<li><p>执行脚本的内容如下：</p>
-</li>
+<li>新建任务后，首先配置git仓库地址。<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181732.png" alt="git仓库配置">- 接着，配置触发器，因为这个仓库不是我建的，所以没有权限创建 WebHook，所以此处我使用的是轮询的方式（建议使用WebHook），<br>轮询频率为 <strong>10</strong> 分钟一次。<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181753.png" alt="触发器配置">- 这里我使用的是maven作为构建工具<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181814.png" alt="构建工具配置">- 构建成功后的执行脚本<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222181832.png" alt="执行脚本">- 执行脚本的内容如下：</li>
 </ul>
 <hr>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">port=8090</span><br><span class="line"><span class="meta">#</span>项目运行端口</span><br><span class="line">projectname='百步梯项目'</span><br><span class="line"><span class="meta">#</span>项目名</span><br><span class="line">jarname='dormassistant-2.1.1.jar'</span><br><span class="line"><span class="meta">#</span>包名</span><br><span class="line">pid=$(netstat -nlp | grep :$port | awk '&#123;print $7&#125;' | awk -F"/" '&#123; print $1 &#125;');</span><br><span class="line"><span class="meta">#</span>如果查询到pid则杀死进程</span><br><span class="line">if [  -n  "$pid"  ];  then</span><br><span class="line">        kill -9 $pid;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cd /root/.jenkins/workspace/$&#123;projectname&#125;/target</span><br><span class="line">nohup java -jar $&#123;jarname&#125; &amp;</span><br></pre></td></tr></table></figure>

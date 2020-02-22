@@ -16,10 +16,16 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="本文主要目的是记录个人对GitFlow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-02-22T10:00:49.517Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180015.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180032.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180044.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180002.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175949.png">
+<meta property="og:updated_time" content="2020-02-22T11:47:46.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-workflow实践">
 <meta name="twitter:description" content="本文主要目的是记录个人对GitFlow的实践方式，有什么不当或值得改进的地方，请不要指出，本人也不会改🤣。由于以前都是一个人写代码，所以对于git的使用只停留在add、commit、push、pull的阶段。由于现在有幸和其他大佬写项目代码了，为了更好相互之间更好的合作，决定采用更加合理的团队开发协作模式git-workflow（基于git的工作流开发模式）。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180015.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -258,16 +264,15 @@
 <li>集中式工作流</li>
 <li>功能分支工作流</li>
 <li>Forking 工作流</li>
-<li>GitFlow工作流 （本文的实践采用的是GitFlow）<br>(![]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180015.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180015.png</a>)</li>
-</ul>
-<p>上图是对GitFlow工作流模式的大致展示，git-workflow主要包含5种分支：</p>
-<ol>
+<li>GitFlow工作流 （本文的实践采用的是GitFlow）<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180015.png" alt>上图是对GitFlow工作流模式的大致展示，git-workflow主要包含5种分支：<ol>
 <li>master：主分支，主要用于产品的发布，所以必须确保master分支是最稳定的分支。</li>
 <li>develop：开发分支，主要用于派生feature分支、与开发完成的feature分支进行合并、派生release分支。</li>
 <li>feature：功能特性分支，从develop分支派生出来，用于开发新的功能，开发成功后与develop分支进行合合并，如果开发失败或发现开发不可行，可直接删除丢弃此feature分支。</li>
 <li>hotfix：热修复分支，用于及时修复master分支上出现的错误。</li>
 <li>release：发布分支，从develop分支派生出来，一般用于内测，内测通过后与master分支合并。</li>
 </ol>
+</li>
+</ul>
 <p><span id="2"> </span></p>
 <h2 id="开发者角度："><a href="#开发者角度：" class="headerlink" title="开发者角度："></a>开发者角度：</h2><p>收到PM的任务分配后，例如收到了评论（comment）开发任务，从develop分支派生一个feature分支。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 同步本地git仓库</span><br><span class="line">git pull</span><br><span class="line"><span class="meta">#</span> 跳转到develop分支</span><br><span class="line">git checkout develop </span><br><span class="line"><span class="meta">#</span> 从develop种派生出comment分支</span><br><span class="line">git checkout -b feature/comment</span><br></pre></td></tr></table></figure>
@@ -276,14 +281,10 @@
 <p>编码完成后，将代码push到远端的gogs服务器。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 先确保代码提交到本地仓库了</span><br><span class="line">git commit -m "评论功能开发完成"</span><br><span class="line"><span class="meta">#</span> 直接推送</span><br><span class="line">git push</span><br><span class="line"><span class="meta">#</span> 若提示远程仓库不存在该分支</span><br><span class="line">git push --set-upstream origin feature/comment</span><br></pre></td></tr></table></figure>
 
-<p>接着，登录gogs，创建pull request（PR）请求，<br>(![pull request1]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180032.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180032.png</a>)</p>
-<p>提交请求<br>(![pull request2]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180044.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180044.png</a>)</p>
-<p>开发完成，接着<del>摸鱼</del>等待下一个任务。</p>
+<p>接着，登录gogs，创建pull request（PR）请求，<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180032.png" alt="pull request1">提交请求<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180044.png" alt="pull request2">开发完成，接着<del>摸鱼</del>等待下一个任务。</p>
 <p><span id="3"> </span></p>
 <h2 id="管理者角度："><a href="#管理者角度：" class="headerlink" title="管理者角度："></a>管理者角度：</h2><p>在开发人员提交了pull request后，管理者将收到PR的提示，进而可以对代码进行审核（code review）。如果代码有哪里不对的地方，可以拒绝此次PR，反之将分支合并到develop当中。</p>
-<p>(![pull request2]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180002.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180002.png</a>)</p>
-<p>可以在线进行code review，也可以拉取到本地进行审查。<br>(![pull request2]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175949.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175949.png</a>)</p>
-<p>如果代码风格没有太大的问题，可以进入下一步的合并测试。</p>
+<p><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180002.png" alt="pull request2">可以在线进行code review，也可以拉取到本地进行审查。<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175949.png" alt="pull request2">如果代码风格没有太大的问题，可以进入下一步的合并测试。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line">git checkout develop</span><br><span class="line">git merge feature/comment</span><br></pre></td></tr></table></figure>
 
 <p>进行测试。。。。。<br>测试通过后，可以合并到master分支，然后推送到CI\CD，进行后续的测试。</p>

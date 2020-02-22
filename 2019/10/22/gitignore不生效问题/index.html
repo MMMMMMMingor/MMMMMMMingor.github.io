@@ -16,10 +16,13 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-02-22T10:01:32.117Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180114.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180129.png">
+<meta property="og:updated_time" content="2020-02-22T11:47:46.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gitignore不生效问题">
 <meta name="twitter:description" content="今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180114.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -245,9 +248,7 @@
       
         <p>今天在做Jenkins的时候突然发现居然target文件被上传到gitee了，一顿排查下来，发现是.gitignore文件没有生效，所以记录一下如何重置.gitignore文件。</p>
 <a id="more"></a>
-<p>首先，确保你的项目目录下有.gitignore文件，并且填写了需要忽略的文件名，例如 /target/.<br>(![.gitignore]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180114.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180114.png</a>)</p>
-<p>(![target文件]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180129.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180129.png</a>)</p>
-<hr>
+<p>首先，确保你的项目目录下有.gitignore文件，并且填写了需要忽略的文件名，例如 /target/.<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180114.png" alt=".gitignore"><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222180129.png" alt="target文件">—</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 先清空，在重新添加</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m "add .gitignore file"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 推送到远程服务器</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
       
 

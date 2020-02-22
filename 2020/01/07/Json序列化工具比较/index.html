@@ -16,10 +16,13 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="先说结论，在Java中，json序列化用FastJson，反序列化用Gson。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-02-22T10:21:43.767Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182119.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182139.png">
+<meta property="og:updated_time" content="2020-02-22T11:47:46.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Json序列化工具比较">
 <meta name="twitter:description" content="先说结论，在Java中，json序列化用FastJson，反序列化用Gson。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182119.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -269,31 +272,7 @@
 
 <hr>
 <h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果:"></a>测试结果:</h3><p>以下时间结果在实际过程中存在波动, 故取其中较为稳定的结果.</p>
-<p>序列化:<br>(![序列化结果]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182119.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182119.png</a>)</p>
-<table>
-<thead>
-<tr>
-<th>序列化工具</th>
-<th>次数</th>
-<th>时间(秒)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FastJson</td>
-<td>1000</td>
-<td>0.324</td>
-</tr>
-<tr>
-<td>Gson</td>
-<td>1000</td>
-<td>0.153</td>
-</tr>
-<tr>
-<td>Jackson</td>
-<td>1000</td>
-<td>0.301</td>
-</tr>
-</tbody></table>
+<p>序列化:<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182119.png" alt="序列化结果">| 序列化工具 | 次数 | 时间(秒) |<br>| – | – | – |<br>| FastJson | 1000 | 0.324 |<br>| Gson | 1000 | 0.153 |<br>| Jackson | 1000 | 0.301 |</p>
 <table>
 <thead>
 <tr>
@@ -342,31 +321,7 @@
 <td>0.765</td>
 </tr>
 </tbody></table>
-<p>反序列化:<br>(![反序列化]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182139.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182139.png</a>)</p>
-<table>
-<thead>
-<tr>
-<th>序列化工具</th>
-<th>次数</th>
-<th>时间(秒)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FastJson</td>
-<td>1000</td>
-<td>0.313</td>
-</tr>
-<tr>
-<td>Gson</td>
-<td>1000</td>
-<td>0.113</td>
-</tr>
-<tr>
-<td>Jackson</td>
-<td>1000</td>
-<td>0.334</td>
-</tr>
-</tbody></table>
+<p>反序列化:<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222182139.png" alt="反序列化">| 序列化工具 | 次数 | 时间(秒) |<br>| – | – | – |<br>| FastJson | 1000 | 0.313 |<br>| Gson | 1000 | 0.113 |<br>| Jackson | 1000 | 0.334 |</p>
 <table>
 <thead>
 <tr>

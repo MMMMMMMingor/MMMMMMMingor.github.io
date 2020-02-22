@@ -16,10 +16,15 @@
 <meta property="og:site_name" content="Mingor的在线笔记本">
 <meta property="og:description" content="由于软件测试实验中的一项是功能性测试，老师给的工具是UTP，然而我真的受不了UTP那界面，所以换成selenium + python来进行自动化的功能性测试。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-02-22T09:59:25.353Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175846.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175901.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png">
+<meta property="og:updated_time" content="2020-02-22T11:47:46.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chrome使用selenium">
 <meta name="twitter:description" content="由于软件测试实验中的一项是功能性测试，老师给的工具是UTP，然而我真的受不了UTP那界面，所以换成selenium + python来进行自动化的功能性测试。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175846.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingor的在线笔记本" type="application/atom+xml">
   
@@ -250,16 +255,12 @@
 <h3 id="selenium下载，"><a href="#selenium下载，" class="headerlink" title="selenium下载，"></a>selenium下载，</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip insatll selenium</span><br></pre></td></tr></table></figure>
 
 <p>注意，直接下载万selenium的pip包是不能直接调用chrome的。</p>
-<p>需要下载chrome的驱动, 下载前先查看自己的chrome版本，否则会不兼容。<br>(![]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175846.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175846.png</a>)</p>
-<p>(![]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175901.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175901.png</a>)</p>
-<p>根据自己的chrome版本前往chrome官网下载（需要翻墙）<br><a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></p>
+<p>需要下载chrome的驱动, 下载前先查看自己的chrome版本，否则会不兼容。<br><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175846.png" alt><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175901.png" alt>根据自己的chrome版本前往chrome官网下载（需要翻墙）<br><a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></p>
 <p>将下载好的驱动 chromedriver.exe 放置到python目录下：</p>
-<p>(![]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png</a>)</p>
-<h3 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png" alt>### 测试一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br></pre></td></tr></table></figure>
 
-<p>(![]<a href="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png</a>)</p>
-<hr>
-<p>参考资料:</p>
+<h2 id><a href="#" class="headerlink" title></a><img src="https://raw.githubusercontent.com/MMMMMMMingor/picbed/master/20200222175833.png" alt></h2><p>参考资料:</p>
 <p><a href="https://blog.csdn.net/qq_36279445/article/details/80110333" target="_blank" rel="noopener">Python_使用selenium webdriver 启动报错：Traceback (most recent call last):</a></p>
 
       
@@ -386,7 +387,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#友情提醒，这玩意甚至可以用来做爬虫。"><span class="toc-number">1.</span> <span class="toc-text">友情提醒，这玩意甚至可以用来做爬虫。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selenium下载，"><span class="toc-number"></span> <span class="toc-text">selenium下载，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试一下"><span class="toc-number"></span> <span class="toc-text">测试一下</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#友情提醒，这玩意甚至可以用来做爬虫。"><span class="toc-number">1.</span> <span class="toc-text">友情提醒，这玩意甚至可以用来做爬虫。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selenium下载，"><span class="toc-number"></span> <span class="toc-text">selenium下载，</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number"></span> <span class="toc-text"></span></a>
                     </div>
                 </span>
             </div>
